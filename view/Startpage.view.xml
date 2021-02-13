@@ -25,8 +25,7 @@
 					<ImageContent src="images/comsoft_logo.png"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="/images/se_website.jpg" press="onPress">
-
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="/images/se_website.jpg" url="http://www.samaraenergo.ru/" press="onPressSiteSE">
 			</GenericTile>
 		</layout:HorizontalLayout>
 		<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>

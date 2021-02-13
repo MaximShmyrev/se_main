@@ -15,6 +15,10 @@ sap.ui.define([
 			this.getView().setModel(oModel, "news");
 		},
 
+		onPressSiteSE: function() {
+			window.open("http://www.samaraenergo.ru/", '_blank');
+		},
+
 		onNavToProcessFlow: function() {
 			this.getRouter().navTo("processFlow");
 		},
@@ -28,7 +32,7 @@ sap.ui.define([
 		 *
 		 * @param {sap.ui.base.Event} event The SAPUI5 event object
 		 */
-		onNavToReviews: function (event) {
+		onNavToReviews: function(event) {
 			if (event.getSource().getState() === MobileLibrary.LoadState.Loaded) {
 				this.getRouter().navTo("reviews");
 			}
