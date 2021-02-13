@@ -73,7 +73,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "main.view",
-				"controlId": "tutorialApp",
+				"controlId": "App",
 				"controlAggregation": "pages",
 				"transition": "slide",
 				"bypassed": {

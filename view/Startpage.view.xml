@@ -1,16 +1,11 @@
-<mvc:View controllerName="main.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart">
+<mvc:View controllerName="main.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	xmlns:microchart="sap.suite.ui.microchart">
 	<!--	<Page title="{i18n>title}">-->
 	<layout:VerticalLayout class="sapUiResponsiveMargin">
 		<Title titleStyle="H2" text="{i18n>startpageTilesGroupTitle}" class="sapUiTinyMarginBegin"/>
 		<layout:HorizontalLayout allowWrapping="true">
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Right click to open in new tab" subheader="Link tile"
-				press="press" url="https://www.sap.com/" frameType="TwoByOne">
-				<TileContent>
-					<ImageContent src="test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго" press="press"
+				frameType="TwoByOne">
 				<TileContent>
 					<ImageContent src="images/employee_directory.png"/>
 				</TileContent>
@@ -19,6 +14,19 @@
 				<TileContent>
 					<ImageContent src="images/eos_logo.png"/>
 				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Сервис Деск" press="press">
+				<TileContent>
+					<ImageContent src="images/sap_logo.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ" press="press">
+				<TileContent>
+					<ImageContent src="images/comsoft_logo.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="/images/se_website.jpg" press="onPress">
+
 			</GenericTile>
 		</layout:HorizontalLayout>
 		<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
@@ -65,11 +73,6 @@
 			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="3S" press="press">
 				<TileContent>
 					<ImageContent src="images/sistema_3s.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ" press="press">
-				<TileContent>
-					<ImageContent src="images/comsoft_logo.png"/>
 				</TileContent>
 			</GenericTile>
 			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ГИС ЖКХ" press="onNavToUsage">
