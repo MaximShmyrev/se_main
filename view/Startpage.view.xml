@@ -1,0 +1,103 @@
+<mvc:View controllerName="main.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart">
+	<!--	<Page title="{i18n>title}">-->
+	<layout:VerticalLayout class="sapUiResponsiveMargin">
+		<Title titleStyle="H2" text="{i18n>startpageTilesGroupTitle}" class="sapUiTinyMarginBegin"/>
+		<layout:HorizontalLayout allowWrapping="true">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Right click to open in new tab" subheader="Link tile"
+				press="press" url="https://www.sap.com/" frameType="TwoByOne">
+				<TileContent>
+					<ImageContent src="test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
+				<TileContent>
+					<ImageContent src="images/employee_directory.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="CЭД" press="press">
+				<TileContent>
+					<ImageContent src="images/eos_logo.png"/>
+				</TileContent>
+			</GenericTile>
+		</layout:HorizontalLayout>
+		<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+		<layout:HorizontalLayout allowWrapping="true">
+			<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{news>/News}">
+				<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onNavToReviews">
+					<tileContent>
+						<TileContent footer="{ path: 'news>date', formatter: '.formatJSONDate' }">
+							<content>
+								<NewsContent contentText="{news>content}" subheader="{news>subheader}"></NewsContent>
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+			</SlideTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
+				<TileContent footer="общее количество">
+					<NumericContent value="951" icon="sap-icon://line-charts" withMargin="false"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Использование портала" press="onNavToUsage">
+				<TileContent footer="Посещений в день">
+					<NumericContent value="16" withMargin="false"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Личный кабинет" press="press">
+				<TileContent footer="Посещений в день">
+					<NumericContent value="6" withMargin="false" valueColor="Error" indicator="Down"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Оплаты картой" press="press">
+				<TileContent unit="Динамика прироста">
+					<NumericContent scale="%" value="20" valueColor="Critical" indicator="Up" withMargin="false"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="press">
+				<TileContent unit="За неделю">
+					<NumericContent scale="документы" value="203" valueColor="Good" indicator="Up" withMargin="false"/>
+				</TileContent>
+			</GenericTile>
+		</layout:HorizontalLayout>
+		<Title titleStyle="H2" text="Приложения" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+		<layout:HorizontalLayout allowWrapping="true">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="3S" press="press">
+				<TileContent>
+					<ImageContent src="images/sistema_3s.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ" press="press">
+				<TileContent>
+					<ImageContent src="images/comsoft_logo.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ГИС ЖКХ" press="onNavToUsage">
+				<TileContent>
+					<ImageContent src="images/gis_zkh.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Меню столовой" press="press">
+				<TileContent>
+					<ImageContent src="images/menu.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ИАС" press="press">
+				<TileContent>
+					<ImageContent src="images/sap_logo.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="АСУ СЭРП" press="press">
+				<TileContent>
+					<ImageContent src="images/sap_logo.png"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Анкетирование" press="press">
+				<TileContent>
+					<ImageContent src="images/testing.png"/>
+				</TileContent>
+			</GenericTile>
+		</layout:HorizontalLayout>
+	</layout:VerticalLayout>
+	<!--	</Page>-->
+</mvc:View>
