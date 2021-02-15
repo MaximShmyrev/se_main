@@ -7,7 +7,7 @@ sap.ui.define([
 	"sap/m/library"
 ], function(jQuery, Controller, JSONModel, NumberFormat, MessageToast, MobileLibrary) {
 	"use strict";
-	
+
 	document.title = "Главная страница";
 
 	return Controller.extend("main.controller.Startpage", {
@@ -15,11 +15,18 @@ sap.ui.define([
 			var sDataPath = jQuery.sap.getModulePath("main.model.data", "/News.json");
 			var oModel = new JSONModel(sDataPath);
 			this.getView().setModel(oModel, "news");
+			sessionStorage.setItem("SEARCH_QUERY", "");
 		},
-		
+
+		onSearchPressed: function(oEvent) {
+			var sQuery = oEvent.getParameter('query');
+			sessionStorage.setItem("SEARCH_QUERY", sQuery);
+			this.getRouter().navTo("employees");
+		},
+
 		onAfterRendering: function() {
 			document.title = "Главная страница";
-		},		
+		},
 
 		onPressEmployees: function() {
 			this.getRouter().navTo("employees");
@@ -28,25 +35,27 @@ sap.ui.define([
 		onPressZKH: function() {
 			window.open("https://dom.gosuslugi.ru/", '_blank');
 		},
-		
+
 		onPressASUSERP: function() {
 			window.open("http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui", '_blank');
 		},
-		
+
 		onPressIAS: function() {
 			window.open("http://sap-srv-03:8080/BOE/BI", '_blank');
 		},
-		
+
 		onPress3S: function() {
 			window.open("http://192.168.127.9:8080/", '_blank');
 		},
-		
+
 		onPressSabiz: function() {
 			window.open("http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow", '_blank');
 		},
 
 		onPressSD: function() {
-			window.open("https://paism7.samaraenergo.ru:8436/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=001&sap-language=RU&sap-sec_session_created=X&sap-ushell-config=headerless#ZCREATE_INC-display&/YMIN", '_blank');
+			window.open(
+				"https://paism7.samaraenergo.ru:8436/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=001&sap-language=RU&sap-sec_session_created=X&sap-ushell-config=headerless#ZCREATE_INC-display&/YMIN",
+				'_blank');
 		},
 
 		onPressSED: function() {

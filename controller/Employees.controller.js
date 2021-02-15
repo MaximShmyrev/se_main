@@ -584,13 +584,33 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 		},
 
+		_onRouteMatched: function(oEvent) {
+
+			var searchQuery = sessionStorage.getItem("SEARCH_QUERY");
+
+			if (searchQuery != '') {
+				this.handleSearchPressed();
+			} else {
+				this.defaultSearch();
+				// default expand of 1st level
+				var oTree = this.getView().byId("Tree");
+				oTree.expandToLevel(1);
+			}
+
+		},
+
 		onAfterRendering: function() {
-			this.defaultSearch();
 
-			// default expand of 1st level
-			var oTree = this.getView().byId("Tree");
-			oTree.expandToLevel(1);
+			var searchQuery = sessionStorage.getItem("SEARCH_QUERY");
 
+			if (searchQuery != '') {
+				this.handleSearchPressed();
+			} else {
+				this.defaultSearch();
+				// default expand of 1st level
+				var oTree = this.getView().byId("Tree");
+				oTree.expandToLevel(1);
+			}
 		},
 
 		handleSearchItemSelect: function(oEvent) {
@@ -598,9 +618,10 @@ sap.ui.define([
 		},
 
 		onPressHome: function() {
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			//var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
-			oRouter.navTo("home", {}, true);
+			//oRouter.navTo("home", {}, true);
+			window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html","_self");
 
 		},
 
@@ -828,8 +849,18 @@ sap.ui.define([
 		},
 
 		handleSearchPressed: function(oEvent) {
-			var sQuery = oEvent.getParameter('query'),
-				oList = this.getView().byId("employeesList"),
+
+			var searchQuery = sessionStorage.getItem("SEARCH_QUERY");
+
+			var sQuery;
+			if (searchQuery != '') {
+				sQuery = searchQuery;
+			} else {
+				sQuery = oEvent.getParameter('query');
+			}
+			sessionStorage.setItem("SEARCH_QUERY", "");
+
+			var oList = this.getView().byId("employeesList"),
 				oBinding = oList.getBinding("items");
 			if (sQuery) {
 				var aFilter = [];

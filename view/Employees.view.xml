@@ -14,10 +14,6 @@
 						<contentMiddle>
 							<SearchField width="600px" placeholder="Поиск" id="searchfield" search="handleSearchPressed"/>
 						</contentMiddle>
-						<!--				<contentRight>
-					    <sap.ui.core:Icon src="sap-icon://user-edit" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
-					    <Label text="Тестовый Пользователь" width="100%" id="__label1"/>
-					</contentRight>-->
 					</Bar>
 				</l:contentAreas>
 			</l:Splitter>

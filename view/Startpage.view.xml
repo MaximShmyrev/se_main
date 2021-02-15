@@ -12,7 +12,7 @@
 						<Image src="src/logo.png" class="sapUiSmallMargin sapUiSmallMarginBottom sapUiSmallMarginTop"/>
 					</contentLeft>
 					<contentMiddle>
-						<SearchField width="600px" placeholder="Поиск сотрудников" id="searchfield" search="handleSearchPressed"/>
+						<SearchField width="600px" placeholder="Поиск сотрудников" id="searchfield" search="onSearchPressed"/>
 					</contentMiddle>
 				</Bar>
 			</l:contentAreas>
