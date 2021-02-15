@@ -15,6 +15,34 @@ sap.ui.define([
 			this.getView().setModel(oModel, "news");
 		},
 
+		onPressZKH: function() {
+			window.open("https://dom.gosuslugi.ru/", '_blank');
+		},
+		
+		onPressASUSERP: function() {
+			window.open("http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui", '_blank');
+		},
+		
+		onPressIAS: function() {
+			window.open("http://sap-srv-03:8080/BOE/BI", '_blank');
+		},
+		
+		onPress3S: function() {
+			window.open("http://192.168.127.9:8080/", '_blank');
+		},
+		
+		onPressSabiz: function() {
+			window.open("http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow", '_blank');
+		},
+
+		onPressSD: function() {
+			window.open("https://paism7.samaraenergo.ru:8436/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=001&sap-language=RU&sap-sec_session_created=X&sap-ushell-config=headerless#ZCREATE_INC-display&/YMIN", '_blank');
+		},
+
+		onPressSED: function() {
+			window.open("http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx", '_blank');
+		},
+
 		onPressSiteSE: function() {
 			window.open("http://www.samaraenergo.ru/", '_blank');
 		},
