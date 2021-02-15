@@ -2,7 +2,7 @@
 	xmlns:microchart="sap.suite.ui.microchart">
 	<!--	<Page title="{i18n>title}">-->
 	<layout:VerticalLayout class="sapUiResponsiveMargin">
-		<Title titleStyle="H2" text="{i18n>startpageTilesGroupTitle}" class="sapUiTinyMarginBegin"/>
+		<Title titleStyle="H2" text="Избранное" class="sapUiTinyMarginBegin"/>
 		<layout:HorizontalLayout allowWrapping="true">
 			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго" press="onPressEmployees"
 				frameType="TwoByOne">

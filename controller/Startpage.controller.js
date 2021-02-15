@@ -7,6 +7,8 @@ sap.ui.define([
 	"sap/m/library"
 ], function(jQuery, Controller, JSONModel, NumberFormat, MessageToast, MobileLibrary) {
 	"use strict";
+	
+	document.title = "Главная страница";
 
 	return Controller.extend("main.controller.Startpage", {
 		onInit: function() {
@@ -14,6 +16,10 @@ sap.ui.define([
 			var oModel = new JSONModel(sDataPath);
 			this.getView().setModel(oModel, "news");
 		},
+		
+		onAfterRendering: function() {
+			document.title = "Главная страница";
+		},		
 
 		onPressEmployees: function() {
 			this.getRouter().navTo("employees");

@@ -8,6 +8,9 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator"
 ], function(jQuery, MessageToast, Fragment, Controller, JSONModel, Filter, FilterOperator) {
 	"use strict";
+
+	document.title = "Справочник сотрудников";
+
 	var treedata;
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_ADService/ZCE_AD', false);
@@ -594,6 +597,13 @@ sap.ui.define([
 			MessageToast.show("Search Entry Selected: " + oEvent.getSource().getTitle());
 		},
 
+		onPressHome: function() {
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			document.title = "Главная страница";
+			oRouter.navTo("home", {}, true);
+
+		},
+
 		handleListItemPressed: function(oEvent) {
 
 			// clear session storate
@@ -756,13 +766,13 @@ sap.ui.define([
 						}
 					}
 					oTree.setSelectedItem(array[index]);
-				} else if (level === 11){
+				} else if (level === 11) {
 					index = parseInt(pathArray[6], 10) + 2;
 					oTree.expand(index); // third level
 
 					index = parseInt(pathArray[8], 10) + index + 1;
 					oTree.expand(index); // fourth level
-					
+
 					//select object on fourth level
 					array = oTree.getItems();
 					for (i = 0, len = array.length; i < len; i++) {
@@ -770,7 +780,7 @@ sap.ui.define([
 							index = i;
 						}
 					}
-					oTree.setSelectedItem(array[index]);					
+					oTree.setSelectedItem(array[index]);
 				}
 
 			} else { // case for department 'Отделения'

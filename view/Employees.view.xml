@@ -1,4 +1,5 @@
-<mvc:View controllerName="main.controller.Employees" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="viewPadding">
+<mvc:View controllerName="main.controller.Employees" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" class="viewPadding">
 	<App id="app">
 		<l:Splitter width="100%" height="100%" orientation="Vertical">
 			<l:Splitter>
@@ -7,13 +8,13 @@
 				</l:layoutData>
 				<l:contentAreas>
 					<Bar id="__bar0">
-<!--					    <contentLeft>
-					        <Label text="Справочник сотрудников" width="100%" id="__label0" design="Bold"/>
-					    </contentLeft>-->
-					<contentMiddle>
-					    <SearchField width="600px" placeholder="Поиск" id="searchfield" search="handleSearchPressed"/>
-					</contentMiddle>
-	<!--				<contentRight>
+						<contentLeft>
+							<Button icon="sap-icon://home" press="onPressHome"/>
+						</contentLeft>
+						<contentMiddle>
+							<SearchField width="600px" placeholder="Поиск" id="searchfield" search="handleSearchPressed"/>
+						</contentMiddle>
+						<!--				<contentRight>
 					    <sap.ui.core:Icon src="sap-icon://user-edit" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
 					    <Label text="Тестовый Пользователь" width="100%" id="__label1"/>
 					</contentRight>-->
@@ -21,7 +22,7 @@
 				</l:contentAreas>
 			</l:Splitter>
 			<l:Splitter height="100%">
-				<Tree id="Tree" mode = "SingleSelectMaster" selectionChange = "handleTreeItemPressed" items="{ path: '/', parameters:{ arrayNames:['nodes'] } }">
+				<Tree id="Tree" mode="SingleSelectMaster" selectionChange="handleTreeItemPressed" items="{ path: '/', parameters:{ arrayNames:['nodes'] } }">
 					<StandardTreeItem title="{text}" icon="{ref}" type="Active" press="handleTreeItemPressed"/>
 					<layoutData>
 						<l:SplitterLayoutData size="400px"/>
