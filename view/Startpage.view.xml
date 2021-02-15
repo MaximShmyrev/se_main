@@ -1,105 +1,126 @@
-<mvc:View controllerName="main.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
-	xmlns:microchart="sap.suite.ui.microchart">
-	<!--	<Page title="{i18n>title}">-->
-	<layout:VerticalLayout class="sapUiResponsiveMargin">
-		<Title titleStyle="H2" text="Избранное" class="sapUiTinyMarginBegin"/>
-		<layout:HorizontalLayout allowWrapping="true">
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго" press="onPressEmployees"
-				frameType="TwoByOne">
-				<TileContent>
-					<ImageContent src="images/employee_directory.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="CЭД" url="http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx" press="onPressSED">
-				<TileContent>
-					<ImageContent src="images/eos_logo.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Сервис Деск" press="onPressSD">
-				<TileContent>
-					<ImageContent src="images/sap_logo.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ" url="http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow" press="onPressSabiz">
-				<TileContent>
-					<ImageContent src="images/comsoft_logo.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="src/se_website.png" url="http://www.samaraenergo.ru/" press="onPressSiteSE">
-			</GenericTile>
-		</layout:HorizontalLayout>
-		<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
-		<layout:HorizontalLayout allowWrapping="true">
-			<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{news>/News}">
-				<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onNavToReviews">
-					<tileContent>
-						<TileContent footer="{ path: 'news>date', formatter: '.formatJSONDate' }">
-							<content>
-								<NewsContent contentText="{news>content}" subheader="{news>subheader}"></NewsContent>
-							</content>
+<mvc:View controllerName="main.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart">
+	<l:Splitter width="100%" height="100%" orientation="Vertical">
+		<l:Splitter>
+			<l:layoutData>
+				<l:SplitterLayoutData size="50px" resizable="false"/>
+			</l:layoutData>
+			<l:contentAreas>
+				<!--				<SearchField width="600px" placeholder="Поиск сотрудников" id="search" search="handleSearchPressed"/>-->
+				<Bar id="mainBar">
+					<contentLeft>
+						<Image src="src/logo.svg" class="sapUiSmallMargin sapUiTinyMarginBottom"/>
+					</contentLeft>
+					<contentMiddle>
+						<SearchField width="600px" placeholder="Поиск сотрудников" id="searchfield" search="handleSearchPressed"/>
+					</contentMiddle>
+				</Bar>
+			</l:contentAreas>
+		</l:Splitter>
+		<l:Splitter height="100%">
+			<layout:VerticalLayout class="sapUiResponsiveMargin">
+				<Title titleStyle="H2" text="Избранное" class="sapUiTinyMarginBegin"/>
+				<layout:HorizontalLayout allowWrapping="true">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго"
+						press="onPressEmployees" frameType="TwoByOne">
+						<TileContent>
+							<ImageContent src="images/employee_directory.png"/>
 						</TileContent>
-					</tileContent>
-				</GenericTile>
-			</SlideTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
-				<TileContent footer="общее количество">
-					<NumericContent value="951" icon="sap-icon://line-charts" withMargin="false"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Использование портала" press="onNavToUsage">
-				<TileContent footer="Посещений в день">
-					<NumericContent value="16" withMargin="false"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Личный кабинет" press="press">
-				<TileContent footer="Посещений в день">
-					<NumericContent value="6" withMargin="false" valueColor="Error" indicator="Down"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Оплаты картой" press="press">
-				<TileContent unit="Динамика прироста">
-					<NumericContent scale="%" value="20" valueColor="Critical" indicator="Up" withMargin="false"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="press">
-				<TileContent unit="За неделю">
-					<NumericContent scale="документы" value="203" valueColor="Good" indicator="Up" withMargin="false"/>
-				</TileContent>
-			</GenericTile>
-		</layout:HorizontalLayout>
-		<Title titleStyle="H2" text="Приложения" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
-		<layout:HorizontalLayout allowWrapping="true">
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="3S" url="http://192.168.127.9:8080/" press="onPress3S">
-				<TileContent>
-					<ImageContent src="images/sistema_3s.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ГИС ЖКХ" url="https://dom.gosuslugi.ru/" press="onPressZKH">
-				<TileContent>
-					<ImageContent src="images/gis_zkh.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Меню столовой" press="press">
-				<TileContent>
-					<ImageContent src="images/menu.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ИАС" url="http://sap-srv-03:8080/BOE/BI" press="onPressIAS">
-				<TileContent>
-					<ImageContent src="images/sap_logo.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="АСУ СЭРП" url="http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui" press="onPressASUSERP">
-				<TileContent>
-					<ImageContent src="images/sap_logo.png"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Анкетирование" press="press">
-				<TileContent>
-					<ImageContent src="images/testing.png"/>
-				</TileContent>
-			</GenericTile>
-		</layout:HorizontalLayout>
-	</layout:VerticalLayout>
-	<!--	</Page>-->
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="CЭД"
+						url="http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx" press="onPressSED">
+						<TileContent>
+							<ImageContent src="images/eos_logo.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Сервис Деск" press="onPressSD">
+						<TileContent>
+							<ImageContent src="images/sap_logo.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ"
+						url="http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow" press="onPressSabiz">
+						<TileContent>
+							<ImageContent src="images/comsoft_logo.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="src/se_website.png"
+						url="http://www.samaraenergo.ru/" press="onPressSiteSE"></GenericTile>
+				</layout:HorizontalLayout>
+				<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+				<layout:HorizontalLayout allowWrapping="true">
+					<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{news>/News}">
+						<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onNavToReviews">
+							<tileContent>
+								<TileContent footer="{ path: 'news>date', formatter: '.formatJSONDate' }">
+									<content>
+										<NewsContent contentText="{news>content}" subheader="{news>subheader}"></NewsContent>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+					</SlideTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
+						<TileContent footer="общее количество">
+							<NumericContent value="951" icon="sap-icon://line-charts" withMargin="false"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Использование портала" press="onNavToUsage">
+						<TileContent footer="Посещений в день">
+							<NumericContent value="16" withMargin="false"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Личный кабинет" press="press">
+						<TileContent footer="Посещений в день">
+							<NumericContent value="6" withMargin="false" valueColor="Error" indicator="Down"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Оплаты картой" press="press">
+						<TileContent unit="Динамика прироста">
+							<NumericContent scale="%" value="20" valueColor="Critical" indicator="Up" withMargin="false"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="press">
+						<TileContent unit="За неделю">
+							<NumericContent scale="документы" value="203" valueColor="Good" indicator="Up" withMargin="false"/>
+						</TileContent>
+					</GenericTile>
+				</layout:HorizontalLayout>
+				<Title titleStyle="H2" text="Приложения" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+				<layout:HorizontalLayout allowWrapping="true">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="3S" url="http://192.168.127.9:8080/" press="onPress3S">
+						<TileContent>
+							<ImageContent src="images/sistema_3s.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ГИС ЖКХ" url="https://dom.gosuslugi.ru/" press="onPressZKH">
+						<TileContent>
+							<ImageContent src="images/gis_zkh.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Меню столовой" press="press">
+						<TileContent>
+							<ImageContent src="images/menu.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ИАС" url="http://sap-srv-03:8080/BOE/BI" press="onPressIAS">
+						<TileContent>
+							<ImageContent src="images/sap_logo.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="АСУ СЭРП"
+						url="http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui" press="onPressASUSERP">
+						<TileContent>
+							<ImageContent src="images/sap_logo.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Анкетирование" press="press">
+						<TileContent>
+							<ImageContent src="images/testing.png"/>
+						</TileContent>
+					</GenericTile>
+				</layout:HorizontalLayout>
+			</layout:VerticalLayout>
+		</l:Splitter>
+	</l:Splitter>
 </mvc:View>

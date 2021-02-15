@@ -3,6 +3,6 @@
 	xmlns="sap.m"
 	displayBlock="true">
 	<App id="App"
-		 backgroundImage="images/startpage.jpg"
-		 backgroundOpacity="0.3"/>
+		 backgroundImage=""
+		 backgroundOpacity="0.1"/>
 </mvc:View>
