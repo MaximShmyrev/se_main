@@ -4,7 +4,7 @@
 	<layout:VerticalLayout class="sapUiResponsiveMargin">
 		<Title titleStyle="H2" text="{i18n>startpageTilesGroupTitle}" class="sapUiTinyMarginBegin"/>
 		<layout:HorizontalLayout allowWrapping="true">
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго" press="press"
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго" press="onPressEmployees"
 				frameType="TwoByOne">
 				<TileContent>
 					<ImageContent src="images/employee_directory.png"/>
@@ -25,7 +25,7 @@
 					<ImageContent src="images/comsoft_logo.png"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="/images/se_website.jpg" url="http://www.samaraenergo.ru/" press="onPressSiteSE">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="src/se_website.png" url="http://www.samaraenergo.ru/" press="onPressSiteSE">
 			</GenericTile>
 		</layout:HorizontalLayout>
 		<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>

@@ -15,6 +15,10 @@ sap.ui.define([
 			this.getView().setModel(oModel, "news");
 		},
 
+		onPressEmployees: function() {
+			this.getRouter().navTo("employees");
+		},
+
 		onPressZKH: function() {
 			window.open("https://dom.gosuslugi.ru/", '_blank');
 		},

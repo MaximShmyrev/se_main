@@ -1,0 +1,41 @@
+<mvc:View controllerName="main.controller.Employees" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="viewPadding">
+	<App id="app">
+		<l:Splitter width="100%" height="100%" orientation="Vertical">
+			<l:Splitter>
+				<l:layoutData>
+					<l:SplitterLayoutData size="50px" resizable="false"/>
+				</l:layoutData>
+				<l:contentAreas>
+					<Bar id="__bar0">
+<!--					    <contentLeft>
+					        <Label text="Справочник сотрудников" width="100%" id="__label0" design="Bold"/>
+					    </contentLeft>-->
+					<contentMiddle>
+					    <SearchField width="600px" placeholder="Поиск" id="searchfield" search="handleSearchPressed"/>
+					</contentMiddle>
+	<!--				<contentRight>
+					    <sap.ui.core:Icon src="sap-icon://user-edit" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
+					    <Label text="Тестовый Пользователь" width="100%" id="__label1"/>
+					</contentRight>-->
+					</Bar>
+				</l:contentAreas>
+			</l:Splitter>
+			<l:Splitter height="100%">
+				<Tree id="Tree" mode = "SingleSelectMaster" selectionChange = "handleTreeItemPressed" items="{ path: '/', parameters:{ arrayNames:['nodes'] } }">
+					<StandardTreeItem title="{text}" icon="{ref}" type="Active" press="handleTreeItemPressed"/>
+					<layoutData>
+						<l:SplitterLayoutData size="400px"/>
+					</layoutData>
+				</Tree>
+				<List id="employeesList" items="{/employees}">
+					<ObjectListItem title="{DISPLAYNAME}" type="Navigation" icon="sap-icon://employee" press="handleListItemPressed">
+						<ObjectAttribute title="Должность" text="{TITLE}" active="true" press="handlePositionPressed"/>
+						<ObjectAttribute title="Подразделение" text="{DEPARTMENT}" active="true" press="handleDepartmentPressed"/>
+						<ObjectAttribute title="Номер кабинета" text="{OFFICE}" active="true" press="handleOfficePressed"/>
+						<ObjectAttribute visible="true" text="Внутренний телефон: {TELEPHONENUMBER}, Мобильный телефон: {MOBILE}"/>
+					</ObjectListItem>
+				</List>
+			</l:Splitter>
+		</l:Splitter>
+	</App>
+</mvc:View>
