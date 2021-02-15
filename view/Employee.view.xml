@@ -1,0 +1,39 @@
+<mvc:View controllerName="main.controller.Employee" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	busyIndicatorDelay="0">
+	<Page id="employeePage" title="Карточка сотрудника" showNavButton="true" navButtonPress=".onNavBack" class="sapUiResponsiveContentPadding">
+		<content>
+			<Panel id="employeePanel" width="auto" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{/DISPLAYNAME}" level="H2"/>
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<Label text="Табельный номер"/>
+							<Text text="{/PERSNUMBER}"/>
+							<Label text="Должность"/>
+							<Text text="{/TITLE}"/>
+							<Label text="Отдел"/>
+							<Text text="{/DEPARTMENT}"/>
+							<Label text="Номер комнаты"/>
+							<Text text="{/OFFICE}"/>
+							<Label text="Внутренний телефон"/>
+							<Text text="{/TELEPHONENUMBER}"/>
+							<Label text="Городской телефон"/>
+							<Text text="{/FAX}"/>
+							<Label text="Мобильный телефон"/>
+							<Text text="{/MOBILE}"/>
+							<Label text="E-mail"/>
+							<Link text="{/EMAIL}" target="_blank" href="mailto:{/EMAIL}"/>
+<!--							<Label text="E-mail"/>
+							<Text text="{/mail}"/>-->
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

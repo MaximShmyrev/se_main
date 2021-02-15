@@ -91,6 +91,10 @@
 				"name": "employees",
 				"target": "employees"
 			}, {
+				"pattern": "employees/{employeeId}",
+				"name": "employee",
+				"target": "employee"
+			}, {
 				"pattern": "processFlow",
 				"name": "processFlow",
 				"target": "processFlow"
@@ -111,6 +115,11 @@
 				"employees": {
 					"viewName": "Employees",
 					"viewLevel": 1
+				},
+				"employee": {
+					"viewId": "employee",
+					"viewName": "Employee",
+					"viewLevel" : 2
 				},				
 				"processFlow": {
 					"viewName": "ProcessFlow",
