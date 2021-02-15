@@ -9,7 +9,7 @@
 				<!--				<SearchField width="600px" placeholder="Поиск сотрудников" id="search" search="handleSearchPressed"/>-->
 				<Bar id="mainBar">
 					<contentLeft>
-						<Image src="src/logo.svg" class="sapUiSmallMargin sapUiTinyMarginBottom"/>
+						<Image src="src/logo.png" class="sapUiSmallMargin sapUiSmallMarginBottom sapUiSmallMarginTop"/>
 					</contentLeft>
 					<contentMiddle>
 						<SearchField width="600px" placeholder="Поиск сотрудников" id="searchfield" search="handleSearchPressed"/>
