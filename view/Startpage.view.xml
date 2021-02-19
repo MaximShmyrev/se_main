@@ -50,7 +50,7 @@
 				<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
 				<layout:HorizontalLayout allowWrapping="true">
 					<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{news>/News}">
-						<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onNavToReviews">
+						<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onPressNews">
 							<tileContent>
 								<TileContent footer="{ path: 'news>date', formatter: '.formatJSONDate' }">
 									<content>

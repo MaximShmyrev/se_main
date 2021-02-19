@@ -95,9 +95,9 @@
 				"name": "employee",
 				"target": "employee"
 			}, {
-				"pattern": "processFlow",
-				"name": "processFlow",
-				"target": "processFlow"
+				"pattern": "news",
+				"name": "news",
+				"target": "news"
 			}, {
 				"pattern": "chartContainer",
 				"name": "chartContainer",
@@ -121,8 +121,8 @@
 					"viewName": "Employee",
 					"viewLevel" : 2
 				},				
-				"processFlow": {
-					"viewName": "ProcessFlow",
+				"news": {
+					"viewName": "News",
 					"viewLevel": 1
 				},
 				"chartContainer": {

@@ -31,6 +31,10 @@ sap.ui.define([
 		onPressEmployees: function() {
 			this.getRouter().navTo("employees");
 		},
+		
+		onPressNews: function() {
+			this.getRouter().navTo("news");
+		},		
 
 		onPressZKH: function() {
 			window.open("https://dom.gosuslugi.ru/", '_blank');
