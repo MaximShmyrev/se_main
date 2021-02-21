@@ -1,0 +1,9 @@
+<mvc:View height="100%" controllerName="main.SharedBlocks.WednesdayT3" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<List id="secondProducts" items="{/wednesday/second}" noDataText="Меню из столовой не транслировалось">
+		<ObjectListItem title="{FOODITEM}" type="Active" number="{FOODPRICE}" currency="Руб">
+			<ObjectAttribute title="Описание" text="{FOODOUT}" active="false"/>
+			<ObjectAttribute text="Отметить блюдо" active="true" press="handleDepartmentPressed"/>
+		</ObjectListItem>
+	</List>
+</mvc:View>

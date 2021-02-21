@@ -8,83 +8,30 @@ sap.ui.define([
 ], function(jQuery, Controller, JSONModel, NumberFormat, MessageToast, MobileLibrary) {
 	"use strict";
 
-	document.title = "Главная страница";
-
-	return Controller.extend("main.controller.Startpage", {
+	return Controller.extend("main.controller.QuizMain", {
 		onInit: function() {
-			var sDataPath = jQuery.sap.getModulePath("main.model.data", "/News.json");
-			var oModel = new JSONModel(sDataPath);
-			this.getView().setModel(oModel, "news");
-			sessionStorage.setItem("SEARCH_QUERY", "");
+			
 		},
 
-		onSearchPressed: function(oEvent) {
-			var sQuery = oEvent.getParameter('query');
-			sessionStorage.setItem("SEARCH_QUERY", sQuery);
-			this.getRouter().navTo("employees");
+		onNavToUpload: function() {
+			this.getRouter().navTo("upload");
 		},
 
-		onAfterRendering: function() {
-			document.title = "Главная страница";
+		onNavToEditor: function() {
+			this.getRouter().navTo("editor");
 		},
 
-		onPressEmployees: function() {
-			this.getRouter().navTo("employees");
+		onNavToLearning: function() {
+			this.getRouter().navTo("learning");
+		},
+
+		onNavToExamen: function() {
+			this.getRouter().navTo("examen");
 		},
 		
-		onPressNews: function() {
-			this.getRouter().navTo("news");
-		},
-
-		onPressMenu: function() {
-			this.getRouter().navTo("menu");
-		},
-		
-		onPressQuiz: function() {
-			this.getRouter().navTo("quizmain");
-		},			
-
-		onPressZKH: function() {
-			window.open("https://dom.gosuslugi.ru/", '_blank');
-		},
-
-		onPressASUSERP: function() {
-			window.open("http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui", '_blank');
-		},
-
-		onPressIAS: function() {
-			window.open("http://sap-srv-03:8080/BOE/BI", '_blank');
-		},
-
-		onPress3S: function() {
-			window.open("http://192.168.127.9:8080/", '_blank');
-		},
-
-		onPressSabiz: function() {
-			window.open("http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow", '_blank');
-		},
-
-		onPressSD: function() {
-			window.open(
-				"https://paism7.samaraenergo.ru:8436/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=001&sap-language=RU&sap-sec_session_created=X&sap-ushell-config=headerless#ZCREATE_INC-display&/YMIN",
-				'_blank');
-		},
-
-		onPressSED: function() {
-			window.open("http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx", '_blank');
-		},
-
-		onPressSiteSE: function() {
-			window.open("http://www.samaraenergo.ru/", '_blank');
-		},
-
-		onNavToProcessFlow: function() {
-			this.getRouter().navTo("processFlow");
-		},
-
-		onNavToChartContainer: function() {
-			this.getRouter().navTo("chartContainer");
-		},
+		onNavToAnalytics: function() {
+			this.getRouter().navTo("analytics");
+		},		
 
 		/**
 		 * Handles the press event on a tile.

@@ -98,7 +98,7 @@
 							<ImageContent src="images/gis_zkh.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Меню столовой" press="press">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Меню столовой" press="onPressMenu">
 						<TileContent>
 							<ImageContent src="images/menu.png"/>
 						</TileContent>
@@ -114,7 +114,7 @@
 							<ImageContent src="images/sap_logo.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Анкетирование" press="press">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Анкетирование" press="onPressQuiz">
 						<TileContent>
 							<ImageContent src="images/testing.png"/>
 						</TileContent>

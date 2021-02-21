@@ -99,13 +99,13 @@
 				"name": "news",
 				"target": "news"
 			}, {
-				"pattern": "chartContainer",
-				"name": "chartContainer",
-				"target": "chartContainer"
+				"pattern": "menu",
+				"name": "menu",
+				"target": "menu"
 			}, {
-				"pattern": "reviews",
-				"name": "reviews",
-				"target": "reviews"
+				"pattern": "quizmain",
+				"name": "quizmain",
+				"target": "quizmain"
 			}],
 			"targets": {
 				"startpage": {
@@ -125,12 +125,12 @@
 					"viewName": "News",
 					"viewLevel": 1
 				},
-				"chartContainer": {
-					"viewName": "ChartContainer",
+				"menu": {
+					"viewName": "Menu",
 					"viewLevel": 1
 				},
-				"reviews": {
-					"viewName": "Reviews",
+				"quizmain": {
+					"viewName": "QuizMain",
 					"viewLevel": 1
 				}
 			}

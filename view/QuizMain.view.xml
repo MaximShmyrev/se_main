@@ -1,0 +1,62 @@
+<mvc:View
+	controllerName="main.controller.QuizMain"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:microchart="sap.suite.ui.microchart">
+		<layout:VerticalLayout class="sapUiResponsiveMargin">
+			<layout:HorizontalLayout allowWrapping="true">
+				<GenericTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="Обучение"
+					subheader="Режим тренировки"
+					press="onNavToLearning">
+					<tileContent>
+						<TileContent>
+							<content>
+								<ImageContent src="sap-icon://paper-plane" />
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+				<GenericTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="Тестирование"
+					subheader="Режим экзамена"
+					press="onNavToExamen">
+					<tileContent>
+						<TileContent>
+							<content>
+								<ImageContent src="sap-icon://order-status" />
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>				
+				<GenericTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="Анкеты"
+					subheader="Режим редактора"
+					press="onNavToEditor">
+					<tileContent>
+						<TileContent>
+							<content>
+								<ImageContent src="sap-icon://request" />
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+				<GenericTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="Аналитика"
+					press="onNavToAnalytics">
+					<tileContent>
+						<TileContent>
+							<content>
+								<ImageContent src="sap-icon://pie-chart" />
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+			</layout:HorizontalLayout>
+		</layout:VerticalLayout>
+</mvc:View>

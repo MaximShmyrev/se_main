@@ -1,0 +1,138 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns:blockcolor="main.SharedBlocks"
+	xmlns:core="sap.ui.core" controllerName="main.controller.Menu" height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" useIconTabBar="true" showTitleInHeaderContent="true">
+		<headerTitle>
+			<ObjectPageHeader id="headerForTest" objectTitle="Меню столовой ПАО &quot;Самараэнерго&quot;" wrapping="true" objectImageShape="Circle"
+				isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" showPlaceholder="true">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:Link
+					text="Сегодня: { path: '/date/date', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy.MM.dd' } } }"/>
+			</layout:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="Monday" titleUppercase="false" title="Понедельник, { path: '/date/monday' }">
+				<subSections>
+					<ObjectPageSubSection title="Холодные закуски" titleUppercase="false">
+						<blocks>
+							<blockcolor:MondayT1 id="MondayT1"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Первые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:MondayT2 id="MondayT2"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Вторые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:MondayT3 id="MondayT3"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Гарниры" titleUppercase="false">
+						<blocks>
+							<blockcolor:MondayT4 id="MondayT4"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection id="Tuesday" titleUppercase="false" title="Вторник, { path: '/date/tuesday' }">
+				<subSections>
+					<ObjectPageSubSection title="Холодные закуски" titleUppercase="false">
+						<blocks>
+							<blockcolor:TuesdayT1 id="TuesdayT1"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Первые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:TuesdayT2 id="TuesdayT2"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Вторые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:TuesdayT3 id="TuesdayT3"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Гарниры" titleUppercase="false">
+						<blocks>
+							<blockcolor:TuesdayT4 id="TuesdayT4"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection id="Wednesday" titleUppercase="false" title="Среда, { path: '/date/wednesday' }">
+				<subSections>
+					<ObjectPageSubSection title="Холодные закуски" titleUppercase="false">
+						<blocks>
+							<blockcolor:WednesdayT1 id="WednesdayT1"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Первые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:WednesdayT2 id="WednesdayT2"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Вторые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:WednesdayT3 id="WednesdayT3"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Гарниры" titleUppercase="false">
+						<blocks>
+							<blockcolor:WednesdayT4 id="WednesdayT4"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection id="Thursday" titleUppercase="false" title="Четверг, { path: '/date/thursday' }">
+				<subSections>
+					<ObjectPageSubSection title="Холодные закуски" titleUppercase="false">
+						<blocks>
+							<blockcolor:ThursdayT1 id="ThursdayT1"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Первые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:ThursdayT2 id="ThursdayT2"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Вторые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:ThursdayT3 id="ThursdayT3"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Гарниры" titleUppercase="false">
+						<blocks>
+							<blockcolor:ThursdayT4 id="ThursdayT4"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>			
+			<ObjectPageSection id="Friday" titleUppercase="false" title="Пятница, { path: '/date/friday' }">
+				<subSections>
+					<ObjectPageSubSection title="Холодные закуски" titleUppercase="false">
+						<blocks>
+							<blockcolor:FridayT1 id="FridayT1"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Первые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:FridayT2 id="FridayT2"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Вторые блюда" titleUppercase="false">
+						<blocks>
+							<blockcolor:FridayT3 id="FridayT3"/>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="Гарниры" titleUppercase="false">
+						<blocks>
+							<blockcolor:FridayT4 id="FridayT4"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>
