@@ -106,6 +106,18 @@
 				"pattern": "quizmain",
 				"name": "quizmain",
 				"target": "quizmain"
+			}, {
+				"pattern": "analytics",
+				"name": "analytics",
+				"target": "analytics"
+			}, {
+				"pattern": "examen",
+				"name": "examen",
+				"target": "examen"
+			}, {
+				"pattern": "learning",
+				"name": "learning",
+				"target": "learning"
 			}],
 			"targets": {
 				"startpage": {
@@ -119,8 +131,8 @@
 				"employee": {
 					"viewId": "employee",
 					"viewName": "Employee",
-					"viewLevel" : 2
-				},				
+					"viewLevel": 2
+				},
 				"news": {
 					"viewName": "News",
 					"viewLevel": 1
@@ -132,6 +144,18 @@
 				"quizmain": {
 					"viewName": "QuizMain",
 					"viewLevel": 1
+				},
+				"analytics": {
+					"viewName": "Analytics",
+					"viewLevel": 2
+				},
+				"examen": {
+					"viewName": "Examen",
+					"viewLevel": 2
+				},
+				"learning": {
+					"viewName": "Learning",
+					"viewLevel": 2
 				}
 			}
 		}

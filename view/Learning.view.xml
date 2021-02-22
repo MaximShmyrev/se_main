@@ -1,0 +1,12 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="main.controller.Learning">
+	<Page title="Список анкет для обучения" showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<content>
+			<List id="quizes" items="{/}">
+				<ObjectListItem title="{quizDescription}" type="Navigation" icon="sap-icon://bullet-text" press="handleQuizPressed">
+					<ObjectAttribute title="Идентификатор анкеты" text="{quizId}" active="false"/>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>
