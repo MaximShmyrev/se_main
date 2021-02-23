@@ -115,6 +115,10 @@
 				"name": "examen",
 				"target": "examen"
 			}, {
+				"pattern": "test/{testId}",
+				"name": "test",
+				"target": "test"
+			}, {
 				"pattern": "learning",
 				"name": "learning",
 				"target": "learning"
@@ -161,6 +165,11 @@
 					"viewName": "Examen",
 					"viewLevel": 2
 				},
+				"test": {
+					"viewId": "test",
+					"viewName": "Test",
+					"viewLevel": 3
+				},				
 				"learning": {
 					"viewName": "Learning",
 					"viewLevel": 2
@@ -169,7 +178,7 @@
 					"viewId": "quiz",
 					"viewName": "Quiz",
 					"viewLevel": 3
-				},				
+				},
 				"editor": {
 					"viewName": "Editor",
 					"viewLevel": 2
