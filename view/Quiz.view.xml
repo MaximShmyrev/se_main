@@ -1,0 +1,34 @@
+<mvc:View id="quiz" controllerName="main.controller.Quiz" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" busyIndicatorDelay="0">
+	<Page id="quiz" title="{/quizTitle}: Вопрос {/currentQuestion} из {/numberOfQuestions}" showNavButton="true" navButtonPress=".onNavBack" class="sapUiResponsiveContentPadding">
+		<content>
+			<Panel id="quizPanel" width="auto" class="sapUiNoContentPadding">
+				<content>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<Title text="{/questionText}" level="H0"/>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<List id="answers" mode="SingleSelectLeft" items="{/questionAnswer}" noDataText="Для данной анкеты вопросы ещё не загружены в систему анкетирования">
+								<items>
+									<StandardListItem title="{ANSWER}" icon="sap-icon://accept" iconInset="false" highlight="{state}" infoStateInverted="true"/>
+								</items>
+							</List>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<Button id="Back" type="Reject" text="К списку анкет" press=".onNavBack"/>
+						<Button id="Confirm" type="Accept" text="Ответить" press=".onConfirm" visible="{= ${/numberOfQuestions} > 1 ? true : false }"/>
+						<Button id="previousQuestion" text="Предыдущий вопрос" class="sapUiTinyMarginEnd" press=".onPreviousQuestion" visible="{= ${/currentQuestion} > 1 ? true : false }"/>
+						<Button id="nextQuestion" text="Следующий вопрос" class="sapUiTinyMarginEnd" press=".onNextQuestion" visible="{= ${/currentQuestion} === ${/numberOfQuestions} ? false : true }"/>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

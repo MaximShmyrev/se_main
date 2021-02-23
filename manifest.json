@@ -119,6 +119,10 @@
 				"name": "learning",
 				"target": "learning"
 			}, {
+				"pattern": "quiz/{quizId}",
+				"name": "quiz",
+				"target": "quiz"
+			}, {
 				"pattern": "editor",
 				"name": "editor",
 				"target": "editor"
@@ -161,6 +165,11 @@
 					"viewName": "Learning",
 					"viewLevel": 2
 				},
+				"quiz": {
+					"viewId": "quiz",
+					"viewName": "Quiz",
+					"viewLevel": 3
+				},				
 				"editor": {
 					"viewName": "Editor",
 					"viewLevel": 2
