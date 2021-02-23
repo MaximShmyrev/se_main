@@ -130,6 +130,14 @@
 				"pattern": "editor",
 				"name": "editor",
 				"target": "editor"
+			}, {
+				"pattern": "editor/{quizId}",
+				"name": "quizEditor",
+				"target": "quizEditor"
+			}, {
+				"pattern": "createQuestion",
+				"name": "createQuestion",
+				"target": "createQuestion"
 			}],
 			"targets": {
 				"startpage": {
@@ -169,7 +177,7 @@
 					"viewId": "test",
 					"viewName": "Test",
 					"viewLevel": 3
-				},				
+				},
 				"learning": {
 					"viewName": "Learning",
 					"viewLevel": 2
@@ -182,6 +190,16 @@
 				"editor": {
 					"viewName": "Editor",
 					"viewLevel": 2
+				},
+				"quizEditor": {
+					"viewId": "QuizEditor",
+					"viewName": "QuizEditor",
+					"viewLevel": 3
+				},
+				"createQuestion": {
+					"viewId": "CreateQuestion",
+					"viewName": "CreateQuestion",
+					"viewLevel": 4
 				}
 			}
 		}

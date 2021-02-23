@@ -1,0 +1,67 @@
+<mvc:View id="quizEditor" controllerName="main.controller.QuizEditor" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	busyIndicatorDelay="0">
+	<Page id="quizEditor" title="Редактирование анкеты" showNavButton="false" navButtonPress=".onNavBack" class="sapUiResponsiveContentPadding">
+		<content>
+			<Panel id="quizPanel" width="auto" class="sapUiNoContentPadding">
+				<content>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<Label text="Идентификатор анкеты"/>
+							<Text text="{/testId}"/>
+							<Label text="Название анкеты"/>
+							<Input id="description" value="{/testTitle}"/>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+		<content>
+			<Panel id="questionsPanel" width="auto" class="sapUiNoContentPadding">
+				<content>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<Title text="Вопрос {/currentQuestion} из {/numberOfQuestions}" level="H0"/>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<Input id="question" value="{/questionText}"/>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<List id="answers" mode="SingleSelectLeft" items="{/questionAnswer}"
+								noDataText="Для данной анкеты вопросы ещё не загружены в систему анкетирования">
+								<items>
+									<StandardListItem title="{ANSWER}" icon="sap-icon://accept" iconInset="false" highlight="{state}" infoStateInverted="true"/>
+								</items>
+							</List>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1">
+						<Button id="deleteQuestion" type="Reject" text="Удалить вопрос" press="onDeleteQuestion"/>
+						<Button id="saveQuestion" type="Accept" text="Сохранить вопрос" press="onSaveQuestion" visible="{= ${/numberOfQuestions} > 1 ? true : false }"/>
+						<Button id="previousQuestion" text="Предыдущий вопрос" class="sapUiTinyMarginEnd" press=".onPreviousQuestion"
+							visible="{= ${/currentQuestion} > 1 ? true : false }"/>
+						<Button id="nextQuestion" text="Следующий вопрос" class="sapUiTinyMarginEnd" press=".onNextQuestion"
+							visible="{= ${/currentQuestion} === ${/numberOfQuestions} ? false : true }"/>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Удалить анкету" type="Reject" press=".onDelete"/>
+				<Button text="Сохранить анкету" type="Accept" press=".onSave"/>
+				<Button type="Emphasized" text="Добавить вопрос" press="onAddQuestion"/>
+				<Button text="К списку анкет" press=".onNavBack"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

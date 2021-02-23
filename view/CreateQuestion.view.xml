@@ -1,0 +1,82 @@
+<mvc:View height="100%" controllerName="main.controller.CreateQuestion" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page id="page" title="Редактирование анкеты" showHeader="true">
+		<customHeader>
+			<Bar>
+				<contentRight>
+					<Button id="save" text="Сохранить" type="Emphasized" visible="true" press="onSave"/>
+					<Button id="back" text="Назад" visible="true" press="onNavBack"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<VBox class="sapUiSmallMargin">
+			<f:Form id="newQuestion" editable="true">
+				<f:title>
+					<core:Title text="Добавление вопроса"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Текст вопроса">
+								<f:fields>
+									<Input id="questionText"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<f:Form id="newAnswers" editable="true">
+				<f:title>
+					<core:Title text="Варианты ответов"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Вариант 1">
+								<f:fields>
+									<Input id="answer1"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Вариант 2">
+								<f:fields>
+									<Input id="answer2"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Вариант 3">
+								<f:fields>
+									<Input id="answer3"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Вариант 4">
+								<f:fields>
+									<Input id="answer4"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Правильный ответ">
+								<f:fields>
+									<Select id="correctAnswer">
+										<items>
+											<core:Item text="Вариант 1" key="0"/>
+											<core:Item text="Вариант 2" key="1"/>
+											<core:Item text="Вариант 3" key="2"/>
+											<core:Item text="Вариант 4" key="3"/>
+										</items>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+	</Page>
+</mvc:View>
