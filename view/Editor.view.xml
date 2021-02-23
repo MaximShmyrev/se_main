@@ -1,0 +1,18 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="main.controller.Editor">
+	<Page title="Список анкет для редактирования" showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<content>
+			<List id="quizes" items="{/}">
+				<ObjectListItem title="{quizDescription}" type="Navigation" icon="sap-icon://bullet-text" press="handleQuizPressed">
+					<ObjectAttribute title="Идентификатор анкеты" text="{quizId}" active="false"/>
+				</ObjectListItem>
+			</List>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Добавить анкету" press=".onCreate"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

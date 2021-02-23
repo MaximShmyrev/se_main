@@ -118,6 +118,10 @@
 				"pattern": "learning",
 				"name": "learning",
 				"target": "learning"
+			}, {
+				"pattern": "editor",
+				"name": "editor",
+				"target": "editor"
 			}],
 			"targets": {
 				"startpage": {
@@ -155,6 +159,10 @@
 				},
 				"learning": {
 					"viewName": "Learning",
+					"viewLevel": 2
+				},
+				"editor": {
+					"viewName": "Editor",
 					"viewLevel": 2
 				}
 			}
