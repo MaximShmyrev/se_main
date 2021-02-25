@@ -71,6 +71,12 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 
 		},
+		
+		
+      onAfterRendering: function(){
+        var oSplitApp = this.getView().byId("SplitApp");
+        oSplitApp.getAggregation("_navMaster").addStyleClass("masterStyle");
+      },
 
 		onSearch: function() {
 
