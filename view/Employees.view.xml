@@ -9,7 +9,7 @@
 				<l:contentAreas>
 					<Bar id="__bar0">
 						<contentLeft>
-							<Button icon="sap-icon://home" press="onPressHome"/>
+							<Button id="homeButton" icon="sap-icon://home" tooltip="На главную страницу" press="onPressHome"/>
 						</contentLeft>
 						<contentMiddle>
 							<SearchField width="600px" placeholder="Поиск" id="searchfield" search="handleSearchPressed"/>
