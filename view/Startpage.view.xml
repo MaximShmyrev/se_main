@@ -27,22 +27,13 @@
 							<ImageContent src="images/employee_directory.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="CЭД"
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="images/eos_background.png" header="CЭД"
 						url="http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx" press="onPressSED">
-						<TileContent>
-							<ImageContent src="images/eos_logo.png"/>
-						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Сервис Деск" press="onPressSD">
-						<TileContent>
-							<ImageContent src="images/sap_logo.png"/>
-						</TileContent>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Сервис Деск" backgroundImage="images/sap_background.png" press="onPressSD">
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ"
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ" backgroundImage="images/sabiz_background.png"
 						url="http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow" press="onPressSabiz">
-						<TileContent>
-							<ImageContent src="images/comsoft_logo.png"/>
-						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="src/se_website.png"
 						url="http://www.samaraenergo.ru/" press="onPressSiteSE"></GenericTile>
@@ -88,10 +79,7 @@
 				</layout:HorizontalLayout>
 				<Title titleStyle="H2" text="Приложения" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
 				<layout:HorizontalLayout allowWrapping="true">
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="3S" url="http://192.168.127.9:8080/" press="onPress3S">
-						<TileContent>
-							<ImageContent src="images/sistema_3s.png"/>
-						</TileContent>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="images/ituniverse_background.png" header="3S" url="http://192.168.127.9:8080/" press="onPress3S">
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ГИС ЖКХ" url="https://dom.gosuslugi.ru/" press="onPressZKH">
 						<TileContent>
@@ -103,16 +91,10 @@
 							<ImageContent src="images/menu.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ИАС" url="http://sap-srv-03:8080/BOE/BI" press="onPressIAS">
-						<TileContent>
-							<ImageContent src="images/sap_logo.png"/>
-						</TileContent>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ИАС" backgroundImage="images/sap_background.png" url="http://sap-srv-03:8080/BOE/BI" press="onPressIAS">
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="АСУ СЭРП"
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="images/sap_background.png" header="АСУ СЭРП"
 						url="http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui" press="onPressASUSERP">
-						<TileContent>
-							<ImageContent src="images/sap_logo.png"/>
-						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Анкетирование" press="onPressQuiz">
 						<TileContent>
