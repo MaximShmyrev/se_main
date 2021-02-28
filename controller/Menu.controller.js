@@ -539,6 +539,14 @@ sap.ui.define([
 			//this.getView().byId("ObjectPageLayout").getSelectedSection();
 
 		},
+		
+		onPressHome: function() {
+			//var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			document.title = "Главная страница";
+			//oRouter.navTo("home", {}, true);
+			window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html","_self");
+
+		},		
 
 		handleMainPage: function() {
 			window.location.href = 'http://prt.samaraenergo.ru:50000/irj/portal/fiori';

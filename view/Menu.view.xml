@@ -4,6 +4,13 @@
 		<headerTitle>
 			<ObjectPageHeader id="headerForTest" objectTitle="Меню столовой ПАО &quot;Самараэнерго&quot;" wrapping="true" objectImageShape="Circle"
 				isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" showPlaceholder="true">
+				<navigationBar>
+					<m:Bar>
+						<m:contentLeft>
+							<m:Button icon="sap-icon://nav-back" press="onPressHome" tooltip="На главную страницу"/>
+						</m:contentLeft>
+					</m:Bar>
+				</navigationBar>				
 			</ObjectPageHeader>
 		</headerTitle>
 		<headerContent>
