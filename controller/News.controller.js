@@ -71,12 +71,19 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 
 		},
-		
-		
-      onAfterRendering: function(){
-        var oSplitApp = this.getView().byId("SplitApp");
-        oSplitApp.getAggregation("_navMaster").addStyleClass("masterStyle");
-      },
+
+		onAfterRendering: function() {
+			var oSplitApp = this.getView().byId("SplitApp");
+			oSplitApp.getAggregation("_navMaster").addStyleClass("masterStyle");
+		},
+
+		onPressHome: function() {
+			//var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			document.title = "Главная страница";
+			//oRouter.navTo("home", {}, true);
+			window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html", "_self");
+
+		},
 
 		onSearch: function() {
 

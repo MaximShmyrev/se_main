@@ -3,7 +3,7 @@
 	<Shell showLogout="false">
 		<SplitApp id="SplitApp" initialDetail="detail" initialMaster="master" homeIcon="img/home-precomposed.png">
 			<detailPages>
-				<Page id="detail" title="" backgroundDesign="Solid" class="sapUiStdPage">
+				<Page id="detail" title="" backgroundDesign="Solid" class="sapUiStdPage" showNavButton="true" navButtonPress="onPressHome">
 					<FlexBox justifyContent="Center" visible="{= ${filter>/filterText}.length > 0}">
 						<Title level="H1" text="Список новостей" textAlign="Center" wrapping="true" class="sapUiTinyMargin"/>
 					</FlexBox>
