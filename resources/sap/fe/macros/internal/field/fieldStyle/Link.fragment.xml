@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	template:require="{
+							MODEL: 'sap/ui/model/odata/v4/AnnotationHelper'
+						 }"
+>
+	<template:if test="{property>$Path@com.sap.vocabularies.Communication.v1.IsEmailAddress}">
+		<template:then>
+			<Link text="{property>@@MODEL.format}" href="mailto:{property>@@MODEL.format}" ariaLabelledBy="{this>ariaLabelledBy}" />
+		</template:then>
+
+	<template:elseif test="{property>$Path@com.sap.vocabularies.Communication.v1.IsPhoneNumber}">
+		<Link text="{property>@@MODEL.format}" href="tel:{property>@@MODEL.format}" ariaLabelledBy="{this>ariaLabelledBy}" />
+	</template:elseif>
+		<template:else>
+			<Link
+				text="{dataField>Value@@MODEL.value}"
+				href="{dataField>Url@@MODEL.value}"
+				wrapping="true"
+				target="_blank"
+				ariaLabelledBy="{this>ariaLabelledBy}"
+			/>
+		</template:else>
+	</template:if>
+
+
+</core:FragmentDefinition>

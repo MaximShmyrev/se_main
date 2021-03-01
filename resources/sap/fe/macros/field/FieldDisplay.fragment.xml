@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<template:with path="property>$Path" var="propertyPath">
+
+	<template:if
+			test="{= ${dataField>./@sapui.name} &amp;&amp; ${dataField>./@sapui.name}.indexOf('com.sap.vocabularies.UI.v1.DataPoint') > -1 }"
+		>
+		<template:then>
+			<template:with path="dataField>" var="dataPoint">
+				<core:Fragment fragmentName="sap.fe.macros.field.DataPoint" type="XML" />
+			</template:with>
+		</template:then>
+		<template:elseif test="{= ${annotationPath>} &amp;&amp; ${annotationPath>}.indexOf('com.sap.vocabularies.UI.v1.DataPoint') > -1 }">
+			<template:with path="annotationPath>" var="dataPoint">
+				<core:Fragment fragmentName="sap.fe.macros.field.DataPoint" type="XML" />
+			</template:with>
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='ObjectStatus'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.ObjectStatus" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='AmountWithCurrency'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.AmountWithCurrency" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='Link'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.Link" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='SemanticKeyWithDraftIndicator'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.SemanticKeyWithDraftIndicator" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='ObjectIdentifier'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.ObjectIdentifier" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='LabelSemanticKey'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.LabelSemanticKey" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='LinkWithQuickViewForm'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.LinkWithQuickViewForm" type="XML" />
+		</template:elseif>
+		<template:elseif test="{= ${this>fieldStyle}==='LinkWrapper'}">
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.LinkWrapper" type="XML" />
+		</template:elseif>
+		<template:else>
+			<core:Fragment fragmentName="sap.fe.macros.internal.field.fieldStyle.Text" type="XML" />
+		</template:else>
+	</template:if>
+	</template:with>
+
+</core:FragmentDefinition>

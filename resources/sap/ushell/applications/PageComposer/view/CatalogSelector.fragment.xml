@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog
+        id="catalogSelectorDialog"
+        title="{i18n>CatalogSelector.Title}"
+        noDataText="{i18n>CatalogSelector.NoCatalogs}"
+        multiSelect="true"
+        rememberSelections="true"
+        showClearButton="true"
+        contentWidth="30rem"
+        search=".onSearch"
+        confirm=".onConfirm"
+        items="{PageRepository>/catalogSet}">
+        <StandardListItem
+            title="{PageRepository>displayId}"
+            description="{PageRepository>title}"
+            includeItemInSelection="true"
+            wrapping="true" />
+    </SelectDialog>
+</core:FragmentDefinition>

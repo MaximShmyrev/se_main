@@ -1,0 +1,153 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:ushell="sap.ushell.ui"
+    core:require="{
+        mobileLibrary: 'sap/m/library',
+        ushellLibrary: 'sap/ushell/library'
+    }">
+    <VBox id="tileSelector" renderType="{= mobileLibrary.FlexRendertype.Bare}" fitContainer="true">
+        <customData><core:CustomData key="help-id" value="FLPPage-manage-TileSelector-Panel-TileSelector" writeToDom="true" /></customData>
+        <OverflowToolbar id="tileSelectorToolbar" design="{= mobileLibrary.ToolbarDesign.Transparent}">
+            <SearchField
+                id="tileSelectorSearchField"
+                showRefreshButton="false"
+                width="auto"
+                placeholder="{i18n>Placeholder.SearchForTiles}"
+                search=".TileSelector.onSearchTiles" />
+            <ToolbarSpacer />
+            <MenuButton
+                id="tileSelectorAddButton"
+                text="{i18n>Button.Add}"
+                buttonMode="{= mobileLibrary.MenuButtonMode.Split}"
+                defaultAction=".TileSelector.onAddTiles"
+                useDefaultActionOnly="true">
+                <Menu itemSelected=".TileSelector.onAddTiles" items="{PageRepository>/displayFormatSet}">
+                    <MenuItem
+                        enabled="{= ${/enabledAddButtonMenuItems}.indexOf(${PageRepository>id}) !== -1}"
+                        text="{
+                            parts: ['i18n>TileSelector.AddAs', 'PageRepository>id'],
+                            formatter: '.TileSelector.visualizationOptionFormatter'
+                        }"
+                        key="{PageRepository>id}" />
+                </Menu>
+                <customData><core:CustomData key="help-id" value="FLPPage-manage-TileSelector-Button-Add" writeToDom="true" /></customData>
+            </MenuButton>
+            <Button
+                id="tileSelectorAddCatalogsButton"
+                text="{i18n>Button.Catalogs}"
+                tooltip="{i18n>Tooltip.SelectCatalogs}"
+                press=".TileSelector.onAddCatalogs">
+                <customData><core:CustomData key="help-id" value="FLPPage-manage-TileSelector-Button-AddCatalog" writeToDom="true" /></customData>
+            </Button>
+            <Button
+                id="tileSelectorShowPage"
+                text="{i18n>Button.ShowPage}"
+                visible="{/showSwitchViewButton}"
+                press=".switchDynamicSideContentView">
+                <customData><core:CustomData key="help-id" value="FLPPage-manage-TileSelector-Button-ShowPage" writeToDom="true" /></customData>
+            </Button>
+            <OverflowToolbarButton
+                id="tileSelectorSortSettingsButton"
+                icon="sap-icon://sort"
+                text="{i18n>Button.SortSettings}"
+                tooltip="{i18n>Button.SortSettings}"
+                press=".TileSelector.showViewSettingsDialog" />
+        </OverflowToolbar>
+        <ScrollContainer id="scrollContainer2" horizontal="false" vertical="true" height="0px">
+            <layoutData><FlexItemData growFactor="1" /></layoutData>
+            <IconTabBar id="contextSwitch" applyContentPadding="false" expandable="false" expanded="true">
+                <items>
+                    <IconTabFilter id="rolesTab" key="roles" text="{i18n>TileSelector.RolesTab}">
+                        <List
+                            id="rolesTilesList"
+                            mode="{= mobileLibrary.ListMode.MultiSelect}"
+                            modeAnimationOn="false"
+                            includeItemInSelection="true"
+                            noDataText="{i18n>Message.NoTiles}"
+                            growing="true"
+                            growingScrollToLoad="true"
+                            growingThreshold="100">
+                            <dependents>
+                                <ushell:CustomGroupHeaderListItem id="tileSelectorGroupHeader" title="{displayId}" description="{title}" />
+                                <CustomListItem id="tileSelectorCustomListItem">
+                                    <HBox
+                                        id="tileSelectorHbox1"
+                                        alignItems="{= mobileLibrary.FlexAlignItems.Center}"
+                                        class="sapUiTinyMargin">
+                                        <!-- TODO: do not display tile icon until specification is ready -->
+                                        <!-- <core:Icon src="{= ${iconUrl} ? ${iconUrl} : 'sap-icon://border'}" size="1.5rem" width="1.5rem" class="sapUiSmallMarginBeginEnd" /> -->
+                                        <VBox width="0px" id="tileSelectorVbox1">
+                                            <layoutData><FlexItemData growFactor="1" /></layoutData>
+                                            <Title id="tileSelectorItemTitle" visible="{= !!${title}}" text="{title}" wrapping="true" />
+                                            <Text
+                                                id="tileSelectorTileSubtitle"
+                                                visible="{= !!${subTitle}}"
+                                                text="{subTitle}"
+                                                wrapping="true" />
+                                        </VBox>
+                                        <Button
+                                            id="tileSelectorTileButtonInfo"
+                                            icon="sap-icon://hint"
+                                            tooltip="{i18n>Tooltip.TileInfoButton}"
+                                            type="{= mobileLibrary.ButtonType.Transparent}"
+                                            press=".onOpenTileInfo" />
+                                        <MenuButton
+                                            id="tileSelectorTileButtonAdd"
+                                            text="{i18n>Button.Add}"
+                                            type="{= mobileLibrary.ButtonType.Transparent}"
+                                            buttonMode="{= mobileLibrary.MenuButtonMode.Split}"
+                                            defaultAction=".TileSelector.onAddTiles"
+                                            useDefaultActionOnly="true">
+                                            <Menu itemSelected=".TileSelector.onAddTiles">
+                                                <!-- Menu "item" aggregation is bound in the controller using the MenuItem dependent -->
+                                                <dependents>
+                                                    <MenuItem
+                                                        id="tileSelectorAddMenuItem"
+                                                        text="{
+                                                            parts: ['i18n>TileSelector.AddAs', 'PageRepository>id', 'tileType'],
+                                                            formatter: '.TileSelector.visualizationOptionFormatter'
+                                                        }"
+                                                        key="{PageRepository>id}" />
+                                                </dependents>
+                                            </Menu>
+                                            <customData><core:CustomData key="help-id" value="FLPPage-manage-TileSelector-Button-Add" writeToDom="true" /></customData>
+                                        </MenuButton>
+                                    </HBox>
+                                </CustomListItem>
+                            </dependents>
+                            <dragDropConfig>
+                                <dnd:DragInfo
+                                    enabled="true"
+                                    groupName="Section"
+                                    sourceAggregation="items"
+                                    dragStart=".TileSelector.onDragStart" />
+                            </dragDropConfig>
+                        </List>
+                    </IconTabFilter>
+                    <IconTabFilter id="catalogsTab" key="catalogs" text="{i18n>TileSelector.CatalogsTab}">
+                        <List
+                            id="catalogsTilesList"
+                            mode="{= mobileLibrary.ListMode.MultiSelect}"
+                            modeAnimationOn="false"
+                            includeItemInSelection="true"
+                            noDataText="{i18n>Message.NoTiles}"
+                            growing="true"
+                            growingScrollToLoad="true"
+                            growingThreshold="100">
+                            <!-- the catalog tiles list uses dependents from the "rolesTilesList" above -->
+                            <dragDropConfig>
+                                <dnd:DragInfo
+                                    enabled="true"
+                                    groupName="Section"
+                                    sourceAggregation="items"
+                                    dragStart=".TileSelector.onDragStart" />
+                            </dragDropConfig>
+                        </List>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </ScrollContainer>
+    </VBox>
+</core:FragmentDefinition>

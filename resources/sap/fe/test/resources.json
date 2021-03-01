@@ -1,0 +1,1757 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".library",
+			"size": 864
+		},
+		{
+			"name": ".theming",
+			"size": 93
+		},
+		{
+			"name": "BaseActions-dbg.js",
+			"module": "sap/fe/test/BaseActions.js",
+			"size": 1995,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "BaseActions.js",
+			"module": "sap/fe/test/BaseActions.js",
+			"size": 1386,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "BaseArrangements-dbg.js",
+			"module": "sap/fe/test/BaseArrangements.js",
+			"size": 3870,
+			"isDebug": true,
+			"required": [
+				"sap/base/util/UriParameters.js",
+				"sap/fe/test/Stubs.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/thirdparty/jquery.js"
+			]
+		},
+		{
+			"name": "BaseArrangements.js",
+			"module": "sap/fe/test/BaseArrangements.js",
+			"size": 1778,
+			"required": [
+				"sap/base/util/UriParameters.js",
+				"sap/fe/test/Stubs.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/thirdparty/jquery.js"
+			]
+		},
+		{
+			"name": "BaseAssertions-dbg.js",
+			"module": "sap/fe/test/BaseAssertions.js",
+			"size": 2139,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "BaseAssertions.js",
+			"module": "sap/fe/test/BaseAssertions.js",
+			"size": 1480,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "ConfirmDialog-dbg.js",
+			"module": "sap/fe/test/ConfirmDialog.js",
+			"size": 2277,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "ConfirmDialog.js",
+			"module": "sap/fe/test/ConfirmDialog.js",
+			"size": 1082,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "FCLView-dbg.js",
+			"module": "sap/fe/test/FCLView.js",
+			"size": 2466,
+			"isDebug": true,
+			"required": [
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "FCLView.js",
+			"module": "sap/fe/test/FCLView.js",
+			"size": 1679,
+			"required": [
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "Flexibility-dbg.js",
+			"module": "sap/fe/test/Flexibility.js",
+			"size": 19099,
+			"isDebug": true,
+			"required": [
+				"sap/ui/qunit/QUnitUtils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "Flexibility.js",
+			"module": "sap/fe/test/Flexibility.js",
+			"size": 11255,
+			"required": [
+				"sap/ui/qunit/QUnitUtils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "FlexibleColumnLayout-dbg.js",
+			"module": "sap/fe/test/FlexibleColumnLayout.js",
+			"size": 5461,
+			"isDebug": true,
+			"required": [
+				"sap/base/util/merge.js",
+				"sap/fe/test/TemplatePage.js",
+				"sap/m/library.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "FlexibleColumnLayout.js",
+			"module": "sap/fe/test/FlexibleColumnLayout.js",
+			"size": 3760,
+			"required": [
+				"sap/base/util/merge.js",
+				"sap/fe/test/TemplatePage.js",
+				"sap/m/library.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "JestTemplatingHelper-dbg.js",
+			"module": "sap/fe/test/JestTemplatingHelper.js",
+			"size": 31051,
+			"isDebug": true,
+			"required": [
+				"@sap/cds-compiler.js",
+				"fs.js",
+				"prettier.js",
+				"sap/base/Log.js",
+				"sap/base/util/merge.js",
+				"sap/fe/core/converters/ConverterContext.js",
+				"sap/fe/macros/PhantomUtil.js",
+				"sap/fe/macros/internal/Field.metadata.js",
+				"sap/ui/base/BindingParser.js",
+				"sap/ui/core/InvisibleText.js",
+				"sap/ui/core/util/XMLPreprocessor.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/v4/ODataMetaModel.js",
+				"sap/ui/model/odata/v4/lib/_MetadataRequestor.js",
+				"xpath.js"
+			]
+		},
+		{
+			"name": "JestTemplatingHelper.js",
+			"module": "sap/fe/test/JestTemplatingHelper.js",
+			"size": 4141,
+			"required": [
+				"@sap/cds-compiler.js",
+				"fs.js",
+				"prettier.js",
+				"sap/base/Log.js",
+				"sap/base/util/merge.js",
+				"sap/fe/core/converters/ConverterContext.js",
+				"sap/fe/macros/PhantomUtil.js",
+				"sap/fe/macros/internal/Field.metadata.js",
+				"sap/ui/base/BindingParser.js",
+				"sap/ui/core/InvisibleText.js",
+				"sap/ui/core/util/XMLPreprocessor.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/v4/ODataMetaModel.js",
+				"sap/ui/model/odata/v4/lib/_MetadataRequestor.js",
+				"xpath.js"
+			]
+		},
+		{
+			"name": "JestTemplatingHelper.ts",
+			"size": 7842
+		},
+		{
+			"name": "JourneyRunner-dbg.js",
+			"module": "sap/fe/test/JourneyRunner.js",
+			"size": 5742,
+			"isDebug": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/fe/test/BaseActions.js",
+				"sap/fe/test/BaseArrangements.js",
+				"sap/fe/test/BaseAssertions.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/opaQunit.js"
+			]
+		},
+		{
+			"name": "JourneyRunner.js",
+			"module": "sap/fe/test/JourneyRunner.js",
+			"size": 2206,
+			"required": [
+				"sap/base/Log.js",
+				"sap/fe/test/BaseActions.js",
+				"sap/fe/test/BaseArrangements.js",
+				"sap/fe/test/BaseAssertions.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/opaQunit.js"
+			]
+		},
+		{
+			"name": "ListReport-dbg.js",
+			"module": "sap/fe/test/ListReport.js",
+			"size": 17923,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/TemplatePage.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterActionsBase.js",
+				"sap/fe/test/api/FooterAssertionsBase.js",
+				"sap/fe/test/api/HeaderActionsLR.js",
+				"sap/fe/test/api/HeaderAssertionsLR.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "ListReport.js",
+			"module": "sap/fe/test/ListReport.js",
+			"size": 9580,
+			"required": [
+				"sap/fe/test/TemplatePage.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterActionsBase.js",
+				"sap/fe/test/api/FooterAssertionsBase.js",
+				"sap/fe/test/api/HeaderActionsLR.js",
+				"sap/fe/test/api/HeaderAssertionsLR.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "LocationUtil-dbg.js",
+			"module": "sap/fe/test/LocationUtil.js",
+			"size": 1459,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "LocationUtil.js",
+			"module": "sap/fe/test/LocationUtil.js",
+			"size": 856,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "ObjectPage-dbg.js",
+			"module": "sap/fe/test/ObjectPage.js",
+			"size": 23948,
+			"isDebug": true,
+			"required": [
+				"sap/base/util/merge.js",
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/test/TemplatePage.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterActionsOP.js",
+				"sap/fe/test/api/FooterAssertionsOP.js",
+				"sap/fe/test/api/FormActions.js",
+				"sap/fe/test/api/FormAssertions.js",
+				"sap/fe/test/api/HeaderActions.js",
+				"sap/fe/test/api/HeaderAssertions.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "ObjectPage.js",
+			"module": "sap/fe/test/ObjectPage.js",
+			"size": 12939,
+			"required": [
+				"sap/base/util/merge.js",
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/test/TemplatePage.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterActionsOP.js",
+				"sap/fe/test/api/FooterAssertionsOP.js",
+				"sap/fe/test/api/FormActions.js",
+				"sap/fe/test/api/FormAssertions.js",
+				"sap/fe/test/api/HeaderActions.js",
+				"sap/fe/test/api/HeaderAssertions.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "Shell-dbg.js",
+			"module": "sap/fe/test/Shell.js",
+			"size": 2688,
+			"isDebug": true,
+			"required": [
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "Shell.js",
+			"module": "sap/fe/test/Shell.js",
+			"size": 1718,
+			"required": [
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "Stubs-dbg.js",
+			"module": "sap/fe/test/Stubs.js",
+			"size": 3024,
+			"isDebug": true,
+			"required": [
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "Stubs.js",
+			"module": "sap/fe/test/Stubs.js",
+			"size": 1951,
+			"required": [
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "TemplatePage-dbg.js",
+			"module": "sap/fe/test/TemplatePage.js",
+			"size": 14911,
+			"isDebug": true,
+			"required": [
+				"sap/base/util/deepEqual.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/ChartActions.js",
+				"sap/fe/test/api/ChartAssertions.js",
+				"sap/fe/test/api/DialogActions.js",
+				"sap/fe/test/api/DialogAssertions.js",
+				"sap/fe/test/api/DialogMessageActions.js",
+				"sap/fe/test/api/DialogMessageAssertions.js",
+				"sap/fe/test/api/DialogType.js",
+				"sap/fe/test/api/FilterBarActions.js",
+				"sap/fe/test/api/FilterBarAssertions.js",
+				"sap/fe/test/api/TableActions.js",
+				"sap/fe/test/api/TableAssertions.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/fe/test/builder/MdcFilterBarBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/ui/core/util/ShortcutHelper.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ushell/resources.js"
+			]
+		},
+		{
+			"name": "TemplatePage.js",
+			"module": "sap/fe/test/TemplatePage.js",
+			"size": 7959,
+			"required": [
+				"sap/base/util/deepEqual.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/ChartActions.js",
+				"sap/fe/test/api/ChartAssertions.js",
+				"sap/fe/test/api/DialogActions.js",
+				"sap/fe/test/api/DialogAssertions.js",
+				"sap/fe/test/api/DialogMessageActions.js",
+				"sap/fe/test/api/DialogMessageAssertions.js",
+				"sap/fe/test/api/DialogType.js",
+				"sap/fe/test/api/FilterBarActions.js",
+				"sap/fe/test/api/FilterBarAssertions.js",
+				"sap/fe/test/api/TableActions.js",
+				"sap/fe/test/api/TableAssertions.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/fe/test/builder/MdcFilterBarBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/ui/core/util/ShortcutHelper.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ushell/resources.js"
+			]
+		},
+		{
+			"name": "TemplatingTestUtils-dbg.js",
+			"module": "sap/fe/test/TemplatingTestUtils.js",
+			"size": 7612,
+			"isDebug": true,
+			"required": [
+				"sap/fe/macros/macroLibrary.js",
+				"sap/ui/core/XMLTemplateProcessor.js",
+				"sap/ui/core/util/XMLPreprocessor.js",
+				"sap/ui/model/odata/v4/ODataMetaModel.js"
+			]
+		},
+		{
+			"name": "TemplatingTestUtils.js",
+			"module": "sap/fe/test/TemplatingTestUtils.js",
+			"size": 2425,
+			"required": [
+				"sap/fe/macros/macroLibrary.js",
+				"sap/ui/core/XMLTemplateProcessor.js",
+				"sap/ui/core/util/XMLPreprocessor.js",
+				"sap/ui/model/odata/v4/ODataMetaModel.js"
+			]
+		},
+		{
+			"name": "Utils-dbg.js",
+			"module": "sap/fe/test/Utils.js",
+			"size": 8534,
+			"isDebug": true,
+			"required": [
+				"sap/base/strings/capitalize.js",
+				"sap/base/strings/formatMessage.js",
+				"sap/base/util/LoaderExtensions.js",
+				"sap/base/util/UriParameters.js",
+				"sap/base/util/merge.js"
+			]
+		},
+		{
+			"name": "Utils.js",
+			"module": "sap/fe/test/Utils.js",
+			"size": 4793,
+			"required": [
+				"sap/base/strings/capitalize.js",
+				"sap/base/strings/formatMessage.js",
+				"sap/base/util/LoaderExtensions.js",
+				"sap/base/util/UriParameters.js",
+				"sap/base/util/merge.js"
+			]
+		},
+		{
+			"name": "api/APIHelper-dbg.js",
+			"module": "sap/fe/test/api/APIHelper.js",
+			"size": 3818,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/APIHelper.js",
+			"module": "sap/fe/test/api/APIHelper.js",
+			"size": 2578,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/BaseAPI-dbg.js",
+			"module": "sap/fe/test/api/BaseAPI.js",
+			"size": 8657,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/mdc/p13n/panels/BasePanel.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/BaseAPI.js",
+			"module": "sap/fe/test/api/BaseAPI.js",
+			"size": 2676,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/mdc/p13n/panels/BasePanel.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/ChartActions-dbg.js",
+			"module": "sap/fe/test/api/ChartActions.js",
+			"size": 3235,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "api/ChartActions.js",
+			"module": "sap/fe/test/api/ChartActions.js",
+			"size": 1483,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "api/ChartAssertions-dbg.js",
+			"module": "sap/fe/test/api/ChartAssertions.js",
+			"size": 2586,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/ChartAssertions.js",
+			"module": "sap/fe/test/api/ChartAssertions.js",
+			"size": 1391,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogAPI-dbg.js",
+			"module": "sap/fe/test/api/DialogAPI.js",
+			"size": 1865,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/DialogBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogAPI.js",
+			"module": "sap/fe/test/api/DialogAPI.js",
+			"size": 730,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/DialogBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogActions-dbg.js",
+			"module": "sap/fe/test/api/DialogActions.js",
+			"size": 2165,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogAPI.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogActions.js",
+			"module": "sap/fe/test/api/DialogActions.js",
+			"size": 694,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogAPI.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogAssertions-dbg.js",
+			"module": "sap/fe/test/api/DialogAssertions.js",
+			"size": 2856,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogAPI.js"
+			]
+		},
+		{
+			"name": "api/DialogAssertions.js",
+			"module": "sap/fe/test/api/DialogAssertions.js",
+			"size": 961,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogAPI.js"
+			]
+		},
+		{
+			"name": "api/DialogMessageActions-dbg.js",
+			"module": "sap/fe/test/api/DialogMessageActions.js",
+			"size": 1294,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogActions.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogMessageActions.js",
+			"module": "sap/fe/test/api/DialogMessageActions.js",
+			"size": 519,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogActions.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogMessageAssertions-dbg.js",
+			"module": "sap/fe/test/api/DialogMessageAssertions.js",
+			"size": 1562,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogAssertions.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogMessageAssertions.js",
+			"module": "sap/fe/test/api/DialogMessageAssertions.js",
+			"size": 541,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/DialogAssertions.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/DialogType-dbg.js",
+			"module": "sap/fe/test/api/DialogType.js",
+			"size": 860,
+			"isDebug": true
+		},
+		{
+			"name": "api/DialogType.js",
+			"module": "sap/fe/test/api/DialogType.js",
+			"size": 156
+		},
+		{
+			"name": "api/FilterBarAPI-dbg.js",
+			"module": "sap/fe/test/api/FilterBarAPI.js",
+			"size": 7958,
+			"isDebug": true,
+			"required": [
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFilterBarBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/Action.js"
+			]
+		},
+		{
+			"name": "api/FilterBarAPI.js",
+			"module": "sap/fe/test/api/FilterBarAPI.js",
+			"size": 2716,
+			"required": [
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFilterBarBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/Action.js"
+			]
+		},
+		{
+			"name": "api/FilterBarActions-dbg.js",
+			"module": "sap/fe/test/api/FilterBarActions.js",
+			"size": 7550,
+			"isDebug": true,
+			"required": [
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FilterBarAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FilterBarActions.js",
+			"module": "sap/fe/test/api/FilterBarActions.js",
+			"size": 2950,
+			"required": [
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FilterBarAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FilterBarAssertions-dbg.js",
+			"module": "sap/fe/test/api/FilterBarAssertions.js",
+			"size": 7656,
+			"isDebug": true,
+			"required": [
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FilterBarAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FilterBarAssertions.js",
+			"module": "sap/fe/test/api/FilterBarAssertions.js",
+			"size": 2575,
+			"required": [
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FilterBarAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterAPI-dbg.js",
+			"module": "sap/fe/test/api/FooterAPI.js",
+			"size": 1075,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterAPI.js",
+			"module": "sap/fe/test/api/FooterAPI.js",
+			"size": 424,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterActionsBase-dbg.js",
+			"module": "sap/fe/test/api/FooterActionsBase.js",
+			"size": 1574,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterAPI.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterActionsBase.js",
+			"module": "sap/fe/test/api/FooterActionsBase.js",
+			"size": 481,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterAPI.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterActionsOP-dbg.js",
+			"module": "sap/fe/test/api/FooterActionsOP.js",
+			"size": 2409,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterActionsBase.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterActionsOP.js",
+			"module": "sap/fe/test/api/FooterActionsOP.js",
+			"size": 929,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterActionsBase.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FooterAssertionsBase-dbg.js",
+			"module": "sap/fe/test/api/FooterAssertionsBase.js",
+			"size": 2307,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterAPI.js"
+			]
+		},
+		{
+			"name": "api/FooterAssertionsBase.js",
+			"module": "sap/fe/test/api/FooterAssertionsBase.js",
+			"size": 636,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterAPI.js"
+			]
+		},
+		{
+			"name": "api/FooterAssertionsOP-dbg.js",
+			"module": "sap/fe/test/api/FooterAssertionsOP.js",
+			"size": 3355,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterAssertionsBase.js",
+				"sap/m/library.js"
+			]
+		},
+		{
+			"name": "api/FooterAssertionsOP.js",
+			"module": "sap/fe/test/api/FooterAssertionsOP.js",
+			"size": 1055,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FooterAssertionsBase.js",
+				"sap/m/library.js"
+			]
+		},
+		{
+			"name": "api/FormAPI-dbg.js",
+			"module": "sap/fe/test/api/FormAPI.js",
+			"size": 850,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FormAPI.js",
+			"module": "sap/fe/test/api/FormAPI.js",
+			"size": 353,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FormActions-dbg.js",
+			"module": "sap/fe/test/api/FormActions.js",
+			"size": 8883,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FormAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FormActions.js",
+			"module": "sap/fe/test/api/FormActions.js",
+			"size": 2769,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FormAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FormAssertions-dbg.js",
+			"module": "sap/fe/test/api/FormAssertions.js",
+			"size": 9862,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FormAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/FormAssertions.js",
+			"module": "sap/fe/test/api/FormAssertions.js",
+			"size": 3238,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/FormAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderAPI-dbg.js",
+			"module": "sap/fe/test/api/HeaderAPI.js",
+			"size": 5171,
+			"isDebug": true,
+			"required": [
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderAPI.js",
+			"module": "sap/fe/test/api/HeaderAPI.js",
+			"size": 1741,
+			"required": [
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderActions-dbg.js",
+			"module": "sap/fe/test/api/HeaderActions.js",
+			"size": 7470,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderActions.js",
+			"module": "sap/fe/test/api/HeaderActions.js",
+			"size": 3157,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderActionsLR-dbg.js",
+			"module": "sap/fe/test/api/HeaderActionsLR.js",
+			"size": 3131,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderLR.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderActionsLR.js",
+			"module": "sap/fe/test/api/HeaderActionsLR.js",
+			"size": 1357,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderLR.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderAssertions-dbg.js",
+			"module": "sap/fe/test/api/HeaderAssertions.js",
+			"size": 19369,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderAssertions.js",
+			"module": "sap/fe/test/api/HeaderAssertions.js",
+			"size": 6903,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderAssertionsLR-dbg.js",
+			"module": "sap/fe/test/api/HeaderAssertionsLR.js",
+			"size": 4462,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderLR.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderAssertionsLR.js",
+			"module": "sap/fe/test/api/HeaderAssertionsLR.js",
+			"size": 1821,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/HeaderLR.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderLR-dbg.js",
+			"module": "sap/fe/test/api/HeaderLR.js",
+			"size": 2054,
+			"isDebug": true,
+			"required": [
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/HeaderLR.js",
+			"module": "sap/fe/test/api/HeaderLR.js",
+			"size": 799,
+			"required": [
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/TableAPI-dbg.js",
+			"module": "sap/fe/test/api/TableAPI.js",
+			"size": 11023,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/Action.js"
+			]
+		},
+		{
+			"name": "api/TableAPI.js",
+			"module": "sap/fe/test/api/TableAPI.js",
+			"size": 3888,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/Action.js"
+			]
+		},
+		{
+			"name": "api/TableActions-dbg.js",
+			"module": "sap/fe/test/api/TableActions.js",
+			"size": 23726,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/TableAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "api/TableActions.js",
+			"module": "sap/fe/test/api/TableActions.js",
+			"size": 9242,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/TableAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "api/TableAssertions-dbg.js",
+			"module": "sap/fe/test/api/TableAssertions.js",
+			"size": 16139,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/TableAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "api/TableAssertions.js",
+			"module": "sap/fe/test/api/TableAssertions.js",
+			"size": 4824,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/TableAPI.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/DialogBuilder-dbg.js",
+			"module": "sap/fe/test/builder/DialogBuilder.js",
+			"size": 2451,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/DialogBuilder.js",
+			"module": "sap/fe/test/builder/DialogBuilder.js",
+			"size": 1516,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/FEBuilder-dbg.js",
+			"module": "sap/fe/test/builder/FEBuilder.js",
+			"size": 9943,
+			"isDebug": true,
+			"required": [
+				"sap/base/util/deepEqual.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/core/util/ShortcutHelper.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Matcher.js"
+			]
+		},
+		{
+			"name": "builder/FEBuilder.js",
+			"module": "sap/fe/test/builder/FEBuilder.js",
+			"size": 4151,
+			"required": [
+				"sap/base/util/deepEqual.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/core/util/ShortcutHelper.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Matcher.js"
+			]
+		},
+		{
+			"name": "builder/MacroFieldBuilder-dbg.js",
+			"module": "sap/fe/test/builder/MacroFieldBuilder.js",
+			"size": 5694,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MacroFieldBuilder.js",
+			"module": "sap/fe/test/builder/MacroFieldBuilder.js",
+			"size": 2952,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcFieldBuilder-dbg.js",
+			"module": "sap/fe/test/builder/MdcFieldBuilder.js",
+			"size": 8261,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/mdc/enum/ConditionValidated.js",
+				"sap/ui/mdc/enum/FieldDisplay.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcFieldBuilder.js",
+			"module": "sap/fe/test/builder/MdcFieldBuilder.js",
+			"size": 3089,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/mdc/enum/ConditionValidated.js",
+				"sap/ui/mdc/enum/FieldDisplay.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcFilterBarBuilder-dbg.js",
+			"module": "sap/fe/test/builder/MdcFilterBarBuilder.js",
+			"size": 2640,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcFilterBarBuilder.js",
+			"module": "sap/fe/test/builder/MdcFilterBarBuilder.js",
+			"size": 1626,
+			"required": [
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcFilterFieldBuilder-dbg.js",
+			"module": "sap/fe/test/builder/MdcFilterFieldBuilder.js",
+			"size": 1408,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcFilterFieldBuilder.js",
+			"module": "sap/fe/test/builder/MdcFilterFieldBuilder.js",
+			"size": 512,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js"
+			]
+		},
+		{
+			"name": "builder/MdcTableBuilder-dbg.js",
+			"module": "sap/fe/test/builder/MdcTableBuilder.js",
+			"size": 20865,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/table/library.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/EnterText.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "builder/MdcTableBuilder.js",
+			"module": "sap/fe/test/builder/MdcTableBuilder.js",
+			"size": 10589,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/table/library.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/EnterText.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "builder/OverflowToolbarBuilder-dbg.js",
+			"module": "sap/fe/test/builder/OverflowToolbarBuilder.js",
+			"size": 2920,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "builder/OverflowToolbarBuilder.js",
+			"module": "sap/fe/test/builder/OverflowToolbarBuilder.js",
+			"size": 1426,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/matchers/Interactable.js"
+			]
+		},
+		{
+			"name": "builder/VMBuilder-dbg.js",
+			"module": "sap/fe/test/builder/VMBuilder.js",
+			"size": 7282,
+			"isDebug": true,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "builder/VMBuilder.js",
+			"module": "sap/fe/test/builder/VMBuilder.js",
+			"size": 3530,
+			"required": [
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "internal/FEArrangements-dbg.js",
+			"module": "sap/fe/test/internal/FEArrangements.js",
+			"size": 1702,
+			"isDebug": true,
+			"required": [
+				"sap/base/util/UriParameters.js",
+				"sap/fe/test/BaseArrangements.js",
+				"sap/fe/test/Stubs.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "internal/FEArrangements.js",
+			"module": "sap/fe/test/internal/FEArrangements.js",
+			"size": 1009,
+			"required": [
+				"sap/base/util/UriParameters.js",
+				"sap/fe/test/BaseArrangements.js",
+				"sap/fe/test/Stubs.js",
+				"sap/fe/test/Utils.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js"
+			]
+		},
+		{
+			"name": "internal/FEJourneyRunner-dbg.js",
+			"module": "sap/fe/test/internal/FEJourneyRunner.js",
+			"size": 1045,
+			"isDebug": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/fe/test/JourneyRunner.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/internal/FEArrangements.js"
+			]
+		},
+		{
+			"name": "internal/FEJourneyRunner.js",
+			"module": "sap/fe/test/internal/FEJourneyRunner.js",
+			"size": 688,
+			"required": [
+				"sap/base/Log.js",
+				"sap/fe/test/JourneyRunner.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/internal/FEArrangements.js"
+			]
+		},
+		{
+			"name": "library-dbg.js",
+			"module": "sap/fe/test/library.js",
+			"size": 894,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js"
+			]
+		},
+		{
+			"name": "library-h2-preload.js",
+			"module": "sap/fe/test/library-h2-preload.js",
+			"size": 12838,
+			"merged": true,
+			"required": [
+				"@sap/cds-compiler.js",
+				"fs.js",
+				"prettier.js",
+				"sap/base/Log.js",
+				"sap/base/strings/capitalize.js",
+				"sap/base/strings/formatMessage.js",
+				"sap/base/util/LoaderExtensions.js",
+				"sap/base/util/UriParameters.js",
+				"sap/base/util/deepEqual.js",
+				"sap/base/util/merge.js",
+				"sap/fe/core/converters/ConverterContext.js",
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/macros/PhantomUtil.js",
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/macros/internal/Field.metadata.js",
+				"sap/fe/macros/macroLibrary.js",
+				"sap/m/library.js",
+				"sap/ui/base/BindingParser.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/InvisibleText.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/core/XMLTemplateProcessor.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/util/ShortcutHelper.js",
+				"sap/ui/core/util/XMLPreprocessor.js",
+				"sap/ui/mdc/enum/ConditionValidated.js",
+				"sap/ui/mdc/enum/FieldDisplay.js",
+				"sap/ui/mdc/p13n/panels/BasePanel.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/v4/ODataMetaModel.js",
+				"sap/ui/model/odata/v4/lib/_MetadataRequestor.js",
+				"sap/ui/qunit/QUnitUtils.js",
+				"sap/ui/table/library.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/Action.js",
+				"sap/ui/test/actions/EnterText.js",
+				"sap/ui/test/matchers/Interactable.js",
+				"sap/ui/test/matchers/Matcher.js",
+				"sap/ui/test/opaQunit.js",
+				"sap/ui/thirdparty/jquery.js",
+				"sap/ushell/resources.js",
+				"xpath.js"
+			],
+			"included": [
+				"sap/fe/test/library.js",
+				"sap/fe/test/manifest.json",
+				"sap/fe/test/BaseActions.js",
+				"sap/fe/test/BaseArrangements.js",
+				"sap/fe/test/BaseAssertions.js",
+				"sap/fe/test/ConfirmDialog.js",
+				"sap/fe/test/FCLView.js",
+				"sap/fe/test/Flexibility.js",
+				"sap/fe/test/FlexibleColumnLayout.js",
+				"sap/fe/test/JestTemplatingHelper.js",
+				"sap/fe/test/JourneyRunner.js",
+				"sap/fe/test/ListReport.js",
+				"sap/fe/test/LocationUtil.js",
+				"sap/fe/test/ObjectPage.js",
+				"sap/fe/test/Shell.js",
+				"sap/fe/test/Stubs.js",
+				"sap/fe/test/TemplatePage.js",
+				"sap/fe/test/TemplatingTestUtils.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/api/ChartActions.js",
+				"sap/fe/test/api/ChartAssertions.js",
+				"sap/fe/test/api/DialogAPI.js",
+				"sap/fe/test/api/DialogActions.js",
+				"sap/fe/test/api/DialogAssertions.js",
+				"sap/fe/test/api/DialogMessageActions.js",
+				"sap/fe/test/api/DialogMessageAssertions.js",
+				"sap/fe/test/api/DialogType.js",
+				"sap/fe/test/api/FilterBarAPI.js",
+				"sap/fe/test/api/FilterBarActions.js",
+				"sap/fe/test/api/FilterBarAssertions.js",
+				"sap/fe/test/api/FooterAPI.js",
+				"sap/fe/test/api/FooterActionsBase.js",
+				"sap/fe/test/api/FooterActionsOP.js",
+				"sap/fe/test/api/FooterAssertionsBase.js",
+				"sap/fe/test/api/FooterAssertionsOP.js",
+				"sap/fe/test/api/FormAPI.js",
+				"sap/fe/test/api/FormActions.js",
+				"sap/fe/test/api/FormAssertions.js",
+				"sap/fe/test/api/HeaderAPI.js",
+				"sap/fe/test/api/HeaderActions.js",
+				"sap/fe/test/api/HeaderActionsLR.js",
+				"sap/fe/test/api/HeaderAssertions.js",
+				"sap/fe/test/api/HeaderAssertionsLR.js",
+				"sap/fe/test/api/HeaderLR.js",
+				"sap/fe/test/api/TableAPI.js",
+				"sap/fe/test/api/TableActions.js",
+				"sap/fe/test/api/TableAssertions.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/fe/test/builder/MdcFilterBarBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/fe/test/internal/FEArrangements.js",
+				"sap/fe/test/internal/FEJourneyRunner.js"
+			]
+		},
+		{
+			"name": "library-h2-preload.js.map",
+			"size": 431,
+			"isDebug": true
+		},
+		{
+			"name": "library-preload.js",
+			"module": "sap/fe/test/library-preload.js",
+			"size": 169038,
+			"merged": true,
+			"required": [
+				"@sap/cds-compiler.js",
+				"fs.js",
+				"prettier.js",
+				"sap/base/Log.js",
+				"sap/base/strings/capitalize.js",
+				"sap/base/strings/formatMessage.js",
+				"sap/base/util/LoaderExtensions.js",
+				"sap/base/util/UriParameters.js",
+				"sap/base/util/deepEqual.js",
+				"sap/base/util/merge.js",
+				"sap/fe/core/converters/ConverterContext.js",
+				"sap/fe/core/helpers/StableIdHelper.js",
+				"sap/fe/macros/PhantomUtil.js",
+				"sap/fe/macros/filter/DraftEditState.js",
+				"sap/fe/macros/internal/Field.metadata.js",
+				"sap/fe/macros/macroLibrary.js",
+				"sap/m/library.js",
+				"sap/ui/base/BindingParser.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/InvisibleText.js",
+				"sap/ui/core/SortOrder.js",
+				"sap/ui/core/XMLTemplateProcessor.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/util/ShortcutHelper.js",
+				"sap/ui/core/util/XMLPreprocessor.js",
+				"sap/ui/mdc/enum/ConditionValidated.js",
+				"sap/ui/mdc/enum/FieldDisplay.js",
+				"sap/ui/mdc/p13n/panels/BasePanel.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/v4/ODataMetaModel.js",
+				"sap/ui/model/odata/v4/lib/_MetadataRequestor.js",
+				"sap/ui/qunit/QUnitUtils.js",
+				"sap/ui/table/library.js",
+				"sap/ui/test/Opa5.js",
+				"sap/ui/test/OpaBuilder.js",
+				"sap/ui/test/actions/Action.js",
+				"sap/ui/test/actions/EnterText.js",
+				"sap/ui/test/matchers/Interactable.js",
+				"sap/ui/test/matchers/Matcher.js",
+				"sap/ui/test/opaQunit.js",
+				"sap/ui/thirdparty/jquery.js",
+				"sap/ushell/resources.js",
+				"xpath.js"
+			],
+			"included": [
+				"sap/fe/test/BaseActions.js",
+				"sap/fe/test/BaseArrangements.js",
+				"sap/fe/test/BaseAssertions.js",
+				"sap/fe/test/ConfirmDialog.js",
+				"sap/fe/test/FCLView.js",
+				"sap/fe/test/Flexibility.js",
+				"sap/fe/test/FlexibleColumnLayout.js",
+				"sap/fe/test/JestTemplatingHelper.js",
+				"sap/fe/test/JourneyRunner.js",
+				"sap/fe/test/ListReport.js",
+				"sap/fe/test/LocationUtil.js",
+				"sap/fe/test/ObjectPage.js",
+				"sap/fe/test/Shell.js",
+				"sap/fe/test/Stubs.js",
+				"sap/fe/test/TemplatePage.js",
+				"sap/fe/test/TemplatingTestUtils.js",
+				"sap/fe/test/Utils.js",
+				"sap/fe/test/api/APIHelper.js",
+				"sap/fe/test/api/BaseAPI.js",
+				"sap/fe/test/api/ChartActions.js",
+				"sap/fe/test/api/ChartAssertions.js",
+				"sap/fe/test/api/DialogAPI.js",
+				"sap/fe/test/api/DialogActions.js",
+				"sap/fe/test/api/DialogAssertions.js",
+				"sap/fe/test/api/DialogMessageActions.js",
+				"sap/fe/test/api/DialogMessageAssertions.js",
+				"sap/fe/test/api/DialogType.js",
+				"sap/fe/test/api/FilterBarAPI.js",
+				"sap/fe/test/api/FilterBarActions.js",
+				"sap/fe/test/api/FilterBarAssertions.js",
+				"sap/fe/test/api/FooterAPI.js",
+				"sap/fe/test/api/FooterActionsBase.js",
+				"sap/fe/test/api/FooterActionsOP.js",
+				"sap/fe/test/api/FooterAssertionsBase.js",
+				"sap/fe/test/api/FooterAssertionsOP.js",
+				"sap/fe/test/api/FormAPI.js",
+				"sap/fe/test/api/FormActions.js",
+				"sap/fe/test/api/FormAssertions.js",
+				"sap/fe/test/api/HeaderAPI.js",
+				"sap/fe/test/api/HeaderActions.js",
+				"sap/fe/test/api/HeaderActionsLR.js",
+				"sap/fe/test/api/HeaderAssertions.js",
+				"sap/fe/test/api/HeaderAssertionsLR.js",
+				"sap/fe/test/api/HeaderLR.js",
+				"sap/fe/test/api/TableAPI.js",
+				"sap/fe/test/api/TableActions.js",
+				"sap/fe/test/api/TableAssertions.js",
+				"sap/fe/test/builder/DialogBuilder.js",
+				"sap/fe/test/builder/FEBuilder.js",
+				"sap/fe/test/builder/MacroFieldBuilder.js",
+				"sap/fe/test/builder/MdcFieldBuilder.js",
+				"sap/fe/test/builder/MdcFilterBarBuilder.js",
+				"sap/fe/test/builder/MdcFilterFieldBuilder.js",
+				"sap/fe/test/builder/MdcTableBuilder.js",
+				"sap/fe/test/builder/OverflowToolbarBuilder.js",
+				"sap/fe/test/builder/VMBuilder.js",
+				"sap/fe/test/internal/FEArrangements.js",
+				"sap/fe/test/internal/FEJourneyRunner.js",
+				"sap/fe/test/library.js",
+				"sap/fe/test/manifest.json"
+			]
+		},
+		{
+			"name": "library-preload.js.map",
+			"size": 167457,
+			"isDebug": true
+		},
+		{
+			"name": "library.js",
+			"module": "sap/fe/test/library.js",
+			"size": 389,
+			"required": [
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js"
+			]
+		},
+		{
+			"name": "manifest.json",
+			"module": "sap/fe/test/manifest.json",
+			"size": 743
+		},
+		{
+			"name": "resources.json",
+			"size": 24784
+		}
+	]
+}

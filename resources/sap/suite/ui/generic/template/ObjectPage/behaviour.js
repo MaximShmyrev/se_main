@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/Fragment"],function(F){"use strict";var p={getPlaceholderPage:function(v){return F.load({id:v,name:"sap.suite.ui.generic.template.ObjectPage.view.fragments.Placeholder",type:"XML"});}};function g(){return p;}return{getPlaceholderInfo:g};});

@@ -1,0 +1,144 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:u="sap.ui.unified"
+	xmlns:control="sap.fe.core.controls"
+	xmlns:macro="sap.fe.macros"
+	xmlns:macroField="sap.fe.macros.field"
+	xmlns:log="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	template:require="{
+							FIELD: 'sap/fe/macros/field/FieldHelper',
+							COMMON: 'sap/fe/macros/CommonHelper',
+							ID: 'sap/fe/core/helpers/StableIdHelper',
+							MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+							UI: 'sap/fe/core/templating/UIFormatters',
+							FieldTemplating: 'sap/fe/macros/field/FieldTemplating',
+							ValueHelpTemplating: 'sap/fe/macros/internal/valuehelp/ValueHelpTemplating',
+							Property: 'sap/fe/core/templating/PropertyFormatters'
+						 }"
+>
+
+	<!-- this is not from a dataField/dataPoint annotation but a property in the entityType -->
+	<template:with path="property>" helper="FIELD.valueHelpProperty" var="valueHelpProperty">
+		<mdc:Field
+			unittest:id="MacroPropertyField"
+			core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+			delegate="{name: 'sap/ui/mdc/odata/v4/FieldBaseDelegate'}"
+			log:sourcePath="{this>dataSourcePath}"
+			value="{= FieldTemplating.getValueBinding(${property>@@UI.getDataModelObjectPath}, ${entitySet>@@UI.getDataModelObjectPath})}"
+			id="{this>_flexId}"
+			editMode="{this>editMode}"
+			display="{= UI.getFieldDisplay(${property>@@UI.getConverterContext}, ${this>formatOptions/displayMode}, ${this>editModeAsObject})}"
+			width="100%"
+			additionalValue="{= !(${property>@Org.OData.Measures.V1.ISOCurrency} || ${property>@Org.OData.Measures.V1.Unit} )
+								? FIELD._buildExpressionForTextProperty(${property>@sapui.name}, ${property>@@FIELD._context})
+								: undefined }"
+			multipleLines="{= FIELD.getMultipleLinesForPropertyField(${this>}, ${property>}) }"
+			fieldGroupIds="{parts:[{path:'property>@sapui.name'}, {path:'entityType>'}], formatter: 'FIELD.getFieldGroupIds'}"
+			fieldHelp="{= ${valueHelpProperty>@@Property.hasValueHelp} ? ValueHelpTemplating.generateID(${this>_vhFlexId},${this>vhIdPrefix},${property>@@Property.getRelativePropertyPath},${valueHelpProperty>@@Property.getRelativePropertyPath}) : undefined}"
+			textAlign="{= FIELD.getPropertyAlignment(${dataField>$Type}) }"
+			change="{= ${this>onChange} || 'FieldRuntime.handleChange($controller, $event)' }"
+			validateFieldGroup="FieldRuntime.handleSideEffect($event)"
+			showEmptyIndicator="{this>formatOptions/showEmptyIndicator}"
+		>
+			<template:if test="{property>@Org.OData.Measures.V1.ISOCurrency}">
+				<template:then>
+				<template:with path="property>@Org.OData.Measures.V1.ISOCurrency" var="currency">
+					<mdc:contentDisplay>
+						<control:FormElementWrapper formDoNotAdjustWidth="true" width="{= ${this>formatOptions/textAlignMode} === 'Table' ? '100%' : undefined}">
+							<u:Currency value="{property>@@MODEL.value}" currency="{currency>@@MODEL.value}" useSymbol="false" />
+						</control:FormElementWrapper>
+					</mdc:contentDisplay>
+				</template:with>
+				</template:then>
+				<template:elseif test="{= (${property>$Type} === 'Edm.String') &amp;&amp; ${property>@com.sap.vocabularies.UI.v1.MultiLineText} }">
+					<!-- MultiLineText on Object Page -->
+					<mdc:contentEdit>
+						<TextArea
+							value="{property>@@MODEL.format}"
+							required="{= FIELD.getRequiredForDataField(${property>@@FIELD.fieldControl}, ${this>editMode})}"
+							rows="{this>formatOptions/textLinesEdit}"
+							width="100%"
+							change="{= ${this>onChange} || 'FieldRuntime.handleChange($controller, $event)' }"
+						/>
+					</mdc:contentEdit>
+					<mdc:contentDisplay>
+						<Text text="{property>@@MODEL.format}" width="100%" maxLines="{this>formatOptions/textLinesDisplay}" />
+					</mdc:contentDisplay>
+				</template:elseif>
+			</template:if>
+			<template:if
+				test="{= ${this>formatOptions/semanticKeyStyle} &amp;&amp; FIELD.isSemanticKey(${entitySet>./@com.sap.vocabularies.Common.v1.SemanticKey}, ${dataField>@@FIELD.propertyName}) }"
+			>
+				<template:with path="property>" var="propertyPath">
+
+				<template:if test="{entitySet>@com.sap.vocabularies.Common.v1.DraftRoot}">
+					<template:then>
+						<mdc:contentDisplay>
+							<control:FormElementWrapper formDoNotAdjustWidth="true">
+								<VBox>
+									<core:Fragment fragmentName="sap.fe.macros.field.SemanticKey" type="XML" />
+									<macro:DraftIndicator type="IconAndText" entitySet="{entitySet>}" />
+								</VBox>
+							</control:FormElementWrapper>
+						</mdc:contentDisplay>
+					</template:then>
+					<template:else>
+						<mdc:contentDisplay>
+							<core:Fragment fragmentName="sap.fe.macros.field.SemanticKey" type="XML" />
+						</mdc:contentDisplay>
+					</template:else>
+				</template:if>
+				</template:with>
+			</template:if>
+
+			<template:if test="{property>@@FIELD.getNavigationEntity}">
+				<template:then>
+					<template:with path="property>" helper="FIELD.getNavigationEntity" var="entityType">
+						<template:if
+							test="{= ${property>@com.sap.vocabularies.Common.v1.SemanticObject} || ${entityType>./@com.sap.vocabularies.UI.v1.QuickViewFacets}}"
+						>
+							<!--PropertyField : navigation entity + semanticObject-->
+							<!-- or navigation entity, no semanticObject, quickViewFacets-->
+							<mdc:fieldInfo>
+								<macroField:QuickViewForm dataField="{property>}" entityType="{entityType>}" />
+							</mdc:fieldInfo>
+						</template:if>
+					</template:with>
+				</template:then>
+				<template:elseif test="{property>@com.sap.vocabularies.Common.v1.SemanticObject}">
+					<!--PropertyField : no navigation entity but semanticObject-->
+					<mdc:fieldInfo>
+						<macroField:QuickViewForm dataField="{property>}" />
+					</mdc:fieldInfo>
+				</template:elseif>
+			</template:if>
+			<template:if test="{= ${dataField>$Type} === 'Edm.Boolean'}">
+			<mdc:contentEdit>
+				<CheckBox
+						selected="{property>@@MODEL.format}"
+						editable="{= UI.getEditableExpression(${property>@@UI.getConverterContext})}"
+						enabled="{= UI.getEnabledExpression(${property>@@UI.getConverterContext})}"
+						select="{= ${this>onChange} || 'FieldRuntime.handleChange($controller, $event)' }"
+						fieldGroupIds="{parts:[{path:'property>@sapui.name'}, {path:'entityType>'}], formatter: 'FIELD.getFieldGroupIds'}"
+						validateFieldGroup="FieldRuntime.handleSideEffect($event)"
+						ariaLabelledBy="{this>ariaLabelledBy}"
+					/>
+			</mdc:contentEdit>
+			</template:if>
+			<template:if test="{= ${property>$Type} === 'Edm.Stream'}">
+                <mdc:contentDisplay>
+					<control:FormElementWrapper formDoNotAdjustWidth="true">
+						<HBox>
+							<core:Icon src="sap-icon://document" class="sapUiSmallMarginEnd" />
+							<Link text="{this.i18n>M_DATAFIELD_FRAGMENT_FIELD_PREVIEW}" target="_blank" href="{property>@@MODEL.value}" />
+						</HBox>
+					</control:FormElementWrapper>
+                </mdc:contentDisplay>
+			</template:if>
+		</mdc:Field>
+	</template:with>
+</core:FragmentDefinition>

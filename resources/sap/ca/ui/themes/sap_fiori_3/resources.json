@@ -1,0 +1,124 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".theming",
+			"size": 90,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "Chart.less",
+			"size": 6668,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "ChartToolBar.less",
+			"size": 1035,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "ClusterListItem.less",
+			"size": 1106,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "DatePicker.less",
+			"size": 248,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "FileUpload.less",
+			"size": 892,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "HierarchyItem.less",
+			"size": 453,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "InPlaceEdit.less",
+			"size": 752,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "OverflowContainer.less",
+			"size": 2018,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "OverviewTile.less",
+			"size": 796,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "PictureTile.less",
+			"size": 374,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "css_variables.css",
+			"size": 5723,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "css_variables.less",
+			"size": 90856,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "css_variables.source.less",
+			"size": 90488,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library-RTL.css",
+			"size": 33209,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library-parameters.json",
+			"size": 2283,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library.css",
+			"size": 33208,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library.less",
+			"size": 15362,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library.source.less",
+			"size": 572,
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library_skeleton-RTL.css",
+			"size": 32281,
+			"theme": "sap_fiori_3"
+		},
+		{
+			"name": "library_skeleton.css",
+			"size": 32280,
+			"theme": "sap_fiori_3"
+		}
+	]
+}

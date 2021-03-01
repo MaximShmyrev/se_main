@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	template:require="{
+							FIELD: 'sap/fe/macros/field/FieldHelper',
+							MODEL: 'sap/ui/model/odata/v4/AnnotationHelper'
+						 }"
+>
+	<template:if test="{= (${property>$Path/$Type} === 'Edm.String') &amp;&amp;	${property>$Path@com.sap.vocabularies.UI.v1.MultiLineText} }">
+		<template:then>
+			<Text text="{property>@@MODEL.format}" width="100%" maxLines="{this>formatOptions/textLinesDisplay}" />
+		</template:then>
+		<template:elseif test="{= typeof(${property>}) === 'string'}">
+			<!-- if a property is of type string (hard coded value), then render a Text Box-->
+			<Text text="{property>}" />
+		</template:elseif>
+		<template:else>
+			<Text
+				core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+				text="{ parts:[ {path:'property>'},{path:'property>$Path@'}, {path:'property>$Path@@FIELD.buildExpressionForTextValue'}, {path:'this>formatOptions'}], formatter: 'FIELD.buildFieldBindingExpression'}"
+			/>
+		</template:else>
+	</template:if>
+
+
+</core:FragmentDefinition>

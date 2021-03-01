@@ -1,0 +1,2 @@
+// Copyright (c) 2009-2020 SAP SE, All Rights Reserved
+sap.ui.define([],function(){"use strict";return function H(g,r,b,c){if(!/String/.test(Object.prototype.toString.call(b))){throw"IllegalArgumentError: `sBaseUrl` should be a string";}var C={sBaseUrl:b,token:undefined};return Object.create(null,{post:{value:g("POST",r,b,c,C)},get:{value:g("GET",r,b,c,C)},put:{value:g("PUT",r,b,c,C)},delete:{value:g("DELETE",r,b,c,C)},options:{value:g("OPTIONS",r,b,c,C)}});};});
