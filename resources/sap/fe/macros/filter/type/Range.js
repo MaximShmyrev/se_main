@@ -1,1 +1,0 @@
-sap.ui.define(["./Value"],function(V){"use strict";return V.extend("sap.fe.macros.filter.type.Range",{formatValue:function(v,i){var r=V.prototype.formatValue.apply(this,arguments);if(!r){var m=this.oFormatOptions.min||Number.MIN_SAFE_INTEGER,M=this.oFormatOptions.max||Number.MAX_SAFE_INTEGER;r=[m,M];}return r;},getDefaultOperatorName:function(){return"BT";}});},true);

@@ -1,2 +1,0 @@
-// Copyright (c) 2009-2020 SAP SE, All Rights Reserved
-sap.ui.define(["./cdm.constants","../common/common.configure.ui5","../common/common.configure.ushell","../common/common.override.registermodulepath","../common/common.configure.ui5.extractLibs"],function(c,C,f,o,e){"use strict";if(performance&&performance.mark){performance.mark("FLP first paint!");}var u=f({defaultUshellConfig:c.defaultConfig});C({ushellConfig:u,libs:e(u),platform:"cdm"});o();});

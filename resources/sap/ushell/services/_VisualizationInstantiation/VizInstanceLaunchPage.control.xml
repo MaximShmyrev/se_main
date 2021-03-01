@@ -1,8 +1,0 @@
-<FragmentDefinition xmlns="sap.ui.core" xmlns:m="sap.m">
-    <m:GenericTile
-        frameType= "{
-            path: 'displayFormatHint',
-            formatter: '._formatPlaceholderFrameType'
-        }"
-        state="{$this>state}"/>
-</FragmentDefinition>
