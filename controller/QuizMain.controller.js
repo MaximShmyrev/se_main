@@ -12,6 +12,14 @@ sap.ui.define([
 		onInit: function() {
 			
 		},
+		
+		onPressHome: function() {
+			//var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			document.title = "Главная страница";
+			//oRouter.navTo("home", {}, true);
+			window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html", "_self");
+
+		},		
 
 		onNavToUpload: function() {
 			this.getRouter().navTo("upload");
