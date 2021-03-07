@@ -5,7 +5,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 		"use strict";
 
 		var json;
-		var oData;
+		var oData = [];
 		var results;
 
 		//request data from backend
@@ -32,25 +32,34 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 					results = JSON.parse(arrayResponse.toString());
 
 					//add state property to oData
+					var index = 0;
 					for (var i = 0; i < results.ANALYTICS.length; i++) {
-						for (var j = 0; j < results.ANALYTICS[i].results.length; j++) {
+						for (var j = 0; j < results.ANALYTICS[i].RESULTS.length; j++) {
 
 							var isAnswer;
 
-							if (ANALYTICS[i].results[j].ISANSWER == "1") {
+							if (results.ANALYTICS[i].RESULTS[j].ISANSWER == "1") {
 								isAnswer = "верно"
 							} else {
 								isAnswer = "неверно"
 							};
 
-							oData = {
-								user: results.ANALYTICS[i].USERID,
-								date: results.ANALYTICS[i].DATETIME,
-								test: results.ANALYTICS[i].results[j].DESCRIPTION,
-								question: ANALYTICS[i].results[j].QUESTIONTEXT,
-								answer: ANALYTICS[i].results[j].ANSWERTEXT,
-								result: currentQuestion,
-							};
+							if (results.ANALYTICS[i].USERID !== "null") {
+
+								oData[index] = {
+									user: results.ANALYTICS[i].USERID,
+									date: results.ANALYTICS[i].DATETIME,
+									test: results.ANALYTICS[i].RESULTS[j].DESCRIPTION,
+									question: results.ANALYTICS[i].RESULTS[j].QUESTIONTEXT,
+									answer: results.ANALYTICS[i].RESULTS[j].ANSWERTEXT,
+									result: isAnswer,
+								};
+
+								index = index + 1;								
+							
+							}
+
+
 						}
 					}
 
@@ -62,7 +71,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 						//questtion: currentQuestion,
 						//answer: sessionStorage.getItem("QUIZTITLE"),
 						//result: currentQuestion,
-					};
+					//};
 
 				}
 			}
