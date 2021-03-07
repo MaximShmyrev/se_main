@@ -1,6 +1,0 @@
-/*
- * ! OpenUI5
- * (c) Copyright 2009-2021 SAP SE or an SAP affiliate company.
- * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
- */
-sap.ui.define(["sap/ui/fl/write/_internal/flexState/compVariants/CompVariantState","sap/ui/fl/write/_internal/transport/TransportSelection","sap/ui/fl/registry/Settings","sap/ui/fl/apply/_internal/flexState/ManifestUtils"],function(C,T,S,M){"use strict";function g(c){return c&&c.getPersistencyKey&&c.getPersistencyKey();}function s(p,f){p.persistencyKey=g(p.control);if(!p.reference){p.reference=M.getFlexReferenceForControl(p.control);}return f(p);}var a={add:function(p){return s(p,C.add).getId();},addVariant:function(p){p.fileType="variant";return s(p,C.add);},updateVariant:function(p){return s(p,C.updateVariant);},removeVariant:function(p){return s(p,C.removeVariant);},save:function(p){return s(p,C.persist);},setDefaultVariantId:function(p){return s(p,C.setDefault);},setExecuteOnSelect:function(p){return s(p,C.setExecuteOnSelect);},isVariantSharingEnabled:function(){return S.getInstance().then(function(i){return i.isVariantSharingEnabled();});},isVariantPersonalizationEnabled:function(){return S.getInstance().then(function(i){return i.isVariantPersonalizationEnabled();});},_getTransportSelection:function(){return new T();}};return a;},true);
