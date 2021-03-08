@@ -17,7 +17,6 @@ sap.ui.define([
 		onInit: function() {
 			this.byId("SplitApp").toDetail(this.createId("detail"));
 			
-				var treedata;
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
@@ -143,7 +142,7 @@ sap.ui.define([
 
 			if (keyWord !== "") {
 				var sQuery = keyWord;
-				aFilter.push(new Filter("title", FilterOperator.Contains, sQuery));
+				aFilter.push(new Filter("HEADER", FilterOperator.Contains, sQuery));
 			} else {
 				for (var i = 0; i < filters.length; i++) {
 					var name = filters[i].getContent()[0].mProperties.text;
