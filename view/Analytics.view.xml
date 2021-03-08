@@ -1,11 +1,52 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:layout="sap.ui.layout" xmlns:viz="sap.viz.ui5.controls" controllerName="main.controller.Analytics">
-	<Page title="Аналитика" showNavButton="true" navButtonPress=".onNavBack" backgroundDesign="Solid">
+<mvc:View
+	controllerName="main.controller.Analytics"
+	xmlns="sap.suite.ui.commons"
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<ChartContainer
+		id="idChartContainer"
+		showFullScreen="false"
+		showPersonalization="false"
+		autoAdjustHeight="false"
+		title="">
 		<content>
-			<layout:Splitter width="100%" height="100%">
-				<layout:contentAreas>
-					<viz:VizFrame xmlns="sap.viz" id="idStackedChart" vizType="column" width="100%" height="100%"></viz:VizFrame>
-				</layout:contentAreas>
-			</layout:Splitter>
+			<!-- <ChartContainerContent
+				icon="sap-icon://line-chart"
+				title="Line Chart">
+				<content>
+					<viz:VizFrame id="idoVizFrame" height="600px" width="100%"
+					              uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+				</content>
+			</ChartContainerContent> -->
+			<ChartContainerContent
+				icon="sap-icon://table-view"
+				title="Table">
+				<content>
+					<m:Table id="idTable"></m:Table>
+				</content>
+			</ChartContainerContent>
 		</content>
-	</Page>
+		<customIcons>
+			<core:Icon id="customIcon" src="sap-icon://excel-attachment" tooltip="Эскпорт в файл" press="onExportXls"
+				></core:Icon>
+		</customIcons>
+		<dimensionSelectors>
+			<!-- <m:Select id="idSelector">
+				<core:Item key="0" text="Отчёт по специалистам"/>
+				<core:Item key="1" text="Отчёт по отделениям"/>
+			</m:Select> -->
+		</dimensionSelectors>		
+		<toolbar>
+			<m:OverflowToolbar id="appToolbar">
+				<m:Button id="navBack" icon="sap-icon://nav-back" press="onNavBack"></m:Button>
+				<m:ToolbarSpacer/>
+				<!-- <m:Button id="btnAction2" text="CustomAction" type="Transparent" press="onCustomActionPress" visible="false"></m:Button> -->
+				<ChartContainerToolbarPlaceholder></ChartContainerToolbarPlaceholder>
+			</m:OverflowToolbar>
+		</toolbar>
+
+	</ChartContainer>
 </mvc:View>

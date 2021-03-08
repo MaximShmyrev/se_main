@@ -49,8 +49,6 @@ sap.ui.define([
 
 				});
 				
-				
-
 			}
 		}
 	};
@@ -65,8 +63,7 @@ sap.ui.define([
 			var oModel = new JSONModel(quizes);
 			this.getView().setModel(oModel);
 		},
-		
-		
+				
 		onNavButtonPressed: function() {
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.navTo("quizmain");

@@ -1,11 +1,11 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<Dialog id="Dialog" title="{/fragment_title}" contentWidth="1050px" contentHeight="900px">
+	<Dialog id="Dialog" title="{/fragment_header}" contentWidth="1050px" contentHeight="900px">
 		<content>
 			<List id="" headerText="" width="auto" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted"
 				showNoData="false">
 				<items>
 					<CustomListItem class="sapUiTinyMargin">
-						<Image src="{/fragment_image}" visible="true" width="80%" fieldGroupIds="detailLink"/>
+						<Image src="{/fragment_image}" visible="true" width="100%" fieldGroupIds="detailLink"/>
 					</CustomListItem>
 					<CustomListItem class="sapUiTinyMargin">
 						<Text text="{/fragment_text}" class="fragmentText"/>
