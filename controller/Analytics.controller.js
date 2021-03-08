@@ -1,12 +1,14 @@
 sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap/viz/ui5/data/FlattenedDataset', 'sap/viz/ui5/controls/common/feeds/FeedItem', 'sap/m/Label',
-	'sap/m/ColumnListItem', 'sap/m/library', 'sap/m/MessageToast', 'sap/m/Column'
+	'sap/m/ColumnListItem', 'sap/m/library', 'sap/m/MessageToast', 'sap/m/Column', 'sap/ui/core/util/Export',
+	'sap/ui/core/util/ExportTypeCSV'
 ],
-	function (Controller, JSONModel, FlattenedDataset, FeedItem, Label, ColumnListItem, MobileLibrary, MessageToast, Column) {
+	function (Controller, JSONModel, FlattenedDataset, FeedItem, Label, ColumnListItem, MobileLibrary, MessageToast, Column, Export, ExportTypeCSV) {
 		"use strict";
 
-		var json;
 		var oData = [];
 		var results;
+		var oTableModel;
+		var oRouter;
 
 		//request data from backend
 		var xmlhttp = new XMLHttpRequest();
@@ -54,25 +56,11 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 									answer: results.ANALYTICS[i].RESULTS[j].ANSWERTEXT,
 									result: isAnswer,
 								};
+								index = index + 1;
 
-								index = index + 1;								
-							
 							}
-
-
 						}
 					}
-
-					// var index = 0;
-					// oData = {
-					// 	user: results[i].USERID,
-					// 	date: results[i].DATETIME
-						//test: results[i].results.DESCRIPTION,
-						//questtion: currentQuestion,
-						//answer: sessionStorage.getItem("QUIZTITLE"),
-						//result: currentQuestion,
-					//};
-
 				}
 			}
 		};
@@ -143,10 +131,9 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 					}]
 				},
 				table: {
-					modulePath: "./ChartContainerData2.json",
-					itemBindingPath: "/businessData",
+					itemBindingPath: "/",
 					columnLabelTexts: ["Пользователь", "Дата", "Анкета", "Вопрос", "Ответ", "Результат"],
-					templateCellLabelTexts: ["{Sales_Month}", "{Marital Status}", "{Customer Gender}", "{Sales_Quarter}", "{Cost}", "{Unit Price}"]
+					templateCellLabelTexts: ["{user}", "{date}", "{test}", "{question}", "{answer}", "{result}"]
 				}
 			},
 
@@ -156,34 +143,16 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 
 			onInit: function () {
 
-				json = {
-					"businessData": [{
-						"Sales_Month": "April",
-						"Marital Status": "Married",
-						"Customer Gender": "Female",
-						"Sales_Quarter": "Q1",
-						"Cost": 190,
-						"Unit Price": 328.3,
-					},
-					{
-						"Sales_Month": "May",
-						"Marital Status": "Married",
-						"Customer Gender": "Female",
-						"Sales_Quarter": "Q2",
-						"Cost": 189.9,
-						"Unit Price": 151.17,
-					}
-					]
-				};
-
+				oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.getRoute("analytics").attachMatched(this._onRouteMatched, this);
 
 				// create table content
 				var oTable = this.getView().byId("idTable");
 				this._createTableContent(oTable);
 
 				//create chart content
-				var oVizFrame = this.getView().byId(this._constants.vizFrame.id);
-				this._updateVizFrame(oVizFrame);
+				//var oVizFrame = this.getView().byId(this._constants.vizFrame.id);
+				//this._updateVizFrame(oVizFrame);
 			},
 
 			/* ============================================================ */
@@ -195,9 +164,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @private
 			 */
 			_createTableContent: function (oTable) {
-				var oTablePath = jQuery.sap.getModulePath(this._constants.sampleName, this._constants.table.modulePath);
-				//var oTableModel = new JSONModel(oTablePath);
-				var oTableModel = new JSONModel(json);
+				//var oTablePath = jQuery.sap.getModulePath(this._constants.sampleName, this._constants.table.modulePath);
+				oTableModel = new JSONModel(oData);
 				var oTableConfig = this._constants.table;
 				var aColumns = this._createTableColumns(oTableConfig.columnLabelTexts);
 
@@ -297,7 +265,85 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 */
 			onCustomActionPress: function (event) {
 				this._showMessageToast("Custom action press event - " + event.getSource().getId());
-			}
-		});
+			},
+
+			onNavBack: function() {
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("quizmain");
+			},
+
+			onExportXls: function(oEvent) {
+				
+				this.getView().setModel(oTableModel);
+
+				var oExport = new Export({
+	
+					// Type that will be used to generate the content. Own ExportType's can be created to support other formats
+					exportType: new ExportTypeCSV({
+					 	separatorChar: ";"
+					}),
+
+					// exportType: new ExportTypeCSV({
+					// 	separatorChar: "\t",
+					// 	mimeType: "application/vnd.ms-excel",
+					// 	charset: "windows-1251",
+					// 	fileExtension: "xls"
+					// }),
+
+					
+					// Pass in the model created above
+					models: this.getView().getModel(),
+	
+					// binding information for the rows aggregation
+					rows: {
+						path: "/"
+					},
+	
+					// column definitions with column name and binding info for the content
+					columns: [
+						{
+							name: "Пользователь",
+							template: {
+								content: "{user}"
+							}
+						}, {
+							name: "Дата",
+							template: {
+								content: "{date}"
+							}
+						}, {
+							name: "Анкета",
+							template: {
+								content: "{test}"
+							}
+						}, {
+							name: "Вопрос",
+							template: {
+								content: "{question}"
+							}
+						}, {
+							name: "Ответ",
+							template: {
+								content: "{answer}"
+							}
+						}, {
+							name: "Результат",
+							template: {
+								content: "{result}"
+							}
+						}
+					]
+				});
+	
+				// download exported file
+				oExport.saveFile().catch(function(oError) {
+					// MessageBox.error("Error when downloading data. Browser might not be supported!\n\n" + oError);
+				}).then(function() {
+					oExport.destroy();
+				});
+			},
+
+		})
+
 		return oPageController;
 	});

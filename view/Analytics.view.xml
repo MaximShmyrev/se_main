@@ -8,19 +8,19 @@
 	xmlns:core="sap.ui.core">
 	<ChartContainer
 		id="idChartContainer"
-		showFullScreen="true"
-		showPersonalization="true"
+		showFullScreen="false"
+		showPersonalization="false"
 		autoAdjustHeight="false"
-		title="Аналитика">
+		title="">
 		<content>
-			<ChartContainerContent
+			<!-- <ChartContainerContent
 				icon="sap-icon://line-chart"
 				title="Line Chart">
 				<content>
-					<viz:VizFrame id="idoVizFrame" height="700px" width="100%"
+					<viz:VizFrame id="idoVizFrame" height="600px" width="100%"
 					              uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
 				</content>
-			</ChartContainerContent>
+			</ChartContainerContent> -->
 			<ChartContainerContent
 				icon="sap-icon://table-view"
 				title="Table">
@@ -29,19 +29,19 @@
 				</content>
 			</ChartContainerContent>
 		</content>
-		<!-- <customIcons>
-			<core:Icon id="customIcon" src="sap-icon://print" tooltip="Custom Content Print" press="onCustomActionPress"
+		<customIcons>
+			<core:Icon id="customIcon" src="sap-icon://excel-attachment" tooltip="Эскпорт в файл" press="onExportXls"
 				></core:Icon>
-		</customIcons> -->
+		</customIcons>
 		<dimensionSelectors>
-			<m:Select id="idSelector">
+			<!-- <m:Select id="idSelector">
 				<core:Item key="0" text="Отчёт по специалистам"/>
 				<core:Item key="1" text="Отчёт по отделениям"/>
-			</m:Select>
+			</m:Select> -->
 		</dimensionSelectors>		
 		<toolbar>
 			<m:OverflowToolbar id="appToolbar">
-				<m:Button id="navBack" icon="sap-icon://nav-back" press="onCustomActionPress"></m:Button>
+				<m:Button id="navBack" icon="sap-icon://nav-back" press="onNavBack"></m:Button>
 				<m:ToolbarSpacer/>
 				<!-- <m:Button id="btnAction2" text="CustomAction" type="Transparent" press="onCustomActionPress" visible="false"></m:Button> -->
 				<ChartContainerToolbarPlaceholder></ChartContainerToolbarPlaceholder>
