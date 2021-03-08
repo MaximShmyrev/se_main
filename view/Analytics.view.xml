@@ -30,7 +30,7 @@
 			</ChartContainerContent>
 		</content>
 		<customIcons>
-			<core:Icon id="customIcon" src="sap-icon://excel-attachment" tooltip="Custom Content Print" press="onExportXls"
+			<core:Icon id="customIcon" src="sap-icon://excel-attachment" tooltip="Эскпорт в файл" press="onExportXls"
 				></core:Icon>
 		</customIcons>
 		<dimensionSelectors>

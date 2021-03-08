@@ -268,12 +268,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			},
 
 			onNavBack: function() {
-				oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-				oRouter.navTo("analytics", {}, true);
-			},
-
-			getRouter: function() {
-				return this.getOwnerComponent().getRouter();
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("quizmain");
 			},
 
 			onExportXls: function(oEvent) {
