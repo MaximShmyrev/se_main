@@ -159,7 +159,7 @@ sap.ui.define([
 
 			for (var j = 0; j < filterNews.length; j++) {
 				sQuery = filterNews[j];
-				aFilter.push(new Filter("type", FilterOperator.EQ, sQuery));
+				aFilter.push(new Filter("TYPE", FilterOperator.EQ, sQuery));
 			}
 
 			if (aFilter !== null) {
