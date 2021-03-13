@@ -107,7 +107,12 @@
 				"pattern": "menu",
 				"name": "menu",
 				"target": "menu"
-			}, {
+			},  {
+				"pattern": "kb",
+				"name": "kb",
+				"target": "kb"
+			}, 
+			{
 				"pattern": "quizmain",
 				"name": "quizmain",
 				"target": "quizmain"
@@ -162,6 +167,10 @@
 					"viewName": "News",
 					"viewLevel": 1
 				},
+				"kb": {
+					"viewName": "KB",
+					"viewLevel": 1
+				},				
 				"menu": {
 					"viewName": "Menu",
 					"viewLevel": 1

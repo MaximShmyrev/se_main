@@ -36,6 +36,10 @@ sap.ui.define([
 			this.getRouter().navTo("news");
 		},
 
+		onPressKB: function() {
+			this.getRouter().navTo("kb");
+		},		
+
 		onPressMenu: function() {
 			this.getRouter().navTo("menu");
 		},

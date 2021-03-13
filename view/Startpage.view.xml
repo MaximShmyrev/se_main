@@ -101,6 +101,11 @@
 							<ImageContent src="images/testing.png"/>
 						</TileContent>
 					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Библиотека знаний" press="onPressKB">
+						<TileContent>
+							<ImageContent src="images/kw.png"/>
+						</TileContent>
+					</GenericTile>					
 				</layout:HorizontalLayout>
 			</layout:VerticalLayout>
 		</l:Splitter>
