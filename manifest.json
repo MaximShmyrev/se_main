@@ -168,7 +168,8 @@
 					"viewLevel": 1
 				},
 				"kb": {
-					"viewName": "KB",
+					"viewPath": "main.kb.view",
+					"viewName": "App",
 					"viewLevel": 1
 				},				
 				"menu": {
