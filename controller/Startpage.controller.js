@@ -82,6 +82,10 @@ sap.ui.define([
 			window.open("http://www.samaraenergo.ru/", '_blank');
 		},
 
+		onPressNWA: function() {
+			window.open("http://prt.samaraenergo.ru:50000/nwa", '_blank');
+		},		
+
 		onNavToProcessFlow: function() {
 			this.getRouter().navTo("processFlow");
 		},
