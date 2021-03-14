@@ -37,7 +37,7 @@ sap.ui.define([
 		},
 
 		onPressKB: function() {
-			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html", '_blank');
+			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html", '_self');
 		},		
 
 		onPressMenu: function() {
