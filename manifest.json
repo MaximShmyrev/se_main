@@ -65,7 +65,7 @@
 			"css": [{
 				"uri": "css/style.css"
 			}]
-		},		
+		},
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
@@ -88,67 +88,64 @@
 				}
 			},
 			"routes": [{
-				"pattern": "",
-				"name": "home",
-				"target": "startpage"
-			}, {
-				"pattern": "employees",
-				"name": "employees",
-				"target": "employees"
-			}, {
-				"pattern": "employees/{employeeId}",
-				"name": "employee",
-				"target": "employee"
-			}, {
-				"pattern": "news",
-				"name": "news",
-				"target": "news"
-			}, {
-				"pattern": "menu",
-				"name": "menu",
-				"target": "menu"
-			},  {
-				"pattern": "kb",
-				"name": "kb",
-				"target": "kb"
-			}, 
-			{
-				"pattern": "quizmain",
-				"name": "quizmain",
-				"target": "quizmain"
-			}, {
-				"pattern": "analytics",
-				"name": "analytics",
-				"target": "analytics"
-			}, {
-				"pattern": "examen",
-				"name": "examen",
-				"target": "examen"
-			}, {
-				"pattern": "test/{testId}",
-				"name": "test",
-				"target": "test"
-			}, {
-				"pattern": "learning",
-				"name": "learning",
-				"target": "learning"
-			}, {
-				"pattern": "quiz/{quizId}",
-				"name": "quiz",
-				"target": "quiz"
-			}, {
-				"pattern": "editor",
-				"name": "editor",
-				"target": "editor"
-			}, {
-				"pattern": "editor/{quizId}",
-				"name": "quizEditor",
-				"target": "quizEditor"
-			}, {
-				"pattern": "createQuestion",
-				"name": "createQuestion",
-				"target": "createQuestion"
-			}],
+					"pattern": "",
+					"name": "home",
+					"target": "startpage"
+				}, {
+					"pattern": "employees",
+					"name": "employees",
+					"target": "employees"
+				}, {
+					"pattern": "employees/{employeeId}",
+					"name": "employee",
+					"target": "employee"
+				}, {
+					"pattern": "news",
+					"name": "news",
+					"target": "news"
+				}, {
+					"pattern": "menu",
+					"name": "menu",
+					"target": "menu"
+				},
+				{
+					"pattern": "quizmain",
+					"name": "quizmain",
+					"target": "quizmain"
+				}, {
+					"pattern": "analytics",
+					"name": "analytics",
+					"target": "analytics"
+				}, {
+					"pattern": "examen",
+					"name": "examen",
+					"target": "examen"
+				}, {
+					"pattern": "test/{testId}",
+					"name": "test",
+					"target": "test"
+				}, {
+					"pattern": "learning",
+					"name": "learning",
+					"target": "learning"
+				}, {
+					"pattern": "quiz/{quizId}",
+					"name": "quiz",
+					"target": "quiz"
+				}, {
+					"pattern": "editor",
+					"name": "editor",
+					"target": "editor"
+				}, {
+					"pattern": "editor/{quizId}",
+					"name": "quizEditor",
+					"target": "quizEditor"
+				}, {
+					"pattern": "createQuestion",
+					"name": "createQuestion",
+					"target": "createQuestion"
+				}
+			],
 			"targets": {
 				"startpage": {
 					"viewName": "Startpage",
@@ -167,11 +164,6 @@
 					"viewName": "News",
 					"viewLevel": 1
 				},
-				"kb": {
-					"viewPath": "main.kb.view",
-					"viewName": "App",
-					"viewLevel": 1
-				},				
 				"menu": {
 					"viewName": "Menu",
 					"viewLevel": 1

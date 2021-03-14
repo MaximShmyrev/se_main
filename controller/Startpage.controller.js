@@ -37,7 +37,7 @@ sap.ui.define([
 		},
 
 		onPressKB: function() {
-			this.getRouter().navTo("kb");
+			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html", '_blank');
 		},		
 
 		onPressMenu: function() {

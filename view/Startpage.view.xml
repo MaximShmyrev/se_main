@@ -101,7 +101,7 @@
 							<ImageContent src="images/testing.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Библиотека знаний" press="onPressKB">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Библиотека знаний" url="http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html" press="onPressKB">
 						<TileContent>
 							<ImageContent src="images/kw.png"/>
 						</TileContent>
