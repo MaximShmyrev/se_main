@@ -6,7 +6,7 @@ sap.ui.define([
 	'sap/ui/model/json/JSONModel',
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function(jQuery, MessageToast, Fragment, Controller, JSONModel, Filter, FilterOperator) {
+], function (jQuery, MessageToast, Fragment, Controller, JSONModel, Filter, FilterOperator) {
 	"use strict";
 
 	document.title = "Справочник сотрудников";
@@ -24,7 +24,7 @@ sap.ui.define([
 		'</soapenv:Body>' +
 		'</soapenv:Envelope>';
 
-	xmlhttp.onreadystatechange = function() {
+	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				//console.log(xmlhttp.responseText);
@@ -567,10 +567,10 @@ sap.ui.define([
 	xmlhttp.send(sr);
 
 	var ControllerController = Controller.extend("main.controller.Employees", {
-		onInit: function() {
+		onInit: function () {
 
 			// sort employees in alphabetical order
-			treedata.employees.sort(function(a, b) {
+			treedata.employees.sort(function (a, b) {
 				if (a.DISPLAYNAME > b.DISPLAYNAME) {
 					return 1;
 				}
@@ -584,7 +584,7 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 		},
 
-		_onRouteMatched: function(oEvent) {
+		_onRouteMatched: function (oEvent) {
 
 			var searchQuery = sessionStorage.getItem("SEARCH_QUERY");
 
@@ -599,7 +599,7 @@ sap.ui.define([
 
 		},
 
-		onAfterRendering: function() {
+		onAfterRendering: function () {
 
 			var searchQuery = sessionStorage.getItem("SEARCH_QUERY");
 
@@ -613,19 +613,19 @@ sap.ui.define([
 			}
 		},
 
-		handleSearchItemSelect: function(oEvent) {
+		handleSearchItemSelect: function (oEvent) {
 			MessageToast.show("Search Entry Selected: " + oEvent.getSource().getTitle());
 		},
 
-		onPressHome: function() {
+		onPressHome: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			//oRouter.navTo("home", {}, true);
-			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/main/index.html","_self");
+			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/main/index.html", "_self");
 
 		},
 
-		handleListItemPressed: function(oEvent) {
+		handleListItemPressed: function (oEvent) {
 
 			// clear session storate
 			sessionStorage.clear();
@@ -660,7 +660,7 @@ sap.ui.define([
 
 		},
 
-		handleTreeItemPressed: function(oEvent) {
+		handleTreeItemPressed: function (oEvent) {
 			var source = oEvent.getSource();
 			var sQuery = source._oSelectedItem.mProperties.title,
 				//var sQuery = source.mProperties.title,
@@ -685,7 +685,7 @@ sap.ui.define([
 
 		},
 
-		defaultSearch: function() {
+		defaultSearch: function () {
 
 			var defaultQuery = "ПАО \"Самараэнерго\"",
 				oList = this.getView().byId("employeesList"),
@@ -702,7 +702,7 @@ sap.ui.define([
 			}));
 		},
 
-		handleOfficePressed: function(oEvent) {
+		handleOfficePressed: function (oEvent) {
 			var source = oEvent.getSource();
 			var sQuery = source.mProperties.text,
 				oList = this.getView().byId("employeesList"),
@@ -719,7 +719,7 @@ sap.ui.define([
 			}));
 		},
 
-		handlePositionPressed: function(oEvent) {
+		handlePositionPressed: function (oEvent) {
 			var source = oEvent.getSource();
 			var sQuery = source.mProperties.text,
 				oList = this.getView().byId("employeesList"),
@@ -736,7 +736,7 @@ sap.ui.define([
 			}));
 		},
 
-		handleDepartmentPressed: function(oEvent) {
+		handleDepartmentPressed: function (oEvent) {
 			var source = oEvent.getSource();
 			var sQuery = source.mProperties.text,
 				oList = this.getView().byId("employeesList"),
@@ -848,7 +848,111 @@ sap.ui.define([
 			}));
 		},
 
-		handleSearchPressed: function(oEvent) {
+		departmentAutoExpand: function (dept) {
+
+			var sQuery = dept,
+				oList = this.getView().byId("employeesList"),
+				oBinding = oList.getBinding("items");
+
+			// get department tree path
+			var oTree = this.getView().byId("Tree");
+			oTree.expandToLevel(4);
+
+			var array = oTree.getItems();
+			for (var i = 0, len = array.length; i < len; i++) {
+				if (array[i].mProperties.title == sQuery) {
+					var path = array[i].oBindingContexts.undefined.getPath();
+					//var selection = i;
+				}
+			}
+
+			var pathArray = path.split('/');
+			oTree.collapseAll();
+
+			var level = pathArray.length;
+
+			var index = parseInt(pathArray[2], 10);
+			oTree.expand(index); //expand root item
+
+			index = parseInt(pathArray[4], 10) + 1;
+			oTree.expand(index); //expand second level
+
+			if (index === 1) { // case for department 'Дирекция'
+				// select object on second level
+				if (level === 7) {
+					array = oTree.getItems();
+					for (i = 0, len = array.length; i < len; i++) {
+						if (array[i].mProperties.title == sQuery) {
+							index = i;
+						}
+					}
+					oTree.setSelectedItem(array[index]);
+				} else if (level === 9) {
+					index = parseInt(pathArray[6], 10) + 2;
+					oTree.expand(index); // third level
+
+					//select object on third level
+					array = oTree.getItems();
+					for (i = 0, len = array.length; i < len; i++) {
+						if (array[i].mProperties.title == sQuery) {
+							index = i;
+						}
+					}
+					oTree.setSelectedItem(array[index]);
+				} else if (level === 11) {
+					index = parseInt(pathArray[6], 10) + 2;
+					oTree.expand(index); // third level
+
+					index = parseInt(pathArray[8], 10) + index + 1;
+					oTree.expand(index); // fourth level
+
+					//select object on fourth level
+					array = oTree.getItems();
+					for (i = 0, len = array.length; i < len; i++) {
+						if (array[i].mProperties.title == sQuery) {
+							index = i;
+						}
+					}
+					oTree.setSelectedItem(array[index]);
+				}
+
+			} else { // case for department 'Отделения'
+				// select object on second level
+				if (level === 7) {
+					array = oTree.getItems();
+					for (i = 0, len = array.length; i < len; i++) {
+						if (array[i].mProperties.title == sQuery) {
+							index = i;
+						}
+					}
+					oTree.setSelectedItem(array[index]);
+				} else if (level === 9) {
+					index = parseInt(pathArray[6], 10) + 3;
+					oTree.expand(index); // third level
+
+					//select object on third level
+					array = oTree.getItems();
+					for (i = 0, len = array.length; i < len; i++) {
+						if (array[i].mProperties.title == sQuery) {
+							index = i;
+						}
+					}
+					oTree.setSelectedItem(array[index]);
+				} else {
+					// commented
+				}
+			}
+
+			/*			//scrool to selected item
+						var ul = oTree.$().find('ul');
+						var ul_id = ul.attr('id');
+						ul.find('li:nth-child(' + 50 + ')').focus();
+						ul.find('li:nth-child(' + 50 + ')').blur(); // remove this line if you want to -:)*/
+
+
+		},
+
+		handleSearchPressed: function (oEvent) {
 
 			var searchQuery = sessionStorage.getItem("SEARCH_QUERY");
 
@@ -883,6 +987,12 @@ sap.ui.define([
 			}
 
 			var count = oBinding.aIndices.length;
+
+			var newList = oList.getItems()
+			var dept = newList[0].mAggregations.attributes[1].mProperties.text;
+			if (count === 1) {
+				this.departmentAutoExpand(dept);
+			}
 
 			// based on count specify output message
 			var one = [1, 21, 31, 41, 51, 61, 71, 81, 91, 101, 121, 131, 141, 151, 161, 171, 181, 191, 201, 221, 231, 241, 251, 261, 271, 281,
