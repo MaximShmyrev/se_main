@@ -126,7 +126,7 @@ sap.ui.define([
 		'<soapenv:Header/>' +
 		'<soapenv:Body>' +
 		'<zce:getMenu>' +
-		'<week>04</week>' +
+		'<week>11</week>' +
 		'<year>2021</year>' +
 		'</zce:getMenu>' +
 		'</soapenv:Body>' +
