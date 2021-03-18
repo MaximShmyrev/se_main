@@ -3,7 +3,6 @@
 	<List id="coldProducts" items="{/thursday/cold}" noDataText="Меню из столовой не транслировалось">
 		<ObjectListItem title="{FOODITEM}" type="Active" number="{FOODPRICE}" currency="Руб">
 			<ObjectAttribute title="Описание" text="{FOODOUT}" active="false"/>
-			<ObjectAttribute text="Отметить блюдо" active="true" press="handleDepartmentPressed"/>
 		</ObjectListItem>
 	</List>
 </mvc:View>
