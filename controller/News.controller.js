@@ -252,6 +252,7 @@ sap.ui.define([
 			// is only called from within the loaded dialog itself.
 			this.byId("Dialog").close();
 		}
+		
 	});
 
 });

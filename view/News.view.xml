@@ -41,7 +41,7 @@
 						</CustomListItem>
 					</List>
 					<Title level="H1" text="Поиск по ключевым словам" wrapping="true" class="sapUiMediumMarginTop sapUiMediumMarginBegin"/>
-					<Input id="keyWords" width="220px" fieldWidth="100%" class="sapUiSmallMarginBegin"/>
+					<Input id="keyWords" width="220px" fieldWidth="100%" class="sapUiSmallMarginBegin" submit='onSearch'/>
 					<footer>
 						<Toolbar>
 							<Button text="Обновить" press="onSearch" width="100%"/>
