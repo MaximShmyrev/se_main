@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+], function (Controller, JSONModel) {
 	"use strict";
 
 	/*	//Monday
@@ -9,6 +9,9 @@ sap.ui.define([
 		var dayMondayNumber = dayToday.getDate() - dayToday.getDay() + 1; // First day is the day of the month - the day of the week
 		var dayMonday = new Date(dayToday.setDate(dayMondayNumber));
 		var dayMondayDate = dayMonday.getDay() + dayMonday.getMonth() + dayMonday.getYear();*/
+
+	//variable for onAfterRendering
+	var onARcount = 0;
 
 	//get current date
 	var today = new Date();
@@ -132,7 +135,7 @@ sap.ui.define([
 		'</soapenv:Body>' +
 		'</soapenv:Envelope>';
 
-	xmlhttp.onreadystatechange = function() {
+	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				//console.log(xmlhttp.responseText);
@@ -144,12 +147,12 @@ sap.ui.define([
 
 				var i;
 
-				jsonObj.MenuSet.forEach(function(entry) {
+				jsonObj.MenuSet.forEach(function (entry) {
 
 					switch (entry.date) {
 						case formattedMonday: // fulfill data for Monday
 
-							entry.LineItems.forEach(function(item) {
+							entry.LineItems.forEach(function (item) {
 								if (item.FOODPRICE === "null") { //set category for products
 									category = item.FOODITEM;
 									i = 0;
@@ -195,7 +198,7 @@ sap.ui.define([
 
 						case formattedTuesday: //fulfill data for Tuesday
 
-							entry.LineItems.forEach(function(item) {
+							entry.LineItems.forEach(function (item) {
 								if (item.FOODPRICE === "null") { //set category for products
 									category = item.FOODITEM;
 									i = 0;
@@ -241,7 +244,7 @@ sap.ui.define([
 
 						case formattedWednesday:
 
-							entry.LineItems.forEach(function(item) {
+							entry.LineItems.forEach(function (item) {
 								if (item.FOODPRICE === "null") { //set category for products
 									category = item.FOODITEM;
 									i = 0;
@@ -287,7 +290,7 @@ sap.ui.define([
 
 						case formattedThursday:
 
-							entry.LineItems.forEach(function(item) {
+							entry.LineItems.forEach(function (item) {
 								if (item.FOODPRICE === "null") { //set category for products
 									category = item.FOODITEM;
 									i = 0;
@@ -333,7 +336,7 @@ sap.ui.define([
 
 						case formattedFriday:
 
-							entry.LineItems.forEach(function(item) {
+							entry.LineItems.forEach(function (item) {
 								if (item.FOODPRICE === "null") { //set category for products
 									category = item.FOODITEM;
 									i = 0;
@@ -390,7 +393,7 @@ sap.ui.define([
 
 	return Controller.extend("main.controller.Menu", {
 
-		onInit: function() {
+		onInit: function () {
 			//get current date
 			var today = new Date();
 			var dd = String(today.getDate()).padStart(2, '0');
@@ -484,10 +487,10 @@ sap.ui.define([
 					second: fridaySecond,
 					garnish: fridayGarnish
 				},
-/*				cold: cold,
-				first: first,
-				second: second,
-				garnish: garnish,*/
+				/*				cold: cold,
+								first: first,
+								second: second,
+								garnish: garnish,*/
 				date: {
 					date: formattedToday,
 					monday: formattedMonday,
@@ -503,56 +506,61 @@ sap.ui.define([
 
 		},
 
-		onAfterRendering: function() {
+		onAfterRendering: function () {
 			//set selected section based on day of week
+
+			//get current view
+			var viewName = this.getView().byId("ObjectPageLayout").getSelectedSection();
+			viewName = viewName.slice(0,12);
 
 			//get day of week
 			var today = new Date();
 			var dayOfWeekNumber = today.getDay();
 			var dayOfWeek;
 
+			//prepare variable for current day of week
 			switch (dayOfWeekNumber) {
 				case 0:
-					dayOfWeek = '__xmlview0--Monday';
+					dayOfWeek = viewName + 'Monday';
 					break;
 				case 1:
-					dayOfWeek = '__xmlview0--Monday';
+					dayOfWeek = viewName + 'Monday';;
 					break;
 				case 2:
-					dayOfWeek = '__xmlview0--Tuesday';
+					dayOfWeek = viewName + 'Tuesday';
 					break;
 				case 3:
-					dayOfWeek = '__xmlview0--Wednesday';
+					dayOfWeek = viewName + 'Wednesday';
 					break;
 				case 4:
-					dayOfWeek = '__xmlview0--Thursday';
+					dayOfWeek = viewName + 'Thursday';
 					break;
 				case 5:
-					dayOfWeek = '__xmlview0--Friday';
+					dayOfWeek = viewName + 'Friday';
 					break;
 				case 6:
-					dayOfWeek = '__xmlview0--Monday';
+					dayOfWeek = viewName + 'Monday';
 					break;
 			}
 
+			//set day of weeek
 			this.getView().byId("ObjectPageLayout").setSelectedSection(dayOfWeek);
-			//this.getView().byId("ObjectPageLayout").getSelectedSection();
 
 		},
-		
-		onPressHome: function() {
+
+		onPressHome: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
 			//window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html","_self");
 
-		},		
+		},
 
-		handleMainPage: function() {
+		handleMainPage: function () {
 			window.location.href = 'http://prt.samaraenergo.ru:50000/irj/portal/fiori';
 		},
 
-		monthName: function(mm) {
+		monthName: function (mm) {
 			switch (mm) {
 				case '01':
 					mm = "января";
