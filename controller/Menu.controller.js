@@ -10,9 +10,6 @@ sap.ui.define([
 		var dayMonday = new Date(dayToday.setDate(dayMondayNumber));
 		var dayMondayDate = dayMonday.getDay() + dayMonday.getMonth() + dayMonday.getYear();*/
 
-	//variable for onAfterRendering
-	var onARcount = 0;
-
 	//get current date
 	var today = new Date();
 	var dd = String(today.getDate()).padStart(2, '0');
@@ -120,6 +117,17 @@ sap.ui.define([
 	var secondFriday = [];
 	var garnishFriday = [];
 
+
+	//find the year of the current date  
+	var oneJan = new Date(today.getFullYear(), 0, 1);
+
+	//calculating number of days in given year before a given date   
+	var numberOfDays = Math.floor((today - oneJan) / (24 * 60 * 60 * 1000));
+
+	// adding 1 since to current date and returns value starting from 0   
+	var weekNumber = Math.ceil((today.getDay() + 1 + numberOfDays) / 7);
+	weekNumber = '<week>' + weekNumber + '</week>';
+
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_MenuService/ZCE_Menu', false);
 
@@ -129,7 +137,7 @@ sap.ui.define([
 		'<soapenv:Header/>' +
 		'<soapenv:Body>' +
 		'<zce:getMenu>' +
-		'<week>11</week>' +
+		weekNumber  +
 		'<year>2021</year>' +
 		'</zce:getMenu>' +
 		'</soapenv:Body>' +
@@ -511,7 +519,7 @@ sap.ui.define([
 
 			//get current view
 			var viewName = this.getView().byId("ObjectPageLayout").getSelectedSection();
-			viewName = viewName.slice(0,12);
+			viewName = viewName.slice(0, 12);
 
 			//get day of week
 			var today = new Date();
