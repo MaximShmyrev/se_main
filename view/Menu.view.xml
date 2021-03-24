@@ -1,24 +1,25 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns:blockcolor="main.SharedBlocks" 
 	xmlns:core="sap.ui.core" controllerName="main.controller.Menu" height="100%">
-
 	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" useIconTabBar="true" showTitleInHeaderContent="true">
 		<headerTitle>
-			<ObjectPageHeader id="headerForTest" objectTitle="Меню столовой ПАО &quot;Самараэнерго&quot;" wrapping="true" objectImageShape="Circle"
-				isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" showPlaceholder="true">
-				<navigationBar>
-					<m:Bar>
-						<m:contentLeft>
-							<m:Button icon="sap-icon://nav-back" press="onPressHome" tooltip="На главную страницу"/>
-						</m:contentLeft>
-					</m:Bar>
-				</navigationBar>				
-			</ObjectPageHeader>
+			<ObjectPageDynamicHeaderTitle>
+				<heading>
+					<m:Image src="src/logo.png" class="sapUiSmallMargin sapUiSmallMarginBottom sapUiSmallMarginTop"/>
+				</heading>	
+			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
 		<headerContent>
-			<layout:VerticalLayout>
-				<m:Link
-					text="Сегодня: { path: '/date/date', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy.MM.dd' } } }"/>
+			<m:FlexBox wrap="Wrap" fitContainer="true">
+			<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+				<m:Button class="sapMBtnBase sapMBtn sapMBarChild" icon="sap-icon://nav-back" press="onPressHome" tooltip="На главную страницу"/>
 			</layout:VerticalLayout>
+			<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+				<m:Label class="size1" text="Меню столовой ПАО &quot;Самараэнерго&quot;"/>
+			</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:Link	text="Сегодня: { path: '/date/date', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy.MM.dd' } } }"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
 		</headerContent>
 		<sections>
 			<ObjectPageSection id="Monday" titleUppercase="false" title="Понедельник, { path: '/date/monday' }">
