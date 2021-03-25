@@ -3,7 +3,7 @@
 	<Shell showLogout="false">
 		<SplitApp id="SplitApp" initialDetail="detail" initialMaster="master" homeIcon="img/home-precomposed.png">
 			<detailPages>
-				<Page id="detail" title="" backgroundDesign="Solid" class="sapUiStdPage" showNavButton="true" navButtonPress="onPressHome">
+				<Page id="detail" title="" backgroundDesign="Solid" class="sapUiStdPage">
 					<FlexBox justifyContent="Center" visible="{= ${filter>/filterText}.length > 0}">
 						<Title level="H1" text="Список новостей" textAlign="Center" wrapping="true" class="sapUiTinyMargin"/>
 					</FlexBox>
@@ -28,7 +28,7 @@
 				</Page>
 			</detailPages>
 			<masterPages>
-				<Page id="master" title="Фильтр" backgroundDesign="List" class="sapUiStdPage">
+				<Page id="master" title="Фильтр" backgroundDesign="List" class="sapUiStdPage" showNavButton="true" navButtonPress="onPressHome">
 					<Text text="Период новостей (в неделях)" class="sapUiTinyMarginBegin" />
 					<Text text=""/>
 					<Input type="Number" value="{path: '/weeks', type: 'sap.ui.model.type.Integer', constraints:{minimum:1}}" width="50px"
