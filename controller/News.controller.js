@@ -231,6 +231,12 @@ sap.ui.define([
 			oModel.setProperty("/fragment_text", oContext.TEXT);
 			oModel.setProperty("/fragment_image", oContext.DATA_RAW);
 			oModel.setProperty("/updated_date", oContext.UPDATED_DATE);
+			oModel.setProperty("/image", 'true');
+			// hide picture list item if it's empty
+			if (oContext.DATA_RAW == "null") {
+				oModel.setProperty("/image", 'false');
+			}
+
 			// create dialog lazily
 			if (!this.pDialog) {
 				this.pDialog = Fragment.load({
