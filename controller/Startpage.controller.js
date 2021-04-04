@@ -5,92 +5,127 @@ sap.ui.define([
 	"sap/ui/core/format/NumberFormat",
 	"sap/m/MessageToast",
 	"sap/m/library"
-], function(jQuery, Controller, JSONModel, NumberFormat, MessageToast, MobileLibrary) {
+], function (jQuery, Controller, JSONModel, NumberFormat, MessageToast, MobileLibrary) {
 	"use strict";
 
 	document.title = "Главная страница";
 
 	return Controller.extend("main.controller.Startpage", {
-		onInit: function() {
+		onInit: function () {
+
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+
+			// build SOAP request
+			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+				'<soapenv:Header/>' +
+				'<soapenv:Body>' +
+				'<zce:getNews/>' +
+				'</soapenv:Body>' +
+				'</soapenv:Envelope>';
+
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4) {
+						if (xmlhttp.status == 200) {
+							//console.log(xmlhttp.responseText);
+							var response = xmlhttp.responseText;
+			
+							var splitResponse = response.split(/<return>|<\/return>/);
+							var arrayResponse = splitResponse[1];
+							var jsonObj = JSON.parse(arrayResponse.toString());
+		
+						}
+					}
+				};			
+
+
+			// Send the POST request
+			xmlhttp.setRequestHeader("Content-Type", "text/xml");
+			xmlhttp.send(sr);
+
+			//var oModel = new JSONModel(oData);
+			//this.getView().setModel(oModel);
+
 			var sDataPath = jQuery.sap.getModulePath("main.model.data", "/News.json");
 			var oModel = new JSONModel(sDataPath);
 			this.getView().setModel(oModel, "news");
 			sessionStorage.setItem("SEARCH_QUERY", "");
 		},
 
-		onSearchPressed: function(oEvent) {
+		onSearchPressed: function (oEvent) {
 			var sQuery = oEvent.getParameter('query');
 			sessionStorage.setItem("SEARCH_QUERY", sQuery);
 			this.getRouter().navTo("employees");
 		},
 
-		onAfterRendering: function() {
+		onAfterRendering: function () {
 			document.title = "Главная страница";
 		},
 
-		onPressEmployees: function() {
+		onPressEmployees: function () {
 			this.getRouter().navTo("employees");
 		},
-		
-		onPressNews: function() {
+
+		onPressNews: function () {
 			this.getRouter().navTo("news");
 		},
 
-		onPressKB: function() {
+		onPressKB: function () {
 			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html", '_self');
-		},		
+		},
 
-		onPressMenu: function() {
+		onPressMenu: function () {
 			this.getRouter().navTo("menu");
 		},
-		
-		onPressQuiz: function() {
-			this.getRouter().navTo("quizmain");
-		},			
 
-		onPressZKH: function() {
+		onPressQuiz: function () {
+			this.getRouter().navTo("quizmain");
+		},
+
+		onPressZKH: function () {
 			window.open("https://dom.gosuslugi.ru/", '_blank');
 		},
 
-		onPressASUSERP: function() {
+		onPressASUSERP: function () {
 			window.open("http://ciepr.samaraenergo.ru:8002/sap/bc/gui/sap/its/webgui", '_blank');
 		},
 
-		onPressIAS: function() {
+		onPressIAS: function () {
 			window.open("http://sap-srv-03:8080/BOE/BI", '_blank');
 		},
 
-		onPress3S: function() {
+		onPress3S: function () {
 			window.open("http://192.168.127.9:8080/", '_blank');
 		},
 
-		onPressSabiz: function() {
+		onPressSabiz: function () {
 			window.open("http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow", '_blank');
 		},
 
-		onPressSD: function() {
+		onPressSD: function () {
 			window.open(
 				"https://paism7.samaraenergo.ru:8436/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=001&sap-language=RU&sap-sec_session_created=X&sap-ushell-config=headerless#ZCREATE_INC-display&/YMIN",
 				'_blank');
 		},
 
-		onPressSED: function() {
+		onPressSED: function () {
 			window.open("http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx", '_blank');
 		},
 
-		onPressSiteSE: function() {
+		onPressSiteSE: function () {
 			window.open("http://www.samaraenergo.ru/", '_blank');
 		},
 
-		onPressNWA: function() {
+		onPressNWA: function () {
 			window.open("http://prt.samaraenergo.ru:50000/nwa", '_blank');
-		},		
+		},
 
-		onNavToProcessFlow: function() {
+		onNavToProcessFlow: function () {
 			this.getRouter().navTo("processFlow");
 		},
 
-		onNavToChartContainer: function() {
+		onNavToChartContainer: function () {
 			this.getRouter().navTo("chartContainer");
 		},
 
@@ -99,7 +134,7 @@ sap.ui.define([
 		 *
 		 * @param {sap.ui.base.Event} event The SAPUI5 event object
 		 */
-		onNavToReviews: function(event) {
+		onNavToReviews: function (event) {
 			if (event.getSource().getState() === MobileLibrary.LoadState.Loaded) {
 				this.getRouter().navTo("reviews");
 			}
@@ -110,7 +145,7 @@ sap.ui.define([
 		 *
 		 * @param {sap.ui.base.Event} event The SAPUI5 event object
 		 */
-		onTilePressed: function(event) {
+		onTilePressed: function (event) {
 			var sItemTitle, sMessage;
 			sItemTitle = event.getSource().getHeader() || event.getSource().getSubheader();
 			sMessage = sItemTitle && sItemTitle.length && sItemTitle.length > 0 ?
@@ -119,7 +154,7 @@ sap.ui.define([
 			MessageToast.show(sMessage);
 		},
 
-		getRouter: function() {
+		getRouter: function () {
 			return this.getOwnerComponent().getRouter();
 		},
 
@@ -128,16 +163,16 @@ sap.ui.define([
 		 * @public
 		 * @returns {sap.ui.model.resource.ResourceModel} The ResourceModel of the component
 		 */
-		getResourceBundle: function() {
+		getResourceBundle: function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 
-		formatJSONDate: function(date) {
+		formatJSONDate: function (date) {
 			var oDate = new Date(Date.parse(date));
 			return oDate.toLocaleDateString();
 		},
 
-		getEntityCount: function(entities) {
+		getEntityCount: function (entities) {
 			return entities && entities.length || 0;
 		},
 
@@ -148,7 +183,7 @@ sap.ui.define([
 		 * @returns {float} Progress in percent.
 		 * @public
 		 */
-		getProgress: function(aNodes) {
+		getProgress: function (aNodes) {
 			if (!aNodes || aNodes.length === 0) {
 				return 0;
 			}
@@ -161,7 +196,7 @@ sap.ui.define([
 			return fPercent.toFixed(0);
 		},
 
-		formatNumber: function(value) {
+		formatNumber: function (value) {
 			var oFloatFormatter = NumberFormat.getFloatInstance({
 				style: "short",
 				decimals: 1

@@ -230,6 +230,7 @@ sap.ui.define([
 			oModel.setProperty("/fragment_header", oContext.HEADER);
 			oModel.setProperty("/fragment_text", oContext.TEXT);
 			oModel.setProperty("/fragment_image", oContext.DATA_RAW);
+			oModel.setProperty("/updated_date", oContext.UPDATED_DATE);
 			// create dialog lazily
 			if (!this.pDialog) {
 				this.pDialog = Fragment.load({

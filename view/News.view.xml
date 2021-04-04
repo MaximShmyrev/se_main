@@ -14,9 +14,9 @@
 								<items>
 									<CustomListItem class="sapUiTinyMargin">
 										<VBox>
-											<GenericTile header="{HEADER}" frameType="OneByOne" width="750px" headerImage="{DATA_RAW}" press=".onOpenDialog">
+											<GenericTile header="{HEADER}" subheader="Дата публикации {UPDATED_DATE}" frameType="OneByOne" width="750px" headerImage="{DATA_RAW}" press=".onOpenDialog">
 												<TileContent footer="{TYPE}">
-													<FeedContent contentText="{TEXT}" subheader="Дата публикации {UPDATED_DATE}"/>
+													<FeedContent contentText="{TEXT}"/>
 												</TileContent>
 											</GenericTile>
 										</VBox>
