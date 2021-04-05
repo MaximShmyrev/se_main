@@ -51,16 +51,16 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
+					<!-- <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников" press="press">
 						<TileContent footer="общее количество">
 							<NumericContent value="951" icon="sap-icon://line-charts" withMargin="false"/>
 						</TileContent>
-					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Использование портала" press="onNavToUsage">
+					</GenericTile> -->
+					<!-- <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Использование портала" press="onNavToUsage">
 						<TileContent footer="Посещений в день">
 							<NumericContent value="16" withMargin="false"/>
 						</TileContent>
-					</GenericTile>
+					</GenericTile> -->
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Личный кабинет" press="press">
 						<TileContent footer="Посещений в день">
 							<NumericContent value="6" withMargin="false" valueColor="Error" indicator="Down"/>
@@ -76,6 +76,40 @@
 							<NumericContent scale="документы" value="203" valueColor="Good" indicator="Up" withMargin="false"/>
 						</TileContent>
 					</GenericTile>
+				</layout:HorizontalLayout>
+				<layout:HorizontalLayout allowWrapping="true">
+					<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{news>/News}">
+						<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onPressNews">
+							<tileContent>
+								<TileContent footer="{ path: 'news>date', formatter: '.formatJSONDate' }">
+									<content>
+										<NewsContent contentText="{news>content}" subheader="{news>subheader}"></NewsContent>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+					</SlideTile>
+					<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{news>/News}">
+						<GenericTile backgroundImage="{news>image}" state="{news>state}" frameType="TwoByOne" press="onPressNews">
+							<tileContent>
+								<TileContent footer="{ path: 'news>date', formatter: '.formatJSONDate' }">
+									<content>
+										<NewsContent contentText="{news>content}" subheader="{news>subheader}"></NewsContent>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+					</SlideTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Статистика портала" press="">
+						<TileContent>
+							<ImageContent src="images/analytics.png"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Погода" press="press">
+						<TileContent unit="Самара">
+							<NumericContent scale="°C" value="10" valueColor="Good" withMargin="false"/>
+						</TileContent>
+					</GenericTile>																			
 				</layout:HorizontalLayout>
 				<Title titleStyle="H2" text="Приложения" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
 				<layout:HorizontalLayout allowWrapping="true">
