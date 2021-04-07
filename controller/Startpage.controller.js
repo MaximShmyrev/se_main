@@ -9,6 +9,9 @@ sap.ui.define([
 	"use strict";
 
 	document.title = "Главная страница";
+	var temperature;
+	var weatherText;
+	var jsonObj;
 
 	return Controller.extend("main.controller.Startpage", {
 		onInit: function () {
@@ -28,12 +31,11 @@ sap.ui.define([
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4) {
 						if (xmlhttp.status == 200) {
-							//console.log(xmlhttp.responseText);
-							var response = xmlhttp.responseText;
-			
+
+							var response = xmlhttp.responseText;			
 							var splitResponse = response.split(/<return>|<\/return>/);
 							var arrayResponse = splitResponse[1];
-							var jsonObj = JSON.parse(arrayResponse.toString());
+							jsonObj = JSON.parse(arrayResponse.toString());
 		
 						}
 					}
@@ -44,13 +46,48 @@ sap.ui.define([
 			xmlhttp.setRequestHeader("Content-Type", "text/xml");
 			xmlhttp.send(sr);
 
-			//var oModel = new JSONModel(oData);
-			//this.getView().setModel(oModel);
 
-			var sDataPath = jQuery.sap.getModulePath("main.model.data", "/News.json");
-			var oModel = new JSONModel(sDataPath);
-			this.getView().setModel(oModel, "news");
+			// get data from AccuWeather API
+			var weatherHTTP = new XMLHttpRequest();
+			weatherHTTP.open('GET', 'http://dataservice.accuweather.com/currentconditions/v1/290396?apikey=4r47GAJnofVwdAYanGTXPQNVnBlVDTFG', false);
+
+			weatherHTTP.onreadystatechange = function() {
+				if (weatherHTTP.readyState == 4) {
+					if (weatherHTTP.status == 200) {
+						//console.log(xmlhttp.responseText);
+						var weatherResponse = weatherHTTP.responseText;
+						var weatherObj = JSON.parse(weatherResponse.toString());
+						temperature = weatherObj[0].Temperature.Metric.Value;
+						weatherText = weatherObj[0].WeatherText;
+
+						switch(weatherText) {
+							case 'Mostly cloudy':
+								weatherText = "В основном облачно"
+								break;  
+							default:
+								weatherText = "Солнечно"
+								break;
+						  }
+	
+					}
+				}
+			};
+			
+			weatherHTTP.send();
+			
+			var oData = {
+				"News": jsonObj,
+				"Temperature": temperature,
+				"weatherText": weatherText
+			}
+
+			var oModel = new JSONModel(oData);
+			this.getView().setModel(oModel);
+
 			sessionStorage.setItem("SEARCH_QUERY", "");
+
+
+
 		},
 
 		onSearchPressed: function (oEvent) {
