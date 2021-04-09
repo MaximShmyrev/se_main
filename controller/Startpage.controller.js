@@ -28,18 +28,18 @@ sap.ui.define([
 				'</soapenv:Body>' +
 				'</soapenv:Envelope>';
 
-				xmlhttp.onreadystatechange = function() {
-					if (xmlhttp.readyState == 4) {
-						if (xmlhttp.status == 200) {
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
 
-							var response = xmlhttp.responseText;			
-							var splitResponse = response.split(/<return>|<\/return>/);
-							var arrayResponse = splitResponse[1];
-							jsonObj = JSON.parse(arrayResponse.toString());
-		
-						}
+						var response = xmlhttp.responseText;
+						var splitResponse = response.split(/<return>|<\/return>/);
+						var arrayResponse = splitResponse[1];
+						jsonObj = JSON.parse(arrayResponse.toString());
+
 					}
-				};			
+				}
+			};
 
 
 			// Send the POST request
@@ -51,7 +51,7 @@ sap.ui.define([
 			var weatherHTTP = new XMLHttpRequest();
 			weatherHTTP.open('GET', 'http://dataservice.accuweather.com/currentconditions/v1/290396?apikey=4r47GAJnofVwdAYanGTXPQNVnBlVDTFG', false);
 
-			weatherHTTP.onreadystatechange = function() {
+			weatherHTTP.onreadystatechange = function () {
 				if (weatherHTTP.readyState == 4) {
 					if (weatherHTTP.status == 200) {
 						//console.log(xmlhttp.responseText);
@@ -60,21 +60,25 @@ sap.ui.define([
 						temperature = weatherObj[0].Temperature.Metric.Value;
 						weatherText = weatherObj[0].WeatherText;
 
-						switch(weatherText) {
-							case 'Mostly cloudy':
-								weatherText = "В основном облачно"
-								break;  
-							default:
-								weatherText = "Солнечно"
-								break;
-						  }
-	
+						//use if instead of case for type adjustment
+						if (weatherText == "Mostly cloudy") {
+							weatherText = "В основном облачно"
+						}
+
+						if (weatherText == "Cloudy") {
+							weatherText = "Облачно"
+						}
+
+						if (weatherText == "Rain") {
+							weatherText = "Дождь"
+						}						
+
 					}
 				}
 			};
-			
+
 			weatherHTTP.send();
-			
+
 			var oData = {
 				"News": jsonObj,
 				"Temperature": temperature,
