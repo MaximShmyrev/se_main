@@ -16,6 +16,43 @@ sap.ui.define([
 	return Controller.extend("main.controller.Startpage", {
 		onInit: function () {
 
+			// get user roles
+			var roleshttp = new XMLHttpRequest();
+			roleshttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_UMEService/ZCE_UME', false);
+
+			var user = sessionStorage.getItem("USERNAME");
+			if ( user == null ) {
+				user = 'SHMYREV';
+			}
+			var userId = '<userId>' + user + '</userId>';
+
+			var rolesRequest = '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_ume/">' +
+				'<soapenv:Header/>' +
+				'<soapenv:Body>' +
+				'<zce:getRoles>' +
+				userId +
+				'</zce:getRoles>' +
+				'</soapenv:Body>' +
+				'</soapenv:Envelope>';
+
+			roleshttp.onreadystatechange = function () {
+				if (roleshttp.readyState == 4) {
+					if (roleshttp.status == 200) {
+						var rolesResponse = roleshttp.responseText;
+						var rolesSplit = rolesResponse.split(/<return>|<\/return>/);
+						var rolesArray = rolesSplit[1];
+						if ( rolesArray.includes("fiori_admin") === true) {
+							sessionStorage.setItem("ADMIN", true);
+						}
+					}
+				}
+			};
+
+			roleshttp.setRequestHeader("Content-Type", "text/xml");
+			roleshttp.send(rolesRequest);
+
+
 			// get news
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
@@ -43,8 +80,6 @@ sap.ui.define([
 
 			xmlhttp.setRequestHeader("Content-Type", "text/xml");
 			xmlhttp.send(sr);
-
-
 
 
 			// get articles from knowledge library
@@ -76,12 +111,6 @@ sap.ui.define([
 			//kbHTTP.send(kbRequest);
 
 
-
-
-
-
-
-
 			// get data from AccuWeather API
 			var weatherHTTP = new XMLHttpRequest();
 			weatherHTTP.open('GET', 'http://dataservice.accuweather.com/currentconditions/v1/290396?apikey=4r47GAJnofVwdAYanGTXPQNVnBlVDTFG', false);
@@ -106,7 +135,11 @@ sap.ui.define([
 
 						if (weatherText == "Rain") {
 							weatherText = "Дождь"
-						}						
+						}
+
+						if (weatherText == "Clouds and sun") {
+							weatherText = "Облачно и солнечно"
+						}
 
 					}
 				}
