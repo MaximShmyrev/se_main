@@ -16,10 +16,10 @@ sap.ui.define([
 	return Controller.extend("main.controller.Startpage", {
 		onInit: function () {
 
+			// get news
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
-			// build SOAP request
 			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
 				'<soapenv:Header/>' +
@@ -41,10 +41,45 @@ sap.ui.define([
 				}
 			};
 
-
-			// Send the POST request
 			xmlhttp.setRequestHeader("Content-Type", "text/xml");
 			xmlhttp.send(sr);
+
+
+
+
+			// get articles from knowledge library
+			var kbHTTP = new XMLHttpRequest();
+			kbHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+
+			var kbRequest = '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+				'<soapenv:Header/>' +
+				'<soapenv:Body>' +
+				'<zce:getNews/>' +
+				'</soapenv:Body>' +
+				'</soapenv:Envelope>';
+
+			// kbHTTP.onreadystatechange = function () {
+			// 	if (kbHTTP.readyState == 4) {
+			// 		if (kbHTTP.status == 200) {
+
+			// 			var response = kbHTTP.responseText;
+			// 			var splitResponse = response.split(/<return>|<\/return>/);
+			// 			var arrayResponse = splitResponse[1];
+			// 			jsonObj = JSON.parse(arrayResponse.toString());
+
+			// 		}
+			// 	}
+			// };
+
+			//kbHTTP.setRequestHeader("Content-Type", "text/xml");
+			//kbHTTP.send(kbRequest);
+
+
+
+
+
+
 
 
 			// get data from AccuWeather API
@@ -54,7 +89,7 @@ sap.ui.define([
 			weatherHTTP.onreadystatechange = function () {
 				if (weatherHTTP.readyState == 4) {
 					if (weatherHTTP.status == 200) {
-						//console.log(xmlhttp.responseText);
+
 						var weatherResponse = weatherHTTP.responseText;
 						var weatherObj = JSON.parse(weatherResponse.toString());
 						temperature = weatherObj[0].Temperature.Metric.Value;
