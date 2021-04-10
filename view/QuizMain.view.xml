@@ -30,7 +30,7 @@
 						</TileContent>
 					</tileContent>
 				</GenericTile>
-				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Аналитика" press="onNavToAnalytics">
+				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Аналитика" press="onNavToAnalytics" visible="{= ${/Admin} === 'admin' ? true : false }">
 					<tileContent>
 						<TileContent>
 							<content>

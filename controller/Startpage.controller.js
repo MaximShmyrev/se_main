@@ -43,7 +43,9 @@ sap.ui.define([
 						var rolesSplit = rolesResponse.split(/<return>|<\/return>/);
 						var rolesArray = rolesSplit[1];
 						if ( rolesArray.includes("fiori_admin") === true) {
-							sessionStorage.setItem("ADMIN", true);
+							sessionStorage.setItem("ADMIN", "admin");
+						} else {
+							sessionStorage.setItem("ADMIN", "user");
 						}
 					}
 				}

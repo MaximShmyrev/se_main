@@ -10,6 +10,13 @@ sap.ui.define([
 
 	return Controller.extend("main.controller.QuizMain", {
 		onInit: function() {
+
+			var oData = {
+				"Admin": sessionStorage.getItem("ADMIN")
+			}
+			
+			var oModel = new JSONModel(oData);
+			this.getView().setModel(oModel);
 			
 		},
 		
@@ -17,8 +24,6 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
-			//window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html", "_self");
-
 		},		
 
 		onNavToUpload: function() {
