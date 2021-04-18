@@ -1,7 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns:blockcolor="main.SharedBlocks" 
 	xmlns:core="sap.ui.core" controllerName="main.controller.Menu" height="100%">
-	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" useIconTabBar="true" showTitleInHeaderContent="true" preserveHeaderStateOnScroll="true" upperCaseAnchorBar="false">
-
+	<ObjectPageLayout id="ObjectPageLayout" headerContentPinnable="false" enableLazyLoading="true" useIconTabBar="false" preserveHeaderStateOnScroll="false" upperCaseAnchorBar="false">
 		<headerTitle>
 			<ObjectPageDynamicHeaderTitle>
 				<heading>
@@ -9,8 +8,6 @@
 				</heading>			
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
-
-
 		<headerContent>
 			<m:FlexBox wrap="Wrap" fitContainer="true">			
 			<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">

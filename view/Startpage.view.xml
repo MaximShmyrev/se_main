@@ -135,11 +135,16 @@
 							<ImageContent src="images/kw.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Панель управления" url="http://prt.samaraenergo.ru:50000/nwa" press="onPressNWA">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Редактор инфоблока" press="onPressNewsAdmin">
 						<TileContent>
 							<ImageContent src="images/nwa.png"/>
 						</TileContent>
-					</GenericTile>										
+					</GenericTile>					
+					<!-- <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Панель управления" url="http://prt.samaraenergo.ru:50000/nwa" press="onPressNWA">
+						<TileContent>
+							<ImageContent src="images/nwa.png"/>
+						</TileContent>
+					</GenericTile>										 -->
 				</layout:HorizontalLayout>
 			</layout:VerticalLayout>
 		</l:Splitter>

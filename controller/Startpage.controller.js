@@ -143,6 +143,18 @@ sap.ui.define([
 							weatherText = "Облачно и солнечно"
 						}
 
+						if (weatherText == "Partly sunny") {
+							weatherText = "Местами солнечно"
+						}
+
+						if (weatherText == "Mostly sunny") {
+							weatherText = "В основном солнечно"
+						}						
+
+						if (weatherText == "Sunny") {
+							weatherText = "Cолнечно"
+						}						
+
 					}
 				}
 			};
@@ -181,6 +193,10 @@ sap.ui.define([
 		onPressNews: function () {
 			this.getRouter().navTo("news");
 		},
+
+		onPressNewsAdmin: function () {
+			this.getRouter().navTo("newsadmin");
+		},		
 
 		onPressKB: function () {
 			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html", '_self');
