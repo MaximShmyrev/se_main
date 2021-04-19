@@ -131,9 +131,17 @@ sap.ui.define([
 							weatherText = "В основном облачно"
 						}
 
+						if (weatherText == "Partly cloudy") {
+							weatherText = "Местами облачно"
+						}						
+
 						if (weatherText == "Cloudy") {
 							weatherText = "Облачно"
 						}
+
+						if (weatherText == "Some clouds") {
+							weatherText = "Облачно"
+						}						
 
 						if (weatherText == "Rain") {
 							weatherText = "Дождь"

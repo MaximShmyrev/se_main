@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+		    xmlns:core="sap.ui.core"
+		    xmlns:f="sap.ui.layout.form"
+		    xmlns="sap.m">       
+	<Dialog 
+        id="feedbackDialog"
+        title="Форма обратной связи">
+		<beginButton>
+			<Button press="onCloseDialog" text="Сохранить"/>
+		</beginButton>
+		<content>
+            <TextArea placeholder="Внесите предложение" growing="false" growingMaxLines="10" width="100%"/>                   
+		</content>
+	</Dialog>
+</core:FragmentDefinition>
