@@ -229,7 +229,9 @@ sap.ui.define([
 					answers = answers + ',';
 				}
 
-				answers = answers + '{"QUESTIONID":"' + questions.QUESTIONS[i].QUESTIONID + '", "ANSWERID":"';
+				
+
+				answers = answers + '{"QUESTIONID":"' + questions.QUESTIONS[i].QUESTIONID + '", "QUESTIONTYPE":"1"' + ', "ANSWERID":"';
 
 				for (var j = 0; j < questions.QUESTIONS[i].ANSWERS.length; j++) {
 					if (questions.QUESTIONS[i].ANSWERS[j].proposal == "1") {
