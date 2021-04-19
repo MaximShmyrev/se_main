@@ -1,12 +1,17 @@
 sap.ui.define([
 	"jquery.sap.global",
 	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/Core",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/format/NumberFormat",
 	"sap/m/MessageToast",
 	"sap/m/library",
-	"sap/ui/core/Fragment"
-], function (jQuery, Controller, JSONModel, NumberFormat, MessageToast, MobileLibrary, Fragment) {
+	"sap/m/Dialog",
+	"sap/m/DialogType",
+	"sap/m/TextArea",
+	"sap/m/Button",
+	"sap/m/ButtonType"	
+], function (jQuery, Controller, Core, JSONModel, NumberFormat, MessageToast, MobileLibrary, Dialog, DialogType, TextArea, Button, ButtonType) {
 	"use strict";
 
 	return Controller.extend("main.controller.QuizMain", {
@@ -48,25 +53,41 @@ sap.ui.define([
 		},
 
 		onNavToFeedback: function () {
+			if (!this.oSubmitDialog) {
+				this.oSubmitDialog = new Dialog({
+					type: DialogType.Message,
+					title: "Форма обратной связи",
+					content: [
+						new TextArea("submissionNote", {
+							width: "100%",
+							placeholder: "Обязательно для заполнения",
+							liveChange: function (oEvent) {
+								var sText = oEvent.getParameter("value");
+								this.oSubmitDialog.getBeginButton().setEnabled(sText.length > 0);
+							}.bind(this)
+						})
+					],
+					beginButton: new Button({
+						type: ButtonType.Emphasized,
+						text: "Отправить",
+						enabled: false,
+						press: function () {
+							var sText = Core.byId("submissionNote").getValue();
+							MessageToast.show("Ваше предложение отправлено");
+							this.oSubmitDialog.close();
+						}.bind(this)
+					}),
+					endButton: new Button({
+						text: "Отменить",
+						press: function () {
+							this.oSubmitDialog.close();
+						}.bind(this)
+					})
+				});
+			}
 
-			var oView = this.getView();
-
-			// create dialog lazily
-			 if (!this.pDialog) {
-			 	this.pDialog = Fragment.load({
-			 		id: oView.getId(),
-			 		name: "main.view.Feedback"
-			 	}).then(function (oDialog) {
-			 		// connect dialog to the root view of this component (models, lifecycle)
-			 		oView.addDependent(oDialog);
-			 		return oDialog;
-			 	});
-			 } 
-			this.pDialog.then(function (oDialog) {
-				oDialog.open();
-			});
+			this.oSubmitDialog.open();
 		},
-
 
 		/**
 		 * Handles the press event on a tile.
