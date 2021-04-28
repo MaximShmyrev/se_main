@@ -21,7 +21,7 @@ sap.ui.define([
 			roleshttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_UMEService/ZCE_UME', false);
 
 			var user = sessionStorage.getItem("USERNAME");
-			if ( user == null ) {
+			if (user == null) {
 				user = 'SHMYREV';
 			}
 			var userId = '<userId>' + user + '</userId>';
@@ -42,7 +42,7 @@ sap.ui.define([
 						var rolesResponse = roleshttp.responseText;
 						var rolesSplit = rolesResponse.split(/<return>|<\/return>/);
 						var rolesArray = rolesSplit[1];
-						if ( rolesArray.includes("fiori_admin") === true) {
+						if (rolesArray.includes("fiori_admin") === true) {
 							sessionStorage.setItem("ADMIN", "admin");
 						} else {
 							sessionStorage.setItem("ADMIN", "user");
@@ -133,7 +133,7 @@ sap.ui.define([
 
 						if (weatherText == "Partly cloudy") {
 							weatherText = "Местами облачно"
-						}						
+						}
 
 						if (weatherText == "Cloudy") {
 							weatherText = "Облачно"
@@ -141,7 +141,7 @@ sap.ui.define([
 
 						if (weatherText == "Some clouds") {
 							weatherText = "Облачно"
-						}						
+						}
 
 						if (weatherText == "Rain") {
 							weatherText = "Дождь"
@@ -157,11 +157,15 @@ sap.ui.define([
 
 						if (weatherText == "Mostly sunny") {
 							weatherText = "В основном солнечно"
-						}						
+						}
+
+						if (weatherText == "Mostly clear") {
+							weatherText = "В основном ясно"
+						}
 
 						if (weatherText == "Sunny") {
 							weatherText = "Cолнечно"
-						}						
+						}
 
 					}
 				}
@@ -180,8 +184,6 @@ sap.ui.define([
 
 			sessionStorage.setItem("SEARCH_QUERY", "");
 
-
-
 		},
 
 		onSearchPressed: function (oEvent) {
@@ -192,6 +194,7 @@ sap.ui.define([
 
 		onAfterRendering: function () {
 			document.title = "Главная страница";
+			//this.getView().byId("mainlogo").firePress();
 		},
 
 		onPressEmployees: function () {
@@ -204,7 +207,7 @@ sap.ui.define([
 
 		onPressNewsAdmin: function () {
 			this.getRouter().navTo("newsadmin");
-		},		
+		},
 
 		onPressKB: function () {
 			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/kb/index.html", '_self');
