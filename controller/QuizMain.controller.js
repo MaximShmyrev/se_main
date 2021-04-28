@@ -56,7 +56,7 @@ sap.ui.define([
 			if (!this.oSubmitDialog) {
 				this.oSubmitDialog = new Dialog({
 					type: DialogType.Message,
-					title: "Форма обратной связи",
+					title: "Предложения по качеству",
 					content: [
 						new TextArea("submissionNote", {
 							width: "100%",

@@ -4,7 +4,7 @@
 		    xmlns="sap.m">       
 	<Dialog 
         id="feedbackDialog"
-        title="Форма обратной связи">
+        title="Предложения по качеству">
 		<beginButton>
 			<Button press="onCloseDialog" text="Сохранить"/>
 		</beginButton>

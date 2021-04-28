@@ -39,7 +39,7 @@
 						</TileContent>
 					</tileContent>
 				</GenericTile>
-				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Форма обратной связи" press="onNavToFeedback">
+				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Предложения по качеству" press="onNavToFeedback">
 					<tileContent>
 						<TileContent>
 							<content>
