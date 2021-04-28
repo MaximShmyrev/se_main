@@ -2,7 +2,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"sap/ui/model/json/JSONModel"
-], function(Controller, MessageBox, JSONModel) {
+], function (Controller, MessageBox, JSONModel) {
 	"use strict";
 
 	var questions;
@@ -12,21 +12,21 @@ sap.ui.define([
 
 	return Controller.extend("main.controller.Test", {
 
-		onInit: function() {
+		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("test").attachMatched(this._onRouteMatched, this);
 		},
 
-		onAfterRendering: function() {
+		onAfterRendering: function () {
 			var test = "test";
 		},
 
-		onNavBack: function() {
+		onNavBack: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("examen", {}, true);
 		},
 
-		_onRouteMatched: function(oEvent) {
+		_onRouteMatched: function (oEvent) {
 
 			oData = {};
 
@@ -47,7 +47,7 @@ sap.ui.define([
 				'</soapenv:Body>' +
 				'</soapenv:Envelope>';
 
-			xmlhttp.onreadystatechange = function() {
+			xmlhttp.onreadystatechange = function () {
 				if (xmlhttp.readyState == 4) {
 					if (xmlhttp.status == 200) {
 						//parse response and create array for quizes
@@ -57,7 +57,7 @@ sap.ui.define([
 						questions = JSON.parse(arrayResponse.toString());
 
 						//random sort
-						questions.QUESTIONS = questions.QUESTIONS.sort(function() {
+						questions.QUESTIONS = questions.QUESTIONS.sort(function () {
 							return Math.random() - 0.5;
 						});
 
@@ -98,24 +98,24 @@ sap.ui.define([
 				path: "/quiz(" + oArgs.quizId + ")",
 				events: {
 					change: this._onBindingChange.bind(this),
-					dataRequested: function(oEvent) {
+					dataRequested: function (oEvent) {
 						oView.setBusy(true);
 					},
-					dataReceived: function(oEvent) {
+					dataReceived: function (oEvent) {
 						oView.setBusy(false);
 					}
 				}
 			});
 		},
 
-		_onBindingChange: function(oEvent) {
+		_onBindingChange: function (oEvent) {
 			// No data for the binding
 			if (!this.getView().getBindingContext()) {
 				this.getRouter().getTargets().display("notFound");
 			}
 		},
 
-		onNextQuestion: function() {
+		onNextQuestion: function () {
 
 			//get current answer and store it to 'proposal' property
 			var view = this.getView().byId("quiz");
@@ -150,7 +150,7 @@ sap.ui.define([
 
 		},
 
-		onPreviousQuestion: function() {
+		onPreviousQuestion: function () {
 
 			//clear selection
 			//this.getView().byId("answers").removeSelections(true);
@@ -179,7 +179,7 @@ sap.ui.define([
 
 		},
 
-		onConfirm: function(oEvent) {
+		onConfirm: function (oEvent) {
 
 			//get current answer and store it to 'proposal' property
 			var view = this.getView().byId("quiz");
@@ -229,7 +229,7 @@ sap.ui.define([
 					answers = answers + ',';
 				}
 
-				
+
 
 				answers = answers + '{"QUESTIONID":"' + questions.QUESTIONS[i].QUESTIONID + '", "QUESTIONTYPE":"1"' + ', "ANSWERID":"';
 
@@ -245,8 +245,8 @@ sap.ui.define([
 			answers = "<answers>" + answers + "</answers>";
 
 			/*         <answers>{"ANSWERS":[{"QUESTIONID":"672413373", "ANSWERID":"672413366","ISANSWER":"1"}, {"QUESTIONID":"677745911","ANSWERID":"677745909","ISANSWER":"0"}]}</answers>
-			         <!--Optional:-->
-			         <dateTime>?</dateTime>*/
+					 <!--Optional:-->
+					 <dateTime>?</dateTime>*/
 
 			// build SOAP request
 			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
@@ -262,7 +262,7 @@ sap.ui.define([
 				'</soapenv:Body>' +
 				'</soapenv:Envelope>';
 
-			xmlhttp.onreadystatechange = function() {
+			xmlhttp.onreadystatechange = function () {
 				if (xmlhttp.readyState == 4) {
 					if (xmlhttp.status == 200) {
 						//parse response and create array for quizes
@@ -281,9 +281,9 @@ sap.ui.define([
 			var message = "Ваш результат: " + result + "%. " + "Количество правильных ответов: " + correctAnswers;
 			MessageBox.information(message, {
 				title: "Результаты экзамена",
-				onClose: function() {
-						var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-						oRouter.navTo('examen');
+				onClose: function () {
+					var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+					oRouter.navTo('examen');
 				}.bind(this)
 			});
 		}

@@ -10,7 +10,7 @@ sap.ui.define([
 	"sap/m/DialogType",
 	"sap/m/TextArea",
 	"sap/m/Button",
-	"sap/m/ButtonType"	
+	"sap/m/ButtonType"
 ], function (jQuery, Controller, Core, JSONModel, NumberFormat, MessageToast, MobileLibrary, Dialog, DialogType, TextArea, Button, ButtonType) {
 	"use strict";
 
@@ -73,7 +73,44 @@ sap.ui.define([
 						enabled: false,
 						press: function () {
 							var sText = Core.byId("submissionNote").getValue();
-							MessageToast.show("Ваше предложение отправлено");
+
+
+							var xmlhttp = new XMLHttpRequest();
+							xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_TestsService/ZCE_Tests', false);
+
+							var sessionId = "<sessionId>" + Math.random().toString(36).substr(2, 9) + "</sessionId>";
+							var userId = sessionStorage.getItem("USERID");
+							userId = '<userId>' + userId + '</userId>';
+							var testId = '<testId>441804446</testId>';
+							var answers = '<answers>{"ANSWERS":[{"QUESTIONID":"442046867", "QUESTIONTYPE":"3", "ANSWERID":"", "ISANSWER":"","ANSWERTEXT":"' + sText + '"}]}</answers>';
+
+							// build SOAP request
+							var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+								'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_tests/">' +
+								'<soapenv:Header/>' +
+								'<soapenv:Body>' +
+								'<zce:writeResults>' +
+								sessionId +
+								userId +
+								testId +
+								answers +
+								'</zce:writeResults>' +
+								'</soapenv:Body>' +
+								'</soapenv:Envelope>';
+
+							xmlhttp.onreadystatechange = function () {
+								if (xmlhttp.readyState == 4) {
+									if (xmlhttp.status == 200) {
+										//parse response and create array for quizes
+										MessageToast.show("Ваше предложение отправлено");
+									}
+								}
+							};
+
+							// Send the POST request
+							xmlhttp.setRequestHeader("Content-Type", "text/xml");
+							xmlhttp.send(sr);
+							
 							this.oSubmitDialog.close();
 						}.bind(this)
 					}),
