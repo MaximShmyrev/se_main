@@ -51,3 +51,15 @@ width:20%;
 .fragmentText{
 font-size: .98rem;
 }
+
+.fragmentImage{
+  display:block;
+  margin:auto;/* horizontal center effect */
+}
+
+.sapMGTHdrIconImage {
+	width: 6.0rem;
+}
+.sapMLIB {
+border-bottom: 0px solid #e5e5e5;
+}
