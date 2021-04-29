@@ -11,7 +11,7 @@
 				</headerToolbar>						
 				<items>
 					<CustomListItem class="sapUiTinyMargin" visible="{= ${/image} === 'true' ? true : false }" >
-						<Image src="{/fragment_image}" visible="true" height="400px" fieldGroupIds="detailLink" class="fragmentImage" selected="false"/>
+						<Image src="{/fragment_image}" visible="true" height="400px" fieldGroupIds="detailLink" class="fragmentImage" />
 					</CustomListItem>
 					<CustomListItem class="sapUiTinyMargin">
 						<Text text="{/fragment_text}" class="fragmentText"/>
