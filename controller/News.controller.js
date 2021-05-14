@@ -198,7 +198,7 @@ sap.ui.define([
 			var oContext = oModel.getProperty(sPath);
 			this.oFixedSizeDialog = new Dialog({
 				title: oContext.title,
-				contentWidth: "1050px",
+				contentWidth: "850px",
 				contentHeight: "900px",
 				content: [new Text({
 						text: oContext.text
