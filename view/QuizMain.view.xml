@@ -21,7 +21,7 @@
 						</TileContent>
 					</tileContent>
 				</GenericTile>
-				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Анкеты" subheader="Режим редактора" press="onNavToEditor">
+				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Анкеты" subheader="Режим редактора" visible="{= ${/Admin} === 'admin' ? true : false }" press="onNavToEditor">
 					<tileContent>
 						<TileContent>
 							<content>
