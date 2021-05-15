@@ -61,7 +61,7 @@
 						</content>										
 						<footer>
 							<OverflowToolbar id="otb3">
-								<Button text="Добавить" type="Accept" />
+								<Button text="Добавить" type="Accept" press="onCreateDialog"/>
 								<Button text="Удалить" type="Reject" />
 								<Button text="Редактировать" type="Transparent" />
 							</OverflowToolbar>

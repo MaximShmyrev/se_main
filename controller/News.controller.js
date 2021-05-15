@@ -8,69 +8,69 @@ sap.ui.define([
 	"sap/m/Button",
 	"sap/m/Text",
 	"sap/ui/core/Fragment"
-], function(BaseController, JSONModel, Filter, FilterOperator, Dialog, DialogType, Button, Text, Fragment) {
+], function (BaseController, JSONModel, Filter, FilterOperator, Dialog, DialogType, Button, Text, Fragment) {
 	"use strict";
 	var oData;
 
 	return BaseController.extend("main.controller.News", {
 
-		onInit: function() {
+		onInit: function () {
 			this.byId("SplitApp").toDetail(this.createId("detail"));
-			
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
-	// build SOAP request
-	var sr = '<?xml version="1.0" encoding="utf-8"?>' +
-		'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
-		'<soapenv:Header/>' +
-		'<soapenv:Body>' +
-		'<zce:getNews/>' +
-		'</soapenv:Body>' +
-		'</soapenv:Envelope>';
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4) {
-			if (xmlhttp.status == 200) {
-				//console.log(xmlhttp.responseText);
-				var response = xmlhttp.responseText;
+			// build SOAP request
+			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+				'<soapenv:Header/>' +
+				'<soapenv:Body>' +
+				'<zce:getNews/>' +
+				'</soapenv:Body>' +
+				'</soapenv:Envelope>';
 
-				var splitResponse = response.split(/<return>|<\/return>/);
-				var arrayResponse = splitResponse[1];
-				var jsonObj = JSON.parse(arrayResponse.toString());
-				oData = {
-					news: jsonObj,
-				categories: [{
-					name: "Новости"
-				}, {
-					name: "Приказы"
-				}, {
-					name: "Объявления"
-				}],
-				weeks: 52,
-				fragment_image: "",
-				fragment_text: ""
-				};
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						//console.log(xmlhttp.responseText);
+						var response = xmlhttp.responseText;
 
-			}
-		}
-	};
+						var splitResponse = response.split(/<return>|<\/return>/);
+						var arrayResponse = splitResponse[1];
+						var jsonObj = JSON.parse(arrayResponse.toString());
+						oData = {
+							news: jsonObj,
+							categories: [{
+								name: "Новости"
+							}, {
+								name: "Приказы"
+							}, {
+								name: "Объявления"
+							}],
+							weeks: 52,
+							fragment_image: "",
+							fragment_text: ""
+						};
 
-	// Send the POST request
-	xmlhttp.setRequestHeader("Content-Type", "text/xml");
-	xmlhttp.send(sr);
+					}
+				}
+			};
+
+			// Send the POST request
+			xmlhttp.setRequestHeader("Content-Type", "text/xml");
+			xmlhttp.send(sr);
 
 			var oModel = new JSONModel(oData);
 			this.getView().setModel(oModel);
 
 		},
 
-		onAfterRendering: function() {
+		onAfterRendering: function () {
 			var oSplitApp = this.getView().byId("SplitApp");
 			oSplitApp.getAggregation("_navMaster").addStyleClass("masterStyle");
 		},
 
-		onPressHome: function() {
+		onPressHome: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
@@ -78,7 +78,7 @@ sap.ui.define([
 
 		},
 
-		onSearch: function() {
+		onSearch: function () {
 
 			//get selected item
 			var oList = this.getView().byId("categoriesList");
@@ -123,11 +123,11 @@ sap.ui.define([
 
 		},
 
-		onToMaster: function() {
+		onToMaster: function () {
 			this.byId("SplitApp").toMaster(this.createId("master"));
 		},
 
-		onShowChains: function() {
+		onShowChains: function () {
 			var oViewModel = this.getModel("view");
 			var oViewData = oViewModel.getData();
 			if (oViewData.showChains) {
@@ -138,11 +138,11 @@ sap.ui.define([
 			oViewModel.refresh(true);
 		},
 
-		onScrollToTop: function() {
+		onScrollToTop: function () {
 			this.byId("detail").scrollTo(0, 1000);
 		},
 
-		onDialogWithSizePress: function(oEvent) {
+		onDialogWithSizePress: function (oEvent) {
 			// if (!this.oFixedSizeDialog) {
 			var sPath = oEvent.getSource().getBindingContext().getPath();
 			var oModel = this.getView().getModel();
@@ -152,16 +152,16 @@ sap.ui.define([
 				contentWidth: "850px",
 				contentHeight: "900px",
 				content: [new Text({
-						text: oContext.text
-					}),
-					new Text({
-						text: oContext.image
-					})
+					text: oContext.text
+				}),
+				new Text({
+					text: oContext.image
+				})
 				],
 				type: DialogType.Message,
 				endButton: new Button({
 					text: "Close",
-					press: function() {
+					press: function () {
 						this.oFixedSizeDialog.close();
 					}.bind(this)
 				})
@@ -173,7 +173,7 @@ sap.ui.define([
 
 			this.oFixedSizeDialog.open();
 		},
-		onOpenDialog: function(oEvent) {
+		onOpenDialog: function (oEvent) {
 			var oView = this.getView();
 			var sPath = oEvent.getSource().getBindingContext().getPath();
 			var oModel = this.getView().getModel();
@@ -194,23 +194,23 @@ sap.ui.define([
 					id: oView.getId(),
 					name: "main.view.Dialog",
 					controller: this
-				}).then(function(oDialog) {
+				}).then(function (oDialog) {
 					// connect dialog to the root view of this component (models, lifecycle)
 					oView.addDependent(oDialog);
 					return oDialog;
 				});
 			}
 
-			this.pDialog.then(function(oDialog) {
+			this.pDialog.then(function (oDialog) {
 				oDialog.open();
 			});
 		},
-		onCloseDialog: function() {
+		onCloseDialog: function () {
 			// note: We don't need to chain to the pDialog promise, since this event-handler
 			// is only called from within the loaded dialog itself.
 			this.byId("Dialog").close();
 		}
-		
+
 	});
 
 });

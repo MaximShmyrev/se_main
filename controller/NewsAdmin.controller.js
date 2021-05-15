@@ -2,8 +2,8 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
-	"sap/base/Log"
-], function (MessageToast, Controller, JSONModel, Log) {
+	"sap/ui/core/Fragment"
+], function (MessageToast, Controller, JSONModel, Fragment) {
 	"use strict";
 
 	var newsJson;
@@ -75,6 +75,34 @@ sap.ui.define([
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
 		},
+
+		onCreateDialog: function (oEvent) {
+			var oView = this.getView();
+			var oModel = this.getView().getModel();
+
+			// create dialog lazily
+			if (!this.pDialog) {
+				this.pDialog = Fragment.load({
+					id: oView.getId(),
+					name: "main.view.CreateDialog",
+					controller: this
+				}).then(function (oDialog) {
+					// connect dialog to the root view of this component (models, lifecycle)
+					oView.addDependent(oDialog);
+					return oDialog;
+				});
+			}
+
+			this.pDialog.then(function (oDialog) {
+				oDialog.open();
+			});
+		},
+		
+		onCloseDialog: function () {
+			// note: We don't need to chain to the pDialog promise, since this event-handler
+			// is only called from within the loaded dialog itself.
+			this.byId("Dialog").close();
+		},		
 		
 		getRouter: function () {
 			return this.getOwnerComponent().getRouter();
