@@ -65,8 +65,20 @@ sap.ui.define([
 			oModel.setProperty("/itemHeader", itemPressed);
 			oModel.setProperty("/itemDate", newsJson[selectedNew].UPDATED_DATE);
 			oModel.setProperty("/itemAuthor", newsJson[selectedNew].UPDATED_BY);
+			oModel.setProperty("/itemText", newsJson[selectedNew].TEXT);
+			oModel.setProperty("/itemImage", newsJson[selectedNew].DATA_RAW);
 
 		},
+
+		onPressHome: function () {
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			document.title = "Главная страница";
+			oRouter.navTo("home", {}, true);
+		},
+		
+		getRouter: function () {
+			return this.getOwnerComponent().getRouter();
+		},		
 
 		onOrientationChange: function (oEvent) {
 			var bLandscapeOrientation = oEvent.getParameter("landscape"),

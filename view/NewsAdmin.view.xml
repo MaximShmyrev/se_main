@@ -14,7 +14,7 @@
 				<Panel headerText="Элементы инфоблока" height="100%">
 					<Bar id="headerBar">
 						<contentMiddle>
-							<Button type="Back" press=".onBack"/>
+							<Button type="Back" press=".onPressHome"/>
 							<SearchField
 								id="searchField"
 								showRefreshButton="{= !${device>/support/touch} }"
@@ -50,45 +50,19 @@
 							<List id="" headerText="" width="auto" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted"
 								showNoData="false">				
 								<items>
-									<CustomListItem class="sapUiTinyMargin" visible="{= ${/image} === 'true' ? true : false }" >
-										<Image src="{/fragment_image}" visible="true" height="400px" fieldGroupIds="detailLink" class="fragmentImage" selected="false"/>
+									<CustomListItem class="sapUiTinyMargin">
+										<Image src="{/itemImage}" visible="true" class="fragmentImage"/>
 									</CustomListItem>
 									<CustomListItem class="sapUiTinyMargin">
-										<Text text="{/fragment_text}" class="fragmentText"/>
+										<Text text="{/itemText}" class="fragmentText"/>
 									</CustomListItem>
 								</items>
 							</List>
 						</content>										
-						<!-- <List id="" headerText="" width="auto" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted"
-						showNoData="false">
-						<headerToolbar>
-							<Toolbar>
-								<Text text="Дата публикации {/updated_date}"/>
-								<ToolbarSpacer/>
-							</Toolbar>				
-						</headerToolbar>						
-						<items>
-							<CustomListItem class="sapUiTinyMargin" visible="{= ${/image} === 'true' ? true : false }" >
-								<Image src="{/fragment_image}" visible="true" height="400px" fieldGroupIds="detailLink" class="fragmentImage" selected="false"/>
-							</CustomListItem>
-							<CustomListItem class="sapUiTinyMargin">
-								<Text text="{/fragment_text}" class="fragmentText"/>
-							</CustomListItem>
-						</items>
-						</List>  -->
-
-						<!-- <content>
-							<Panel id="containerHeader" width="100%">	
-								<FormattedText id="textHeader" editable="true" htmlText="Здесь будет длинный текст"/>
-							</Panel>								
-							<Panel id="containerText" width="100%">	
-								<FormattedText id="textText" htmlText="Здесь будет длинный текст"/>
-							</Panel>							
-						</content> -->
 						<footer>
 							<OverflowToolbar id="otb3">
-								<Button text="Добавить" type="Transparent" />
-								<Button text="Удалить" type="Transparent" />
+								<Button text="Добавить" type="Accept" />
+								<Button text="Удалить" type="Reject" />
 								<Button text="Редактировать" type="Transparent" />
 							</OverflowToolbar>
 						</footer>
