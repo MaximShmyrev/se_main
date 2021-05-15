@@ -50,9 +50,9 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Личный кабинет" press="press">
-						<TileContent footer="Посещений в день">
-							<NumericContent value="6" withMargin="false" valueColor="Error" indicator="Down"/>
+					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="press">
+						<TileContent footer="В этом месяце">
+							<NumericContent value="988" withMargin="false" valueColor="Error" indicator="Down"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="press">
