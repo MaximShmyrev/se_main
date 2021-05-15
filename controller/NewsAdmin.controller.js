@@ -6,7 +6,6 @@ sap.ui.define([
 ], function (MessageToast, Controller, JSONModel, Log) {
 	"use strict";
 
-	var news;
 	var newsJson;
 
 	var xmlhttp = new XMLHttpRequest();
@@ -48,6 +47,27 @@ sap.ui.define([
 
 		},
 
+		onListItemPressed: function (oEvent) {
+
+			// get pressed value
+			var itemPressed = oEvent.oSource.mProperties.title;
+			var oModel = this.getView().getModel();
+			
+
+			var selectedNew;
+
+			for (var i = 0, len = newsJson.length; i < len; i++) {
+				if (newsJson[i].HEADER == itemPressed) {
+					selectedNew = i;
+				}
+			}
+			
+			oModel.setProperty("/itemHeader", itemPressed);
+			oModel.setProperty("/itemDate", newsJson[selectedNew].UPDATED_DATE);
+			oModel.setProperty("/itemAuthor", newsJson[selectedNew].UPDATED_BY);
+
+		},
+
 		onOrientationChange: function (oEvent) {
 			var bLandscapeOrientation = oEvent.getParameter("landscape"),
 				sMsg = "Orientation now is: " + (bLandscapeOrientation ? "Landscape" : "Portrait");
@@ -74,21 +94,6 @@ sap.ui.define([
 			var sToPageId = oEvent.getParameter("listItem").getCustomData()[0].getValue();
 
 			this.getSplitAppObj().toDetail(this.createId(sToPageId));
-		},
-
-		onPressModeBtn: function (oEvent) {
-			var sSplitAppMode = oEvent.getSource().getSelectedButton().getCustomData()[0].getValue();
-
-			this.getSplitAppObj().setMode(sSplitAppMode);
-			MessageToast.show("Split Container mode is changed to: " + sSplitAppMode, { duration: 5000 });
-		},
-
-		getSplitAppObj: function () {
-			var result = this.byId("SplitAppDemo");
-			if (!result) {
-				Log.info("SplitApp object can't be found");
-			}
-			return result;
 		}
 
 	});
