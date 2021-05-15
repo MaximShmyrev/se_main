@@ -13,6 +13,9 @@
 				</l:layoutData>					
 				<Panel headerText="Элементы инфоблока" height="100%">
 					<Bar id="headerBar">
+						<contentLeft>
+							<Button type="Back" visible="{appView>/smallScreenMode}" press=".onBack"/>
+						</contentLeft>						
 						<contentMiddle>
 							<SearchField
 								id="searchField"
@@ -32,124 +35,68 @@
 			</l:SplitPane>
 			<l:PaneContainer orientation="Vertical">
 				<l:SplitPane requiredParentWidth="600">
-					<Page title="Детали элемента">					
+					<Page id="newDetails" title="Детали элемента">
+						<content>
+							<ObjectHeader
+								title="Заголовок новости">
+								<attributes>
+									<ObjectAttribute title="Дата публикации" text="21.05.2021" />
+									<ObjectAttribute title="Автор" text="Пушкин А.С." />
+								</attributes>
+								<statuses>
+									<ObjectStatus title="Статус" text="Опубликована" state="Success" />
+								</statuses>
+							</ObjectHeader>
+						</content>
+						<content>
+							<List id="" headerText="" width="auto" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted"
+								showNoData="false">				
+								<items>
+									<CustomListItem class="sapUiTinyMargin" visible="{= ${/image} === 'true' ? true : false }" >
+										<Image src="{/fragment_image}" visible="true" height="400px" fieldGroupIds="detailLink" class="fragmentImage" selected="false"/>
+									</CustomListItem>
+									<CustomListItem class="sapUiTinyMargin">
+										<Text text="{/fragment_text}" class="fragmentText"/>
+									</CustomListItem>
+								</items>
+							</List>
+						</content>										
+						<!-- <List id="" headerText="" width="auto" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted"
+						showNoData="false">
+						<headerToolbar>
+							<Toolbar>
+								<Text text="Дата публикации {/updated_date}"/>
+								<ToolbarSpacer/>
+							</Toolbar>				
+						</headerToolbar>						
+						<items>
+							<CustomListItem class="sapUiTinyMargin" visible="{= ${/image} === 'true' ? true : false }" >
+								<Image src="{/fragment_image}" visible="true" height="400px" fieldGroupIds="detailLink" class="fragmentImage" selected="false"/>
+							</CustomListItem>
+							<CustomListItem class="sapUiTinyMargin">
+								<Text text="{/fragment_text}" class="fragmentText"/>
+							</CustomListItem>
+						</items>
+						</List>  -->
+
+						<!-- <content>
+							<Panel id="containerHeader" width="100%">	
+								<FormattedText id="textHeader" editable="true" htmlText="Здесь будет длинный текст"/>
+							</Panel>								
+							<Panel id="containerText" width="100%">	
+								<FormattedText id="textText" htmlText="Здесь будет длинный текст"/>
+							</Panel>							
+						</content> -->
 						<footer>
 							<OverflowToolbar id="otb3">
-								<!-- <ToolbarSpacer /> -->
 								<Button text="Добавить" type="Transparent" />
 								<Button text="Удалить" type="Transparent" />
 								<Button text="Редактировать" type="Transparent" />
 							</OverflowToolbar>
 						</footer>
-					</Page>								
+					</Page>
 				</l:SplitPane>
 			</l:PaneContainer>
 		</l:PaneContainer>
 	</l:ResponsiveSplitter>
 </mvc:View>
-
-
-
-
-<!-- <mvc:View
-	controllerName="main.controller.NewsAdmin"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m"
-	xmlns:semantic="sap.m.semantic">
-	<semantic:MasterPage
-		id="page"
-		title="{path:'masterView>/itemCount', formatter: '.formatter.listTitle' }">
-		<semantic:subHeader>
-			<Bar id="headerBar">
-				<contentMiddle>
-					<SearchField
-						id="searchField"
-						refreshButtonTooltip="рефреш"
-						tooltip="тултип"
-						width="100%"
-						search="onSearch"/>
-				</contentMiddle>
-			</Bar>
-		</semantic:subHeader>
-		<semantic:content>
-			<PullToRefresh
-				id="pullToRefresh"
-				visible="{device>/support/touch}"
-				refresh="onRefresh"/>
-			<List
-				id="list"
-				busyIndicatorDelay="{= ${appProperties>/masterImmediateBusy} ? 0 : ${masterView>/originalBusyDelayList} }"
-				noDataText="{appProperties>/listNoDataText}"
-				mode="{= ${appProperties>/isMultiSelect} ? 'MultiSelect' : (${device>/system/phone} ? 'None' : 'SingleSelectMaster') }"
-				growing="true"
-				growingScrollToLoad="true"
-				modeAnimationOn="false"
-				selectionChange="onSelectionChange"
-				swipe="onSwipe">
-				<infoToolbar>
-					<Toolbar
-						active="true"
-						id="filterBar"
-						visible="{masterView>/isFilterBarVisible}"
-						press="onFilter">
-						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
-					</Toolbar>
-				</infoToolbar>
-				<swipeContent>
-					<Button
-						id="swipeButton"
-						text="{i18n>xbut.delete}"
-						enabled="{masterView>/swipeEnabled}"
-						type="Reject"
-						press="onSwipeDeleteItem"/>
-				</swipeContent>
-				<ObjectListItem
-					id="objectListItem"
-					type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
-					press="onSelectionChange"
-					icon="{path: 'ProductPictureURL', formatter: '.formatter.formatImageUrl'}"
-					iconDensityAware="false"
-					title="{= ${to_ProductTextInOriginalLang/Name} === '' ? (${HasActiveEntity} ? ${i18n>xtit.unnamedProduct} : ${i18n>xtit.productNew}) : ${to_ProductTextInOriginalLang/Name} }"
-					numberUnit="{Currency}"
-					number="{parts: [ {path: 'Price'}, {path: 'Currency'}], type : 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }">
-					<markers>
-						<ObjectMarker id="LockedMarker" type="Locked" visible="{= ${HasDraftEntity} &amp;&amp; ${DraftAdministrativeData/InProcessByUser} !== '' }" visibility="IconOnly"/>
-						<ObjectMarker id="DraftMarker" type="Draft" visible="{= !${IsActiveEntity} }" visibility="TextOnly"/>
-						<ObjectMarker id="UnsavedMarker" type="Unsaved" visible="{= ${IsActiveEntity} &amp;&amp; ${HasDraftEntity} &amp;&amp; ${DraftAdministrativeData/InProcessByUser} === '' }"  visibility="IconAndText"/>
-					</markers>
-					<attributes>
-						<ObjectAttribute id="mainCategoryAttribute" text="{to_ProductCategory/MainProductCategory}"/>
-						<ObjectAttribute id="categoryAttribute" text="{ProductCategory}"/>
-					</attributes>
-				</ObjectListItem>
-			</List>
-		</semantic:content>
-		<semantic:multiSelectAction>
-			<semantic:MultiSelectAction
-				id="multiSelectButton"
-				pressed="{appProperties>/isMultiSelect}"
-				enabled="{= (${appProperties>/isMultiSelect} || ${masterView>/itemCount} > 0) &amp;&amp; ${appProperties>/metaDataLoadState} > 0 &amp;&amp; !${appProperties>/isSwipeRunning} }"
-				press="onMultiSelect"/>
-		</semantic:multiSelectAction>
-		<semantic:addAction>
-			<semantic:AddAction id="addButton" enabled="{= ${appProperties>/metaDataLoadState} > 0 }" press="onAdd"/>
-		</semantic:addAction>
-		<semantic:sort>
-			<semantic:SortAction id="sort" enabled="{= ${appProperties>/metaDataLoadState} > 0 }" press="onSort"/>
-		</semantic:sort>
-		<semantic:filter>
-			<semantic:FilterAction id="filter" enabled="{= ${appProperties>/metaDataLoadState} > 0 }" press="onFilter"/>
-		</semantic:filter>
-		<semantic:group>
-			<semantic:GroupAction id="group" enabled="{= ${appProperties>/metaDataLoadState} > 0 }" press="onGroup"/>
-		</semantic:group>
-		<semantic:customFooterContent>
-			<Button
-				id="deleteButton"
-				enabled="{masterView>/markExists}"
-				text="{i18n>xbut.delete}"
-				visible="{appProperties>/isMultiSelect}"
-				press="onDelete"/>
-		</semantic:customFooterContent>
-	</semantic:MasterPage>
-</mvc:View> -->
