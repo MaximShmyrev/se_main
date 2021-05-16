@@ -67,6 +67,7 @@ sap.ui.define([
 			oModel.setProperty("/itemAuthor", newsJson[selectedNew].UPDATED_BY);
 			oModel.setProperty("/itemText", newsJson[selectedNew].TEXT);
 			oModel.setProperty("/itemImage", newsJson[selectedNew].DATA_RAW);
+			oModel.setProperty("/itemID", newsJson[selectedNew].ID);
 
 		},
 
@@ -74,6 +75,40 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
+		},
+
+		onDeleteNews: function () {
+			var oModel = this.getView().getModel();
+			var itemId = '<id>' + oModel.getProperty("/itemID") + '</id>';
+
+			var newsHTTP = new XMLHttpRequest();
+			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+
+			// build SOAP request
+			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+				'<soapenv:Header/>' +
+				'<soapenv:Body>' +
+				'<zce:deleteNews>' +
+				itemId +		
+				'</zce:deleteNews>' +
+				'</soapenv:Body>' +
+				'</soapenv:Envelope>';
+
+			newsHTTP.onreadystatechange = function () {
+				if (newsHTTP.readyState == 4) {
+					if (newsHTTP.status == 200) {
+						//var response = newsHTTP.responseText;
+						var msg = 'Элемент удалён, обновите страницу.';
+						MessageToast.show(msg);
+					}
+				}
+			}
+
+			// Send the POST request
+			newsHTTP.setRequestHeader("Content-Type", "text/xml");
+			newsHTTP.send(sr);
+
 		},
 
 		onCreateDialog: function (oEvent) {
