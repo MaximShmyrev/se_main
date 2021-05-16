@@ -1,28 +1,74 @@
 <mvc:View
+	controllerName="main.controller.NewsAdmin"
 	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m">
-	<l:Splitter height="100%">
-		<Bar id="headerBar">
-			<contentMiddle>
-				<SearchField
-					id="searchField"
-					showRefreshButton="{= !${device>/support/touch} }"
-					refreshButtonTooltip="ещё один поиск"
-					tooltip="поиск"
-					width="100%"
-					search="onSearch"/>
-			</contentMiddle>
-		</Bar>
-		<!-- <Button width="100%" text="Content 1">
-			<layoutData>
-				<l:SplitterLayoutData size="300px" />
-			</layoutData>
-		</Button> -->
-		<Button width="100%" text="Content 2">
-			<layoutData>
-				<l:SplitterLayoutData size="70%" />
-			</layoutData>
-		</Button>
-	</l:Splitter>
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	height="100%">
+	<l:ResponsiveSplitter defaultPane="default">
+		<l:PaneContainer>
+			<l:SplitPane requiredParentWidth="400" id="default">
+				<l:layoutData>
+					<l:SplitterLayoutData resizable="true" size="30%"/>
+				</l:layoutData>					
+				<Panel headerText="Элементы инфоблока" height="100%">
+					<Bar id="headerBar">
+						<contentMiddle>
+							<Button type="Back" press=".onPressHome"/>
+							<SearchField
+								id="searchField"
+								showRefreshButton="{= !${device>/support/touch} }"
+								refreshButtonTooltip="ещё один поиск"
+								tooltip="поиск"
+								width="100%"
+								search="onSearch"/>
+						</contentMiddle>
+					</Bar>
+					<List id="listNews" items="{ path: '/' }">
+						<ObjectListItem title="{HEADER}" type="Active" icon="sap-icon://newspaper" press="onListItemPressed">
+							<ObjectAttribute visible="true" text="Тип элемента: {TYPE}"/>
+						</ObjectListItem>
+					</List>					
+				</Panel>		
+			</l:SplitPane>
+			<l:PaneContainer orientation="Vertical">
+				<l:SplitPane requiredParentWidth="600">
+					<Page id="newDetails" title="Детали элемента">
+						<content>
+							<ObjectHeader
+								title="{/itemHeader}">
+								<attributes>
+									<ObjectAttribute title="Дата публикации" text="{/itemDate}" />
+									<ObjectAttribute title="Автор" text="{/itemAuthor}" />
+								</attributes>
+								<statuses>
+									<ObjectStatus title="Статус" text="Опубликована" state="Success" />
+								</statuses>
+							</ObjectHeader>
+						</content>
+						<content>
+							<List id="" headerText="" width="auto" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted"
+								showNoData="false">				
+								<items>
+									<CustomListItem class="sapUiTinyMargin">
+										<Image src="{/itemImage}" visible="true" class="fragmentImage"/>
+									</CustomListItem>
+									<CustomListItem class="sapUiTinyMargin">
+										<Text text="{/itemText}" class="fragmentText"/>
+									</CustomListItem>
+								</items>
+							</List>
+						</content>										
+						<footer>
+							<OverflowToolbar id="otb3">
+								<Button text="Добавить" type="Accept" press="onCreateDialog"/>
+								<Button text="Удалить" type="Reject" />
+								<Button text="Редактировать" type="Transparent" />
+							</OverflowToolbar>
+						</footer>
+					</Page>
+				</l:SplitPane>
+			</l:PaneContainer>
+		</l:PaneContainer>
+	</l:ResponsiveSplitter>
 </mvc:View>

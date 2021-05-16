@@ -12,6 +12,9 @@ sap.ui.define([
 	var temperature;
 	var weatherText;
 	var jsonObj;
+	var indConsNumber;
+	var legalConsNumber;
+	var uzedoDocNumber;	
 
 	return Controller.extend("main.controller.Startpage", {
 		onInit: function () {
@@ -113,6 +116,32 @@ sap.ui.define([
 			//kbHTTP.send(kbRequest);
 
 
+			// get data from IAS
+			var iasHTTP = new XMLHttpRequest();
+
+			//iasHTTP.open('GET', 'http://cibdv.samaraenergo.ru:8006/sap/opu/odata/sap/ZGP_IAS_INTEGRATION_SRV/IASINTEGRSet?$format=json', false);
+			iasHTTP.open('GET', 'http://192.168.203.19:8006/sap/opu/odata/sap/ZGP_IAS_INTEGRATION_SRV/IASINTEGRSet?$format=json', false);
+
+			iasHTTP.onreadystatechange = function () {
+				if (iasHTTP.readyState == 4) {
+					if (iasHTTP.status == 200) {
+						var iasResponse = iasHTTP.responseText;
+						var iasObj = JSON.parse(iasResponse.toString());
+
+						var indConsNumberText = iasObj.d.results[0].indconsumernumber
+						var legalConsNumberText = iasObj.d.results[0].legalconsumernumber;
+						var uzedoDocNumberText = iasObj.d.results[0].uzedovaluabledocnumber;
+
+						indConsNumber = parseInt(indConsNumberText, 10);
+						legalConsNumber = parseInt(legalConsNumberText, 10);
+						uzedoDocNumber = parseInt(uzedoDocNumberText, 10);
+
+					}
+				}
+			}
+
+			iasHTTP.send();
+
 			// get data from AccuWeather API
 			var weatherHTTP = new XMLHttpRequest();
 			weatherHTTP.open('GET', 'http://dataservice.accuweather.com/currentconditions/v1/290396?apikey=4r47GAJnofVwdAYanGTXPQNVnBlVDTFG', false);
@@ -138,6 +167,10 @@ sap.ui.define([
 						if (weatherText == "Cloudy") {
 							weatherText = "Облачно"
 						}
+
+						if (weatherText == "Clear") {
+							weatherText = "Ясно"
+						}						
 
 						if (weatherText == "Some clouds") {
 							weatherText = "Облачно"
@@ -176,7 +209,10 @@ sap.ui.define([
 			var oData = {
 				"News": jsonObj,
 				"Temperature": temperature,
-				"weatherText": weatherText
+				"weatherText": weatherText,
+				"indConsNumber": indConsNumber,
+				"legalConsNumber": legalConsNumber,
+				"uzedoDocNumber": uzedoDocNumber
 			}
 
 			var oModel = new JSONModel(oData);
@@ -194,7 +230,11 @@ sap.ui.define([
 
 		onAfterRendering: function () {
 			document.title = "Главная страница";
-			//this.getView().byId("mainlogo").firePress();
+			
+			// focus on employees tile to see search placeholder
+			jQuery.sap.delayedCall(10, this, function() {
+				this.getView().byId("tileEmployees").focus();
+			 });
 		},
 
 		onPressEmployees: function () {
@@ -283,14 +323,14 @@ sap.ui.define([
 		 *
 		 * @param {sap.ui.base.Event} event The SAPUI5 event object
 		 */
-		onTilePressed: function (event) {
-			var sItemTitle, sMessage;
-			sItemTitle = event.getSource().getHeader() || event.getSource().getSubheader();
-			sMessage = sItemTitle && sItemTitle.length && sItemTitle.length > 0 ?
-				this.getResourceBundle().getText("startpageTileClickedMessageTemplate", [sItemTitle]) :
-				this.getResourceBundle().getText("startpageTileClickedMessage");
-			MessageToast.show(sMessage);
-		},
+		// onTilePressed: function (event) {
+		// 	var sItemTitle, sMessage;
+		// 	sItemTitle = event.getSource().getHeader() || event.getSource().getSubheader();
+		// 	sMessage = sItemTitle && sItemTitle.length && sItemTitle.length > 0 ?
+		// 		this.getResourceBundle().getText("startpageTileClickedMessageTemplate", [sItemTitle]) :
+		// 		this.getResourceBundle().getText("startpageTileClickedMessage");
+		// 	MessageToast.show(sMessage);
+		// },
 
 		getRouter: function () {
 			return this.getOwnerComponent().getRouter();
@@ -303,16 +343,16 @@ sap.ui.define([
 		 */
 		getResourceBundle: function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
-		},
+		}
 
-		formatJSONDate: function (date) {
-			var oDate = new Date(Date.parse(date));
-			return oDate.toLocaleDateString();
-		},
+		// formatJSONDate: function (date) {
+		// 	var oDate = new Date(Date.parse(date));
+		// 	return oDate.toLocaleDateString();
+		// },
 
-		getEntityCount: function (entities) {
-			return entities && entities.length || 0;
-		},
+		// getEntityCount: function (entities) {
+		// 	return entities && entities.length || 0;
+		// },
 
 		/**
 		 * Calculated the current progress state of the process.
@@ -321,25 +361,25 @@ sap.ui.define([
 		 * @returns {float} Progress in percent.
 		 * @public
 		 */
-		getProgress: function (aNodes) {
-			if (!aNodes || aNodes.length === 0) {
-				return 0;
-			}
+		// getProgress: function (aNodes) {
+		// 	if (!aNodes || aNodes.length === 0) {
+		// 		return 0;
+		// 	}
 
-			var iSum = 0;
-			for (var i = 0; i < aNodes.length; i++) {
-				iSum += aNodes[i].state === "Positive";
-			}
-			var fPercent = (iSum / aNodes.length) * 100;
-			return fPercent.toFixed(0);
-		},
+		// 	var iSum = 0;
+		// 	for (var i = 0; i < aNodes.length; i++) {
+		// 		iSum += aNodes[i].state === "Positive";
+		// 	}
+		// 	var fPercent = (iSum / aNodes.length) * 100;
+		// 	return fPercent.toFixed(0);
+		// },
 
-		formatNumber: function (value) {
-			var oFloatFormatter = NumberFormat.getFloatInstance({
-				style: "short",
-				decimals: 1
-			});
-			return oFloatFormatter.format(value);
-		}
+		// formatNumber: function (value) {
+		// 	var oFloatFormatter = NumberFormat.getFloatInstance({
+		// 		style: "short",
+		// 		decimals: 1
+		// 	});
+		// 	return oFloatFormatter.format(value);
+		// }
 	});
 });

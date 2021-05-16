@@ -6,7 +6,6 @@
 				<l:SplitterLayoutData size="50px" resizable="false"/>
 			</l:layoutData>
 			<l:contentAreas>
-				<!--				<SearchField width="600px" placeholder="Поиск сотрудников" id="search" search="handleSearchPressed"/>-->
 				<Bar id="mainBar">
 					<contentLeft>
 						<Image id="mainlogo" src="src/logo.png" class="sapUiSmallMargin sapUiSmallMarginBottom sapUiSmallMarginTop"/>
@@ -21,7 +20,7 @@
 			<layout:VerticalLayout class="sapUiResponsiveMargin">
 				<Title titleStyle="H2" text="Избранное" class="sapUiTinyMarginBegin"/>
 				<layout:HorizontalLayout allowWrapping="true">
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго"
+					<GenericTile id="tileEmployees" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго"
 						press="onPressEmployees" frameType="TwoByOne">
 						<TileContent>
 							<ImageContent src="images/employee_directory.png"/>
@@ -35,7 +34,7 @@
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="САБиЗ" backgroundImage="images/sabiz_background.png"
 						url="http://openicar-prod.samaraenergo.ru:8080/docflowm/sf/emb/newMainWindow" press="onPressSabiz">
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="src/se_website.png"
+					<GenericTile id="tileSeSite" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="src/se_website.png"
 						url="http://www.samaraenergo.ru/" press="onPressSiteSE"></GenericTile>
 				</layout:HorizontalLayout>
 				<Title titleStyle="H2" text="Инфоблок" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
@@ -51,24 +50,24 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Личный кабинет" press="press">
-						<TileContent footer="Посещений в день">
-							<NumericContent value="6" withMargin="false" valueColor="Error" indicator="Down"/>
+					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="press">
+						<TileContent footer="В этом месяце">
+							<NumericContent value="988" withMargin="false" valueColor="Error" indicator="Down"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="press">
-						<TileContent unit="За неделю">
-							<NumericContent scale="документы" value="203" valueColor="Good" indicator="Up" withMargin="false"/>
+						<TileContent unit="Документов">
+							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" indicator="Up" withMargin="false"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество бытовых потребителей" press="press">
-						<TileContent unit="Динамика прироста">
-							<NumericContent scale="%" value="20" valueColor="Critical" indicator="Up" withMargin="false"/>
+						<TileContent unit="Данные на сегодня">
+							<NumericContent value="{/indConsNumber}" valueColor="Critical" indicator="Up" withMargin="false"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="press">
-						<TileContent unit="Динамика прироста">
-							<NumericContent scale="%" value="17" valueColor="Good" indicator="Up" withMargin="false"/>
+						<TileContent unit="Данные на сегодня">
+							<NumericContent value="{/legalConsNumber}" valueColor="Good" indicator="Up" withMargin="false"/>
 						</TileContent>
 					</GenericTile>											
 				</layout:HorizontalLayout>

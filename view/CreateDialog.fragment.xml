@@ -1,0 +1,79 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+	<Dialog id="Dialog" title="Добавление элемента в Инфоблоке" contentWidth="850px" contentHeight="900px">
+		
+		<VBox class="sapUiSmallMargin">
+			<f:Form id="FormAddNews"
+				editable="true">
+				<f:title>
+					<core:Title text="Детали элемента" />
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+						labelSpanXL="2"
+						labelSpanL="2"
+						labelSpanM="2"
+						labelSpanS="2"
+						adjustLabelSpan="false"
+						emptySpanXL="1"
+						emptySpanL="1"
+						emptySpanM="1"
+						emptySpanS="1"
+						columnsXL="1"
+						columnsL="1"
+						columnsM="1"
+						singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Заголовок">
+								<f:fields>
+									<Input id="Header"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Тип элемента">
+								<f:fields>
+									<Select id="elementType">
+										<items>
+											<core:Item text="Новости" key="Новости"/>
+											<core:Item text="Объявления" key="Объявления"/>
+											<core:Item text="Приказы" key="Приказы"/>
+										</items>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Текст">
+								<f:fields>
+									<TextArea height="500px" id="Text"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Вложение">
+								<f:fields>
+									<u:FileUploader
+									id="fileUploader"
+									tooltip="Загрузите файл с компьютера"
+									change="onChangeFileUploader"/>
+									<!-- <Button
+									text="Загрузить файл"
+									press="onFileUploadPress"/>									 -->
+								</f:fields>
+							</f:FormElement>							
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+
+		<beginButton>
+			<Button text="Сохранить" press=".onSaveDialog"/>			
+		</beginButton>
+		<endButton>
+			<Button text="Отменить" press=".onCloseDialog"/>			
+		</endButton>				
+	</Dialog>
+</core:FragmentDefinition>
