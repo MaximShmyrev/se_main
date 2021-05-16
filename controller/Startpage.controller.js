@@ -78,7 +78,7 @@ sap.ui.define([
 						var splitResponse = response.split(/<return>|<\/return>/);
 						var arrayResponse = splitResponse[1];
 						jsonObj = JSON.parse(arrayResponse.toString());
-						jsonObj.splice(5);
+						jsonObj.splice(10);
 					}
 				}
 			};
