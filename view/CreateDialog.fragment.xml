@@ -40,9 +40,9 @@
 								<f:fields>
 									<Select id="elementType">
 										<items>
-											<core:Item text="Новости" key="England"/>
-											<core:Item text="Объявления" key="Germany"/>
-											<core:Item text="Приказы" key="USA"/>
+											<core:Item text="Новости" key="Новости"/>
+											<core:Item text="Объявления" key="Объявления"/>
+											<core:Item text="Приказы" key="Приказы"/>
 										</items>
 									</Select>
 								</f:fields>
@@ -56,13 +56,11 @@
 								<f:fields>
 									<u:FileUploader
 									id="fileUploader"
-									name="myFileUpload"
-									uploadUrl="upload/"
 									tooltip="Загрузите файл с компьютера"
-									uploadComplete="handleUploadComplete"/>
-									<Button
+									change="onChangeFileUploader"/>
+									<!-- <Button
 									text="Загрузить файл"
-									press="handleUploadPress"/>									
+									press="onFileUploadPress"/>									 -->
 								</f:fields>
 							</f:FormElement>							
 						</f:formElements>
@@ -72,7 +70,7 @@
 		</VBox>
 
 		<beginButton>
-			<Button text="Сохранить" press=".onCloseDialog"/>			
+			<Button text="Сохранить" press=".onSaveDialog"/>			
 		</beginButton>
 		<endButton>
 			<Button text="Отменить" press=".onCloseDialog"/>			
