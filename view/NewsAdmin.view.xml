@@ -63,7 +63,7 @@
 							<OverflowToolbar id="otb3">
 								<Button text="Добавить" type="Accept" press="onCreateDialog"/>
 								<Button text="Удалить" type="Reject" press="onDeleteNews" />
-								<Button text="Редактировать" type="Transparent" />
+								<Button text="Редактировать" type="Transparent" press="onEditNews" />
 							</OverflowToolbar>
 						</footer>
 					</Page>

@@ -68,6 +68,7 @@ sap.ui.define([
 			oModel.setProperty("/itemText", newsJson[selectedNew].TEXT);
 			oModel.setProperty("/itemImage", newsJson[selectedNew].DATA_RAW);
 			oModel.setProperty("/itemID", newsJson[selectedNew].ID);
+			oModel.setProperty("/itemType", newsJson[selectedNew].TYPE);
 
 		},
 
@@ -76,6 +77,36 @@ sap.ui.define([
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
 		},
+
+
+		onEditNews: function () {
+			sessionStorage.setItem("NEWS_CHANGE", "edit");
+			var oView = this.getView();
+			var oModel = this.getView().getModel();
+
+			// create dialog lazily
+			if (!this.pDialog) {
+				this.pDialog = Fragment.load({
+					id: oView.getId(),
+					name: "main.view.CreateDialog",
+					controller: this
+				}).then(function (oDialog) {
+					// connect dialog to the root view of this component (models, lifecycle)
+					oView.addDependent(oDialog);
+					return oDialog;
+				});
+			}
+
+			this.getView().byId("Header").setValue(oModel.getProperty("/itemHeader"));
+			this.getView().byId("elementType").setSelectedKey(oModel.getProperty("/itemType"));
+			this.getView().byId("Text").setValue(oModel.getProperty("/itemText"));
+
+			this.pDialog.then(function (oDialog) {
+				oDialog.open();
+			});
+
+		},
+
 
 		onDeleteNews: function () {
 			var oModel = this.getView().getModel();
@@ -112,6 +143,7 @@ sap.ui.define([
 		},
 
 		onCreateDialog: function (oEvent) {
+			sessionStorage.setItem("NEWS_CHANGE", "create");
 			var oView = this.getView();
 			var oModel = this.getView().getModel();
 
@@ -151,51 +183,104 @@ sap.ui.define([
 			news_type = '<news_type>' + news_type + '</news_type>';
 			var updated_by = '<updated_by>' + 'SHMYREV' + '</updated_by>';
 
+			var oModel = this.getView().getModel();
+			var itemId = '<id>' + oModel.getProperty("/itemID") + '</id>';
+
+			var change = sessionStorage.getItem("NEWS_CHANGE");
+
 			var isAttachment = this.getView().byId("fileUploader").getValue();
 
 			var newsHTTP = new XMLHttpRequest();
-			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);			
 
-			if (isAttachment !== "") {
-				var data_mime = sessionStorage.getItem("FILE_TYPE");
-				var data_raw = sessionStorage.getItem("FILE_DATA");
-				data_mime = '<data_mime>' + data_mime + '</data_mime>';
-				data_raw = '<data_raw>' + 'data:' + sessionStorage.getItem("FILE_TYPE") + ';base64,' + data_raw + '</data_raw>';
+			if ( change == 'create') {
 
-				// build SOAP request
-				var sr = '<?xml version="1.0" encoding="utf-8"?>' +
-					'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
-					'<soapenv:Header/>' +
-					'<soapenv:Body>' +
-					'<zce:createNews>' +
-					header +
-					text +
-					news_type +
-					data_mime + 
-					data_raw +
-					updated_by +
-					'</zce:createNews>' +
-					'</soapenv:Body>' +
-					'</soapenv:Envelope>';
+				if (isAttachment !== "") {
+					var data_mime = sessionStorage.getItem("FILE_TYPE");
+					var data_raw = sessionStorage.getItem("FILE_DATA");
+					data_mime = '<data_mime>' + data_mime + '</data_mime>';
+					data_raw = '<data_raw>' + 'data:' + sessionStorage.getItem("FILE_TYPE") + ';base64,' + data_raw + '</data_raw>';
+	
+					// build SOAP request
+					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+						'<soapenv:Header/>' +
+						'<soapenv:Body>' +
+						'<zce:createNews>' +
+						header +
+						text +
+						news_type +
+						data_mime + 
+						data_raw +
+						updated_by +
+						'</zce:createNews>' +
+						'</soapenv:Body>' +
+						'</soapenv:Envelope>';
+	
+				} else {
+	
+					// build SOAP request
+					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+						'<soapenv:Header/>' +
+						'<soapenv:Body>' +
+						'<zce:createNews>' +
+						header +
+						text +
+						news_type +
+						updated_by +
+						'</zce:createNews>' +
+						'</soapenv:Body>' +
+						'</soapenv:Envelope>';
+	
+				}
 
 			} else {
 
-				// build SOAP request
-				var sr = '<?xml version="1.0" encoding="utf-8"?>' +
-					'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
-					'<soapenv:Header/>' +
-					'<soapenv:Body>' +
-					'<zce:createNews>' +
-					header +
-					text +
-					news_type +
-					updated_by +
-					'</zce:createNews>' +
-					'</soapenv:Body>' +
-					'</soapenv:Envelope>';
+				if (isAttachment !== "") {
+					var data_mime = sessionStorage.getItem("FILE_TYPE");
+					var data_raw = sessionStorage.getItem("FILE_DATA");
+					data_mime = '<data_mime>' + data_mime + '</data_mime>';
+					data_raw = '<data_raw>' + 'data:' + sessionStorage.getItem("FILE_TYPE") + ';base64,' + data_raw + '</data_raw>';
+	
+					// build SOAP request
+					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+						'<soapenv:Header/>' +
+						'<soapenv:Body>' +
+						'<zce:updateNews>' +
+						itemId +
+						header +
+						text +
+						news_type +
+						data_mime + 
+						data_raw +
+						updated_by +
+						'</zce:updateNews>' +
+						'</soapenv:Body>' +
+						'</soapenv:Envelope>';
+	
+				} else {
+	
+					// build SOAP request
+					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
+						'<soapenv:Header/>' +
+						'<soapenv:Body>' +
+						'<zce:updateNews>' +
+						itemId +
+						header +
+						text +
+						news_type +
+						updated_by +
+						'</zce:updateNews>' +
+						'</soapenv:Body>' +
+						'</soapenv:Envelope>';
+	
+				}
 
-			}
-
+			};
+			
 			newsHTTP.onreadystatechange = function () {
 				if (newsHTTP.readyState == 4) {
 					if (newsHTTP.status == 200) {
