@@ -27,7 +27,8 @@ sap.ui.define([
 				"TELEPHONENUMBER": sessionStorage.getItem("TELEPHONENUMBER"),					
 				"FAX": sessionStorage.getItem("FAX"),
 				"MOBILE": sessionStorage.getItem("MOBILE"),
-				"EMAIL": sessionStorage.getItem("EMAIL")
+				"EMAIL": sessionStorage.getItem("EMAIL"),
+				"VACATIONS": sessionStorage.getItem("VACATIONS")
 			};
 			
 			var oModel = new JSONModel(employeedata);

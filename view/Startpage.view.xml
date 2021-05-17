@@ -50,22 +50,22 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="press">
+					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="onPressKPISbyt">
 						<TileContent footer="В этом месяце">
 							<NumericContent value="988" withMargin="false" valueColor="Error" indicator="Down"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="press">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="onPressKPISbyt">
 						<TileContent unit="Документов">
 							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" indicator="Up" withMargin="false"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество бытовых потребителей" press="press">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество бытовых потребителей" press="onPressKPISbyt">
 						<TileContent unit="Данные на сегодня">
 							<NumericContent value="{/indConsNumber}" valueColor="Critical" indicator="Up" withMargin="false"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="press">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="onPressKPISbyt">
 						<TileContent unit="Данные на сегодня">
 							<NumericContent value="{/legalConsNumber}" valueColor="Good" indicator="Up" withMargin="false"/>
 						</TileContent>

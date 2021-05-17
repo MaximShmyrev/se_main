@@ -80,12 +80,7 @@
 				"viewPath": "main.view",
 				"controlId": "App",
 				"controlAggregation": "pages",
-				"transition": "slide",
-				"bypassed": {
-					"target": [
-						"launchpad"
-					]
-				}
+				"transition": "slide"
 			},
 			"routes": [{
 					"pattern": "",

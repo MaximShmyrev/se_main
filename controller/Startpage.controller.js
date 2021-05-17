@@ -144,7 +144,7 @@ sap.ui.define([
 
 			// get data from AccuWeather API
 			var weatherHTTP = new XMLHttpRequest();
-			weatherHTTP.open('GET', 'http://dataservice.accuweather.com/currentconditions/v1/290396?apikey=4r47GAJnofVwdAYanGTXPQNVnBlVDTFG', false);
+			weatherHTTP.open('GET', 'http://dataservice.accuweather.com/currentconditions/v1/290396?apikey=AAQw12e3cyOtwMHtNCeQjMWX0VMEKlJ1', false);
 
 			weatherHTTP.onreadystatechange = function () {
 				if (weatherHTTP.readyState == 4) {
@@ -297,6 +297,40 @@ sap.ui.define([
 
 		onPressNWA: function () {
 			window.open("http://prt.samaraenergo.ru:50000/nwa", '_blank');
+		},
+
+		onPressKPISbyt: function () {
+
+			$.ajax({
+
+				url: "http://bo.samaraenergo.ru:6405/biprws/logon/long",
+				type: "POST",
+				contentType: "application/json",
+				crossDomain: true,
+
+				headers: {
+					"Accept": "application/json"
+				},
+
+				data: JSON.stringify({
+					"userName": "portal",
+					"password": "Portal2021",
+					"auth": "secEnterprise"
+				}),
+
+				success: function (inResponse) {
+					console.log("Successfully logged on to BOE server");
+					console.log("Encoded token: " + encodeURIComponent(inResponse.logonToken));
+					var url = "https://bo.samaraenergo.ru:8443/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Fp0CCGC6nQkAmqsAAAD3shcDAFBWvsSI" + "&token=" + encodeURIComponent(inResponse.logonToken);
+					window.open(url, '_blank');
+				},
+
+				error: function (xhr, textStatus, errorThrown) {
+					console.log("Error connecting to BOE server");
+				}
+
+			});
+
 		},
 
 		onNavToProcessFlow: function () {
