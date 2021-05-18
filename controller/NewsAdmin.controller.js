@@ -175,14 +175,25 @@ sap.ui.define([
 			// note: We don't need to chain to the pDialog promise, since this event-handler
 			// is only called from within the loaded dialog itself.
 			var header = this.byId("Header").getValue();
+			header = header.replaceAll(/\n/g, '');
+			header = header.replaceAll('"', '');
+
 			var news_type = this.byId("elementType").getSelectedKey();
 			var text = this.byId("Text").getValue();
+			text = text.replaceAll(/\n/g, '');
+			text = text.replaceAll('"', '');
 
 			header = '<header>' + header + '</header>';
 			text = '<text>' + text + '</text>';
 			news_type = '<news_type>' + news_type + '</news_type>';
-			var updated_by = '<updated_by>' + 'SHMYREV' + '</updated_by>';
-
+			var userid = sessionStorage.getItem("USERNAME");
+			
+			if ( userid == '') {
+				var updated_by = '<updated_by>' + 'SHMYREV' + '</updated_by>';
+			} else {	
+				var updated_by = '<updated_by>' + userid + '</updated_by>';
+			}
+			
 			var oModel = this.getView().getModel();
 			var itemId = '<id>' + oModel.getProperty("/itemID") + '</id>';
 
