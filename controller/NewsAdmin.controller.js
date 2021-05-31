@@ -180,7 +180,7 @@ sap.ui.define([
 
 			var news_type = this.byId("elementType").getSelectedKey();
 			var text = this.byId("Text").getValue();
-			text = text.replaceAll(/\n/g, '');
+			//text = text.replaceAll(/\n/g, '');
 			text = text.replaceAll('"', '');
 
 			header = '<header>' + header + '</header>';

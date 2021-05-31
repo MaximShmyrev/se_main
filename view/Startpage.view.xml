@@ -57,17 +57,17 @@
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="onPressKPISbyt">
 						<TileContent unit="Документов">
-							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" indicator="Up" withMargin="false"/>
+							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" indicator="Up" withMargin="false" truncateValueTo="7"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество бытовых потребителей" press="onPressKPISbyt">
 						<TileContent unit="Данные на сегодня">
-							<NumericContent value="{/indConsNumber}" valueColor="Critical" indicator="Up" withMargin="false"/>
+							<NumericContent value="{/indConsNumber}" valueColor="Critical" indicator="Up" withMargin="false" truncateValueTo="7"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="onPressKPISbyt">
 						<TileContent unit="Данные на сегодня">
-							<NumericContent value="{/legalConsNumber}" valueColor="Good" indicator="Up" withMargin="false"/>
+							<NumericContent value="{/legalConsNumber}" valueColor="Good" indicator="Up" withMargin="true" truncateValueTo="7"/> 
 						</TileContent>
 					</GenericTile>											
 				</layout:HorizontalLayout>

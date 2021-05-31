@@ -141,7 +141,7 @@ sap.ui.define([
 
 	// adding 1 since to current date and returns value starting from 0   
 	var weekNumber = Math.ceil((today.getDay() + 1 + numberOfDays) / 7);
-	//weekNumber = weekNumber - 1;
+	weekNumber = weekNumber - 1;
 	weekNumber = '<week>' + weekNumber + '</week>';
 
 	var xmlhttp = new XMLHttpRequest();

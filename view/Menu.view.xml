@@ -23,7 +23,7 @@
 			</m:FlexBox>
 		</headerContent>
 		<sections>
-			<ObjectPageSection id="Monday" titleUppercase="false" title="Понедельник, { path: '/date/monday' }">
+			<ObjectPageSection id="Monday" title="Понедельник, { path: '/date/monday' }">
 				<subSections>
 					<ObjectPageSubSection title="Холодные закуски" titleUppercase="false">
 						<blocks>
