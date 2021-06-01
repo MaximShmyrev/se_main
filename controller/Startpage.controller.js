@@ -389,7 +389,7 @@ sap.ui.define([
 				success: function (inResponse) {
 					console.log("Successfully logged on to BOE server");
 					console.log("Encoded token: " + encodeURIComponent(inResponse.logonToken));
-					var url = "https://bo.samaraenergo.ru:8433/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Fpf_NwDBZQkAfbkAAACHUC8GAFBWvv0s" + "&token=" + encodeURIComponent(inResponse.logonToken);
+					var url = "https://bo.samaraenergo.ru:8443/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Fpf_NwDBZQkAfbkAAACHUC8GAFBWvv0s" + "&token=" + encodeURIComponent(inResponse.logonToken);
 					window.open(url, '_blank');
 				},
 
