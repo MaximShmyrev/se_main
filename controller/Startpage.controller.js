@@ -333,13 +333,108 @@ sap.ui.define([
 
 		},
 
-		onNavToProcessFlow: function () {
-			this.getRouter().navTo("processFlow");
-		},
+		onPressKPILK: function () {
 
-		onNavToChartContainer: function () {
-			this.getRouter().navTo("chartContainer");
+			$.ajax({
+
+				url: "http://bo.samaraenergo.ru:6405/biprws/logon/long",
+				type: "POST",
+				contentType: "application/json",
+				crossDomain: true,
+
+				headers: {
+					"Accept": "application/json"
+				},
+
+				data: JSON.stringify({
+					"userName": "portal",
+					"password": "Portal2021",
+					"auth": "secEnterprise"
+				}),
+
+				success: function (inResponse) {
+					console.log("Successfully logged on to BOE server");
+					console.log("Encoded token: " + encodeURIComponent(inResponse.logonToken));
+					var url = "https://bo.samaraenergo.ru:8443/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Fux_NwB9OQwAfbkAAADH0JAGAFBWvv0s" + "&token=" + encodeURIComponent(inResponse.logonToken);
+					window.open(url, '_blank');
+				},
+
+				error: function (xhr, textStatus, errorThrown) {
+					console.log("Error connecting to BOE server");
+				}
+
+			});
+
 		},
+		
+		onPressKPIUzedo: function () {
+
+			$.ajax({
+
+				url: "http://bo.samaraenergo.ru:6405/biprws/logon/long",
+				type: "POST",
+				contentType: "application/json",
+				crossDomain: true,
+
+				headers: {
+					"Accept": "application/json"
+				},
+
+				data: JSON.stringify({
+					"userName": "portal",
+					"password": "Portal2021",
+					"auth": "secEnterprise"
+				}),
+
+				success: function (inResponse) {
+					console.log("Successfully logged on to BOE server");
+					console.log("Encoded token: " + encodeURIComponent(inResponse.logonToken));
+					var url = "https://bo.samaraenergo.ru:8433/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Fpf_NwDBZQkAfbkAAACHUC8GAFBWvv0s" + "&token=" + encodeURIComponent(inResponse.logonToken);
+					window.open(url, '_blank');
+				},
+
+				error: function (xhr, textStatus, errorThrown) {
+					console.log("Error connecting to BOE server");
+				}
+
+			});
+
+		},
+		
+		onPressKPIUrlica: function () {
+
+			$.ajax({
+
+				url: "http://bo.samaraenergo.ru:6405/biprws/logon/long",
+				type: "POST",
+				contentType: "application/json",
+				crossDomain: true,
+
+				headers: {
+					"Accept": "application/json"
+				},
+
+				data: JSON.stringify({
+					"userName": "portal",
+					"password": "Portal2021",
+					"auth": "secEnterprise"
+				}),
+
+				success: function (inResponse) {
+					console.log("Successfully logged on to BOE server");
+					console.log("Encoded token: " + encodeURIComponent(inResponse.logonToken));
+					var url = "https://bo.samaraenergo.ru:8443/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Fnj9NwBc.gUAfbkAAACHkZEGAFBWvv0s" + "&token=" + encodeURIComponent(inResponse.logonToken);
+					window.open(url, '_blank');
+				},
+
+				error: function (xhr, textStatus, errorThrown) {
+					console.log("Error connecting to BOE server");
+				}
+
+			});
+
+		},		
+
 
 		/**
 		 * Handles the press event on a tile.

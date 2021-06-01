@@ -50,12 +50,12 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="onPressKPISbyt">
+					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="onPressKPILK">
 						<TileContent footer="В этом месяце">
 							<NumericContent value="988" withMargin="false" valueColor="Error" indicator="Down"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="onPressKPISbyt">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="onPressKPIUzedo">
 						<TileContent unit="Документов">
 							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" indicator="Up" withMargin="false" truncateValueTo="7"/>
 						</TileContent>
@@ -65,7 +65,7 @@
 							<NumericContent value="{/indConsNumber}" valueColor="Critical" indicator="Up" withMargin="false" truncateValueTo="7"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="onPressKPISbyt">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="onPressKPIUrlica">
 						<TileContent unit="Данные на сегодня">
 							<NumericContent value="{/legalConsNumber}" valueColor="Good" indicator="Up" withMargin="true" truncateValueTo="7"/> 
 						</TileContent>
