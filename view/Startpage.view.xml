@@ -20,11 +20,11 @@
 			<layout:VerticalLayout class="sapUiResponsiveMargin">
 				<Title titleStyle="H2" text="Избранное" class="sapUiTinyMarginBegin"/>
 				<layout:HorizontalLayout allowWrapping="true">
-					<GenericTile id="tileEmployees" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго"
+					<GenericTile id="tileEmployees" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Справочник сотрудников Самараэнерго" backgroundImage="images/employees.png"
 						press="onPressEmployees" frameType="TwoByOne">
-						<TileContent>
-							<ImageContent src="images/employee_directory.png"/>
-						</TileContent>
+						<!-- <TileContent>
+							<ImageContent src="images/employees.png"/>
+						</TileContent> -->
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" backgroundImage="images/eos_background.png" header="CЭД"
 						url="http://eos-wsp-nlb/_layouts/15/eos/myworkspaceredirect.aspx" press="onPressSED">
