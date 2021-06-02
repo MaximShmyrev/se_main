@@ -179,147 +179,153 @@ sap.ui.define([
 								"ref": "sap-icon://group",
 								"path": "0.1.13"
 							}, {
+								"text": "Региональный центр обслуживания потребителей",
+								"code": "0004040",
+								"ref": "sap-icon://group",
+								"path": "0.1.14"
+							},			
+							{
 								"text": "Управление по безопасности",
 								"code": "0005300",
 								"ref": "sap-icon://group",
-								"path": "0.1.14",
+								"path": "0.1.15",
 								"nodes": [{
 									"text": "Отдел внутренней безопасности и режима",
 									"code": "0005310",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.14.1"
+									"path": "0.1.15.1"
 								}, {
 									"text": "Отдел экономической безопасности",
 									"code": "0005320",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.14.2"
+									"path": "0.1.15.2"
 								}]
 							}, {
 								"text": "Управление по информационным технологиям",
 								"code": "0004400",
 								"ref": "sap-icon://group",
-								"path": "0.1.15",
+								"path": "0.1.16",
 								"nodes": [{
 									"text": "Отдел биллинга",
 									"code": "0004410",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.15.1"
+									"path": "0.1.16.1"
 								}, {
 									"text": "Отдел инфраструктуры информационных технологий",
 									"code": "0004430",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.15.2"
+									"path": "0.1.16.2"
 								}, {
 									"text": "Отдел корпоративных информационных систем",
 									"code": "0004420",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.15.3"
+									"path": "0.1.16.3"
 								}]
 							}, {
 								"text": "Управление по работе с сетевыми организациями",
 								"code": "0001200",
 								"ref": "sap-icon://group",
-								"path": "0.1.16",
+								"path": "0.1.17",
 								"nodes": [{
 									"text": "Отдел по расчетам с сетевыми организациями и агентами",
 									"code": "0001210",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.16.1"
+									"path": "0.1.17.1"
 								}]
 							}, {
 								"text": "Управление по технической политике",
 								"code": "0004200",
 								"ref": "sap-icon://group",
-								"path": "0.1.17",
+								"path": "0.1.18",
 								"nodes": [{
 									"text": "Производственно-техническая служба",
 									"code": "0004210",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.17.1"
+									"path": "0.1.18.1"
 								}, {
 									"text": "Служба энергосервиса и систем учета",
 									"code": "0004220",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.17.2"
+									"path": "0.1.18.2"
 								}]
 							}, {
 								"text": "Управление сбыта электроэнергии",
 								"code": "0001100",
 								"ref": "sap-icon://group",
-								"path": "0.1.18",
+								"path": "0.1.19",
 								"nodes": [{
 									"text": "Договорный отдел",
 									"code": "0001110",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.18.1"
+									"path": "0.1.19.1"
 								}, {
 									"text": "Отдел расчетов и контроля",
 									"code": "0001120",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.18.2"
+									"path": "0.1.19.2"
 								}]
 							}, {
 								"text": "Финансовое управление",
 								"code": "0003200",
 								"ref": "sap-icon://group",
-								"path": "0.1.19",
+								"path": "0.1.20",
 								"nodes": [{
 									"text": "Казначейство",
 									"code": "0003220",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.19.1"
+									"path": "0.1.20.1"
 								}, {
 									"text": "Финансовый отдел",
 									"code": "0003210",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.19.2"
+									"path": "0.1.20.2"
 								}]
 							}, {
 								"text": "Хозяйственно-транспортное управление",
 								"code": "0002100",
 								"ref": "sap-icon://group",
-								"path": "0.1.20",
+								"path": "0.1.21",
 								"nodes": [{
 									"text": "Автотранспортная служба",
 									"code": "0002110",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.20.1"
+									"path": "0.1.21.1"
 								}, {
 									"text": "Сектор по организации ремонтных работ",
 									"code": "0002101",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.20.2"
+									"path": "0.1.21.2"
 								}, {
 									"text": "Служба эксплуатации и хозяйственного содержания зданий и сооружений",
 									"code": "000212",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.20.3"
+									"path": "0.1.21.3"
 								}]
 							}, {
 								"text": "Центр взаимодействия с инфраструктурными организациями и участниками ОРЭМ",
 								"code": "0004100",
 								"ref": "sap-icon://group",
-								"path": "0.1.21"
+								"path": "0.1.22"
 							}, {
 								"text": "Экономическое управление",
 								"code": "0003100",
 								"ref": "sap-icon://group",
-								"path": "0.1.22",
+								"path": "0.1.23",
 								"nodes": [{
 									"text": "Отдел балансов и ценообразования на розничном рынке",
 									"code": "0003130",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.20.1"
+									"path": "0.1.23.1"
 								}, {
 									"text": "Отдел экономического анализа",
 									"code": "0003110",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.20.2"
+									"path": "0.1.23.2"
 								}, {
 									"text": "Планово-экономический отдел",
 									"code": "0003120",
 									"ref": "sap-icon://customer-order-entry",
-									"path": "0.1.20.3"
+									"path": "0.1.23.3"
 								}]
 							}]
 						}, {
