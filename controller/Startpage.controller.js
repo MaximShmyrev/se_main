@@ -12,6 +12,8 @@ sap.ui.define([
 	var temperature;
 	var weatherText;
 	var jsonObj;
+	var news;
+	var ads;
 	var indConsNumber;
 	var legalConsNumber;
 	var uzedoDocNumber;	
@@ -78,7 +80,24 @@ sap.ui.define([
 						var splitResponse = response.split(/<return>|<\/return>/);
 						var arrayResponse = splitResponse[1];
 						jsonObj = JSON.parse(arrayResponse.toString());
-						jsonObj.splice(10);
+						var j = 0;
+						news = [];
+						var k = 0;
+						ads = [];
+						for (var i = 0; i < jsonObj.length; i++) {
+							if ( jsonObj[i].TYPE == 'Новости' ) {
+								news[j] = jsonObj[i];
+								j = j + 1;
+							}
+
+							if ( jsonObj[i].TYPE == 'Объявления' ) {
+								ads[k] = jsonObj[i];
+								k = k + 1;
+							}							
+
+						 }
+						news.splice(10);
+						ads.slice(10);
 					}
 				}
 			};
@@ -207,7 +226,8 @@ sap.ui.define([
 			weatherHTTP.send();
 
 			var oData = {
-				"News": jsonObj,
+				"News": news,
+				"Ads": ads,
 				"Temperature": temperature,
 				"weatherText": weatherText,
 				"indConsNumber": indConsNumber,
