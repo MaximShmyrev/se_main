@@ -72,12 +72,12 @@
 					</GenericTile>											
 				</layout:HorizontalLayout>
 				<layout:HorizontalLayout allowWrapping="true">
-					<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{/News}">
-						<GenericTile backgroundImage="{image}" state="{state}" frameType="TwoByOne" press="onPressNews">
+					<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{/Decrees}">
+						<GenericTile backgroundImage="{DATA_RAW}" state="null" frameType="TwoByOne" press="onPressNews">
 							<tileContent>
-								<TileContent footer="{ path: 'date', formatter: '.formatJSONDate' }">
+								<TileContent footer="{ path: 'UPDATED_DATE', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short', source: { pattern: 'dd.MM.yyyy' } } }">
 									<content>
-										<NewsContent contentText="{content}" subheader="{subheader}"></NewsContent>
+										<NewsContent contentText="{TEXT}" subheader="{HEADER}"></NewsContent>
 									</content>
 								</TileContent>
 							</tileContent>

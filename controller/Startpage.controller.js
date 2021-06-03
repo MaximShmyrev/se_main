@@ -14,6 +14,7 @@ sap.ui.define([
 	var jsonObj;
 	var news;
 	var ads;
+	var decrees;
 	var indConsNumber;
 	var legalConsNumber;
 	var uzedoDocNumber;	
@@ -84,6 +85,8 @@ sap.ui.define([
 						news = [];
 						var k = 0;
 						ads = [];
+						var p = 0;
+						decrees = [];
 						for (var i = 0; i < jsonObj.length; i++) {
 							if ( jsonObj[i].TYPE == 'Новости' ) {
 								news[j] = jsonObj[i];
@@ -95,9 +98,15 @@ sap.ui.define([
 								k = k + 1;
 							}							
 
+							if ( jsonObj[i].TYPE == 'Приказы' ) {
+								decrees[p] = jsonObj[i];
+								p = p + 1;
+							}	
+
 						 }
 						news.splice(10);
 						ads.slice(10);
+						decrees.slice(10);
 					}
 				}
 			};
@@ -228,6 +237,7 @@ sap.ui.define([
 			var oData = {
 				"News": news,
 				"Ads": ads,
+				"Decrees": decrees,
 				"Temperature": temperature,
 				"weatherText": weatherText,
 				"indConsNumber": indConsNumber,
