@@ -17,6 +17,34 @@ sap.ui.define([
 	return Controller.extend("main.controller.QuizMain", {
 		onInit: function () {
 
+			// update analytics: main page
+			var analyticsHTTP = new XMLHttpRequest();
+			analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+
+			var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +
+				'<soapenv:Header/>' +
+				'<soapenv:Body>' +
+				'<zce:updateAnalytics>' +
+				'<moduleName>Quiz</moduleName>' +
+				'</zce:updateAnalytics>' +
+				'</soapenv:Body>' +
+				'</soapenv:Envelope>';
+
+			analyticsHTTP.onreadystatechange = function () {
+				if (analyticsHTTP.readyState == 4) {
+					if (analyticsHTTP.status == 200) {
+						var analyticsResponse = analyticsHTTP.responseText;
+						var analyticsSplit = analyticsResponse.split(/<return>|<\/return>/);
+						var analyticsArray = analyticsSplit[1];
+					}
+				}
+			};
+
+			analyticsHTTP.setRequestHeader("Content-Type", "text/xml");
+			analyticsHTTP.send(analyticsRequest);
+
+			
 			var oData = {
 				"Admin": sessionStorage.getItem("ADMIN")
 			}
@@ -30,10 +58,6 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
-		},
-
-		onNavToUpload: function () {
-			this.getRouter().navTo("upload");
 		},
 
 		onNavToEditor: function () {
@@ -110,7 +134,7 @@ sap.ui.define([
 							// Send the POST request
 							xmlhttp.setRequestHeader("Content-Type", "text/xml");
 							xmlhttp.send(sr);
-							
+
 							this.oSubmitDialog.close();
 						}.bind(this)
 					}),
