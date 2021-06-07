@@ -88,7 +88,7 @@ sap.ui.define([
 								"ref": "sap-icon://group",
 								"path": "0.1.2",
 								"nodes": [{
-									"text": "Отдел коммерческого учета на ОРЭМ",
+									"text": "Отдел  коммерческого учета на ОРЭМ",
 									"code": "0006110",
 									"ref": "sap-icon://customer-order-entry",
 									"path": "0.1.2.1"
