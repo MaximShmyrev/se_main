@@ -263,6 +263,7 @@ sap.ui.define([
 			weatherHTTP.send();
 
 			var oData = {
+				"Admin": sessionStorage.getItem("ADMIN"),
 				"News": news,
 				"Ads": ads,
 				"Decrees": decrees,

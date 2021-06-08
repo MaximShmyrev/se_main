@@ -94,7 +94,7 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Статистика портала" press="onPressStatistics">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Статистика портала" visible="{= ${/Admin} === 'admin' ? true : false }" press="onPressStatistics">
 						<TileContent>
 							<ImageContent src="images/analytics.png"/>
 						</TileContent>
@@ -134,7 +134,7 @@
 							<ImageContent src="images/kw.png"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Редактор инфоблока" press="onPressNewsAdmin">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Редактор инфоблока" visible="{= ${/Admin} === 'admin' ? true : false }" press="onPressNewsAdmin">
 						<TileContent>
 							<ImageContent src="images/nwa.png"/>
 						</TileContent>
