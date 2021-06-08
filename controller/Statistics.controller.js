@@ -1,27 +1,90 @@
 sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap/viz/ui5/data/FlattenedDataset',
-		'sap/viz/ui5/controls/common/feeds/FeedItem', 'sap/m/Label',
-		'sap/m/ColumnListItem', 'sap/m/library', 'sap/m/Column', 'sap/viz/ui5/controls/common/feeds/AnalysisObject',
-		'sap/viz/ui5/controls/VizFrame', 'sap/m/Table', 'sap/suite/ui/commons/ChartContainerContent'
-	],
-	function(Controller, JSONModel, FlattenedDataset, FeedItem, Label, ColumnListItem, MobileLibrary, Column,
+	'sap/viz/ui5/controls/common/feeds/FeedItem', 'sap/m/Label',
+	'sap/m/ColumnListItem', 'sap/m/library', 'sap/m/Column', 'sap/viz/ui5/controls/common/feeds/AnalysisObject',
+	'sap/viz/ui5/controls/VizFrame', 'sap/m/Table', 'sap/suite/ui/commons/ChartContainerContent'
+],
+	function (Controller, JSONModel, FlattenedDataset, FeedItem, Label, ColumnListItem, MobileLibrary, Column,
 		AnalysisObject, VizFrame, Table, ChartContainerContent) {
 		"use strict";
 
+		var analyticsData;
+		var resultsKB;
+		var resultsMain;
+		var resultsQuiz;
+		var resultsMenu;
+		var resultsEmployees;
+		var resultsNews;
+
+		// get analytics
+		var analyticsHTTP = new XMLHttpRequest();
+		analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+
+		var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
+			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +
+			'<soapenv:Header/>' +
+			'<soapenv:Body>' +
+			'<zce:getAnalytics/>' +
+			'</soapenv:Body>' +
+			'</soapenv:Envelope>';
+
+		analyticsHTTP.onreadystatechange = function () {
+			if (analyticsHTTP.readyState == 4) {
+				if (analyticsHTTP.status == 200) {
+					var analyticsResponse = analyticsHTTP.responseText;
+					var analyticsSplit = analyticsResponse.split(/<return>|<\/return>/);
+					var analyticsArray = analyticsSplit[1];
+					analyticsData = JSON.parse(analyticsArray.toString());
+
+					for (var i = 0; i < analyticsData.length; i++) {
+
+						if ( analyticsData[i].MODULE_NAME == 'KB' ) {
+							resultsKB = analyticsData[i].N_VISITS;
+						}
+
+						if ( analyticsData[i].MODULE_NAME == 'Employees' ) {
+							resultsEmployees = analyticsData[i].N_VISITS;
+						}
+						
+						if ( analyticsData[i].MODULE_NAME == 'News' ) {
+							resultsNews = analyticsData[i].N_VISITS;
+						}
+						
+						if ( analyticsData[i].MODULE_NAME == 'Menu' ) {
+							resultsMenu = analyticsData[i].N_VISITS;
+						}
+						
+						if ( analyticsData[i].MODULE_NAME == 'Quiz' ) {
+							resultsQuiz = analyticsData[i].N_VISITS;
+						}
+						
+						if ( analyticsData[i].MODULE_NAME == 'Main' ) {
+							resultsMain = analyticsData[i].N_VISITS;
+						}							
+
+					}					
+					
+				}
+			}
+		};
+
+		analyticsHTTP.setRequestHeader("Content-Type", "text/xml");
+		analyticsHTTP.send(analyticsRequest);
+
 		var oData = [{
 			"Country": "Главная страница",
-			"Profit": 8
+			"Profit": resultsMain
 		}, {
 			"Country": "Анкетирование",
-			"Profit": 3
+			"Profit": resultsQuiz
 		}, {
 			"Country": "Меню",
-			"Profit": 2
+			"Profit": resultsMenu
 		}, {
 			"Country": "Справочник сотрудников",
-			"Profit": 50
+			"Profit": resultsEmployees
 		}, {
 			"Country": "Инфоблок",
-			"Profit": 4
+			"Profit": resultsNews
 		}];
 
 		var oPageController = Controller.extend("main.controller.Statistics", {
@@ -193,7 +256,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 *
 			 * @public
 			 */
-			onInit: function() {
+			onInit: function () {
 				var oCountry2VizFrame = this._constants.vizFrames.country2;
 				var oAnalysisObject = new AnalysisObject(oCountry2VizFrame.analysisObjectProps);
 				var aValues = oCountry2VizFrame.feedItems[1].values;
@@ -205,6 +268,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 				// Initially show the content for sales by product
 				this._showSalesByCountry();
 			},
+
 			/* ============================================================ */
 			/* Event Handling                                               */
 			/* ============================================================ */
@@ -223,7 +287,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 *
 			 * @private
 			 */
-			_initializeSalesByCountry: function() {
+			_initializeSalesByCountry: function () {
 				this._state.vizFrames.country1 = this._createVizFrame(this._constants.vizFrames.country1, false);
 				this._state.vizFrames.country2 = this._createVizFrame(this._constants.vizFrames.country2, false);
 			},
@@ -234,7 +298,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {Boolean} createTable Flag for whether a table should be created
 			 * @returns {sap.viz.ui5.controls.VizFrame} Created Viz Frame
 			 */
-			_createVizFrame: function(vizFrameConfig, createTable) {
+			_createVizFrame: function (vizFrameConfig, createTable) {
 				var oVizFrame = new VizFrame(this._constants.vizFrames.config);
 				var oDataPath = jQuery.sap.getModulePath(this._constants.sampleName, vizFrameConfig.dataPath);
 				//var oModel = new JSONModel(oDataPath);
@@ -258,7 +322,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @private
 			 * @param {sap.ui.model.json.JSONModel} vizFrameModel Model used by the Viz Frame
 			 */
-			_createTable: function(vizFrameModel) {
+			_createTable: function (vizFrameModel) {
 				var oTableConfig = this._constants.table;
 				var oTable = new Table({
 					columns: this._createTableColumns(oTableConfig.columnLabelTexts)
@@ -278,7 +342,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 *
 			 * @private
 			 */
-			_showSalesByProduct: function() {
+			_showSalesByProduct: function () {
 				var oProductVizFrame = this._constants.vizFrames.product;
 				var oTable = this._constants.table;
 
@@ -292,7 +356,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 *
 			 * @private
 			 */
-			_showSalesByCountry: function() {
+			_showSalesByCountry: function () {
 				var oCountry1VizFrame = this._constants.vizFrames.country1;
 				var oCountry2VizFrame = this._constants.vizFrames.country2;
 
@@ -310,7 +374,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {sap.viz.ui5.controls.VizFrame} vizFrame Viz Frame
 			 * @returns {sap.suite.ui.commons.ChartContainerContent} Chart container content
 			 */
-			_createChartContainerContent: function(icon, title, vizFrame) {
+			_createChartContainerContent: function (icon, title, vizFrame) {
 				var oContent = new ChartContainerContent({
 					icon: icon,
 					title: title
@@ -327,7 +391,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {sap.viz.ui5.controls.VizFrame} content1 First Viz Frame
 			 * @param {sap.viz.ui5.controls.VizFrame} content2 Second Viz Frame
 			 */
-			_updateChartContainerContent: function(content1, content2) {
+			_updateChartContainerContent: function (content1, content2) {
 				var oChartContainer = this.getView().byId(this._constants.chartContainerId);
 				oChartContainer.removeAllContent();
 				oChartContainer.addContent(content1);
@@ -341,7 +405,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {sap.viz.ui5.controls.VizFrame} vizFrame Viz Frame to add feed items to
 			 * @param {Object[]} feedItems Feed items to add
 			 */
-			_addFeedItems: function(vizFrame, feedItems) {
+			_addFeedItems: function (vizFrame, feedItems) {
 				for (var i = 0; i < feedItems.length; i++) {
 					vizFrame.addFeed(new FeedItem(feedItems[i]));
 				}
@@ -353,7 +417,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {string[]} labels Column labels
 			 * @returns {sap.m.Column[]} Array of columns
 			 */
-			_createTableColumns: function(labels) {
+			_createTableColumns: function (labels) {
 				var aLabels = this._createLabels(labels);
 
 				return this._createControls(Column, "header", aLabels);
@@ -365,7 +429,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {string[]} labelTexts text array
 			 * @returns {sap.m.Column[]} Array of columns
 			 */
-			_createLabels: function(labelTexts) {
+			_createLabels: function (labelTexts) {
 				return this._createControls(Label, "text", labelTexts);
 			},
 			/**
@@ -377,7 +441,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 			 * @param {Array} propValues Value of the control's property
 			 * @returns {sap.ui.core.Control[]} array of the new controls
 			 */
-			_createControls: function(Control, prop, propValues) {
+			_createControls: function (Control, prop, propValues) {
 				var aControls = [];
 				var oProps = {};
 
