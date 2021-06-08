@@ -269,6 +269,12 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 				this._showSalesByCountry();
 			},
 
+			onPressHome: function () {
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				document.title = "Главная страница";
+				oRouter.navTo("home", {}, true);
+			},		
+
 			/* ============================================================ */
 			/* Event Handling                                               */
 			/* ============================================================ */
