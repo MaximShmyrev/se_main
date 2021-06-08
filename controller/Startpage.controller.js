@@ -319,6 +319,10 @@ sap.ui.define([
 			this.getRouter().navTo("quizmain");
 		},
 
+		onPressStatistics: function () {
+			this.getRouter().navTo("statistics");
+		},		
+
 		onPressZKH: function () {
 			window.open("https://dom.gosuslugi.ru/", '_blank');
 		},

@@ -94,7 +94,7 @@
 							</tileContent>
 						</GenericTile>
 					</SlideTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Статистика портала" press="">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Статистика портала" press="onPressStatistics">
 						<TileContent>
 							<ImageContent src="images/analytics.png"/>
 						</TileContent>

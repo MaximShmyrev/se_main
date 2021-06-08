@@ -143,6 +143,10 @@
 					"pattern": "createQuestion",
 					"name": "createQuestion",
 					"target": "createQuestion"
+				}, {
+					"pattern": "statistics",
+					"name": "statistics",
+					"target": "statistics"					
 				}
 			],
 			"targets": {
@@ -171,6 +175,10 @@
 					"viewName": "Menu",
 					"viewLevel": 1
 				},
+				"statistics": {
+					"viewName": "Statistics",
+					"viewLevel": 1
+				},				
 				"quizmain": {
 					"viewName": "QuizMain",
 					"viewLevel": 1
