@@ -681,6 +681,8 @@ sap.ui.define([
 					sessionStorage.setItem("FAX", array[i].FAX);
 					sessionStorage.setItem("MOBILE", array[i].MOBILE);
 					sessionStorage.setItem("EMAIL", array[i].EMAIL);
+					var vacations = array[i].POSTALCODE.substring(1,3) + '.' + array[i].POSTALCODE.substring(3,5) + '.' + array[i].POSTALCODE.substring(5,9) + ' - ' + array[i].POSTALCODE.substring(9,11) + '.' + array[i].POSTALCODE.substring(11,13) + '.' + array[i].POSTALCODE.substring(13,17);
+					sessionStorage.setItem("VACATIONS", vacations);					
 				}
 			}
 
