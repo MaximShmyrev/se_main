@@ -41,11 +41,11 @@ sap.ui.define([
 	return Controller.extend("main.controller.NewsAdmin", {
 
 		onInit: function () {
-
 			var oModel = new JSONModel(newsJson);
 			this.getView().setModel(oModel);
-
 		},
+
+	
 
 		onListItemPressed: function (oEvent) {
 
@@ -69,6 +69,17 @@ sap.ui.define([
 			oModel.setProperty("/itemImage", newsJson[selectedNew].DATA_RAW);
 			oModel.setProperty("/itemID", newsJson[selectedNew].ID);
 			oModel.setProperty("/itemType", newsJson[selectedNew].TYPE);
+
+			if ( newsJson[selectedNew].DATA_RAW.substring(0,20) == 'data:application/pdf' ) {
+				var file = "<iframe src='" + newsJson[0].DATA_RAW + "' height='700' width='100%'></iframe>"
+				var oHtml = this.getView().byId("attachmentFrame");			
+				oHtml.setContent(file);	
+			} else {
+				file = ""
+				oHtml = this.getView().byId("attachmentFrame");
+				oHtml.setContent(file);
+			}
+		
 
 		},
 

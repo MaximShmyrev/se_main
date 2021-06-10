@@ -4,6 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
+	xmlns:upload="sap.m.upload"
 	height="100%">
 	<l:ResponsiveSplitter defaultPane="default">
 		<l:PaneContainer>
@@ -58,7 +59,10 @@
 									</CustomListItem>
 								</items>
 							</List>
-						</content>										
+						</content>
+						<content>
+							  <core:HTML id="attachmentFrame"/>			  
+						</content>
 						<footer>
 							<OverflowToolbar id="otb3">
 								<Button text="Добавить" type="Accept" press="onCreateDialog"/>
