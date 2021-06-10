@@ -45,7 +45,7 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 		},
 
-	
+
 
 		onListItemPressed: function (oEvent) {
 
@@ -70,16 +70,36 @@ sap.ui.define([
 			oModel.setProperty("/itemID", newsJson[selectedNew].ID);
 			oModel.setProperty("/itemType", newsJson[selectedNew].TYPE);
 
-			if ( newsJson[selectedNew].DATA_RAW.substring(0,20) == 'data:application/pdf' ) {
-				var file = "<iframe src='" + newsJson[0].DATA_RAW + "' height='700' width='100%'></iframe>"
-				var oHtml = this.getView().byId("attachmentFrame");			
-				oHtml.setContent(file);	
+			if (newsJson[selectedNew].DATA_RAW.substring(0, 20) == 'data:application/pdf') {
+				// Internet Explorer 11 and Edge workaround
+				if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+
+					var data = newsJson[selectedNew].DATA_RAW.substring(28);
+					var fileName = 'file.pdf'
+					var byteCharacters = atob(data)
+
+					var byteNumbers = new Array(byteCharacters.length)
+
+					for (var i = 0; i < byteCharacters.length; i++) {
+						byteNumbers[i] = byteCharacters.charCodeAt(i)
+					}
+
+					var byteArray = new Uint8Array(byteNumbers)
+					var blob = new Blob([byteArray], { type: 'application/pdf' })
+
+					window.navigator.msSaveOrOpenBlob(blob, fileName)
+
+				} else {
+					// other browsers		
+					var file = "<object data='" + newsJson[selectedNew].DATA_RAW + "' type='application/pdf' width='100%' height='700'><embed src='" + newsJson[selectedNew].DATA_RAW + "' type='application/pdf'/></object>";
+					var oHtml = this.getView().byId("attachmentFrame");
+					oHtml.setContent(file);
+				}
 			} else {
 				file = ""
 				oHtml = this.getView().byId("attachmentFrame");
 				oHtml.setContent(file);
 			}
-		
 
 		},
 
@@ -132,7 +152,7 @@ sap.ui.define([
 				'<soapenv:Header/>' +
 				'<soapenv:Body>' +
 				'<zce:deleteNews>' +
-				itemId +		
+				itemId +
 				'</zce:deleteNews>' +
 				'</soapenv:Body>' +
 				'</soapenv:Envelope>';
@@ -198,13 +218,13 @@ sap.ui.define([
 			text = '<text>' + text + '</text>';
 			news_type = '<news_type>' + news_type + '</news_type>';
 			var userid = sessionStorage.getItem("USERNAME");
-			
-			if ( userid == '') {
+
+			if (userid == '') {
 				var updated_by = '<updated_by>' + 'SHMYREV' + '</updated_by>';
-			} else {	
+			} else {
 				var updated_by = '<updated_by>' + userid + '</updated_by>';
 			}
-			
+
 			var oModel = this.getView().getModel();
 			var itemId = '<id>' + oModel.getProperty("/itemID") + '</id>';
 
@@ -213,16 +233,16 @@ sap.ui.define([
 			var isAttachment = this.getView().byId("fileUploader").getValue();
 
 			var newsHTTP = new XMLHttpRequest();
-			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);			
+			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
-			if ( change == 'create') {
+			if (change == 'create') {
 
 				if (isAttachment !== "") {
 					var data_mime = sessionStorage.getItem("FILE_TYPE");
 					var data_raw = sessionStorage.getItem("FILE_DATA");
 					data_mime = '<data_mime>' + data_mime + '</data_mime>';
 					data_raw = '<data_raw>' + 'data:' + sessionStorage.getItem("FILE_TYPE") + ';base64,' + data_raw + '</data_raw>';
-	
+
 					// build SOAP request
 					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
 						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
@@ -232,15 +252,15 @@ sap.ui.define([
 						header +
 						text +
 						news_type +
-						data_mime + 
+						data_mime +
 						data_raw +
 						updated_by +
 						'</zce:createNews>' +
 						'</soapenv:Body>' +
 						'</soapenv:Envelope>';
-	
+
 				} else {
-	
+
 					// build SOAP request
 					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
 						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
@@ -254,7 +274,7 @@ sap.ui.define([
 						'</zce:createNews>' +
 						'</soapenv:Body>' +
 						'</soapenv:Envelope>';
-	
+
 				}
 
 			} else {
@@ -264,7 +284,7 @@ sap.ui.define([
 					var data_raw = sessionStorage.getItem("FILE_DATA");
 					data_mime = '<data_mime>' + data_mime + '</data_mime>';
 					data_raw = '<data_raw>' + 'data:' + sessionStorage.getItem("FILE_TYPE") + ';base64,' + data_raw + '</data_raw>';
-	
+
 					// build SOAP request
 					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
 						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
@@ -275,15 +295,15 @@ sap.ui.define([
 						header +
 						text +
 						news_type +
-						data_mime + 
+						data_mime +
 						data_raw +
 						updated_by +
 						'</zce:updateNews>' +
 						'</soapenv:Body>' +
 						'</soapenv:Envelope>';
-	
+
 				} else {
-	
+
 					// build SOAP request
 					var sr = '<?xml version="1.0" encoding="utf-8"?>' +
 						'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
@@ -298,11 +318,11 @@ sap.ui.define([
 						'</zce:updateNews>' +
 						'</soapenv:Body>' +
 						'</soapenv:Envelope>';
-	
+
 				}
 
 			};
-			
+
 			newsHTTP.onreadystatechange = function () {
 				if (newsHTTP.readyState == 4) {
 					if (newsHTTP.status == 200) {
