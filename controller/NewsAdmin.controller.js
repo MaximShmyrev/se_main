@@ -206,13 +206,14 @@ sap.ui.define([
 			// note: We don't need to chain to the pDialog promise, since this event-handler
 			// is only called from within the loaded dialog itself.
 			var header = this.byId("Header").getValue();
-			header = header.replaceAll(/\n/g, '');
-			header = header.replaceAll('"', '');
+			// header = header.replaceAll(/\n/g, '');
+			header = header.replace(/\n/g, '');
+			header = header.replace('"', '');
 
 			var news_type = this.byId("elementType").getSelectedKey();
 			var text = this.byId("Text").getValue();
-			//text = text.replaceAll(/\n/g, '');
-			text = text.replaceAll('"', '');
+			// text = text.replace(/\n/g, '');
+			text = text.replace('"', '');
 
 			header = '<header>' + header + '</header>';
 			text = '<text>' + text + '</text>';
