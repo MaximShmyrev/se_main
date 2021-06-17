@@ -256,6 +256,10 @@ sap.ui.define([
 							weatherText = "Cолнечно"
 						}
 
+						if (weatherText == "A shower") {
+							weatherText = "Дождь"
+						}						
+
 					}
 				}
 			};

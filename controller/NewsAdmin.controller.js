@@ -46,7 +46,6 @@ sap.ui.define([
 		},
 
 
-
 		onListItemPressed: function (oEvent) {
 
 			// get pressed value
@@ -205,13 +204,13 @@ sap.ui.define([
 		onSaveDialog: function () {
 			// note: We don't need to chain to the pDialog promise, since this event-handler
 			// is only called from within the loaded dialog itself.
-			var header = this.byId("Header").getValue();
+			var header =this.getView().byId("Header").getValue();
 			// header = header.replaceAll(/\n/g, '');
 			header = header.replace(/\n/g, '');
 			header = header.replace('"', '');
 
-			var news_type = this.byId("elementType").getSelectedKey();
-			var text = this.byId("Text").getValue();
+			var news_type = this.getView().byId("elementType").getSelectedKey();
+			var text = this.getView().byId("Text").getValue();
 			// text = text.replace(/\n/g, '');
 			text = text.replace('"', '');
 
@@ -365,8 +364,10 @@ sap.ui.define([
 						var length = bytes.byteLength;
 						for (var i = 0; i < length; i++) {
 							binary += String.fromCharCode(bytes[i]);
-						}
+						}		
 						that.base64ConversionRes = btoa(binary);
+						sessionStorage.setItem("FILE_DATA", that.base64ConversionRes);
+						sessionStorage.setItem("FILE_TYPE", fileMime);							
 						sap.ui.getCore().fileUploadArr.push({
 							"DocumentType": DocNum,
 							"MimeType": fileMime,
