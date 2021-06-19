@@ -216,6 +216,40 @@ sap.ui.define([
 			if (oContext.DATA_RAW == "null") {
 				oModel.setProperty("/image", 'false');
 			}
+			
+			// pdf section
+			if (oContext.DATA_RAW.substring(0, 20) == 'data:application/pdf') {
+				oModel.setProperty("/image", 'false');
+				// Internet Explorer 11 and Edge workaround
+				if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+
+					var data = oContext.DATA_RAW.substring(28);
+					var fileName = 'file.pdf';
+					var byteCharacters = atob(data);
+
+					var byteNumbers = new Array(byteCharacters.length);
+
+					for (var i = 0; i < byteCharacters.length; i++) {
+						byteNumbers[i] = byteCharacters.charCodeAt(i);
+					}
+
+					var byteArray = new Uint8Array(byteNumbers);
+					var blob = new Blob([byteArray], { type: 'application/pdf' });
+
+					window.navigator.msSaveOrOpenBlob(blob, fileName);
+
+				} else {
+					// other browsers		
+					var file = "<object data='" + oContext.DATA_RAW + "' type='application/pdf' width='100%' height='700'><embed src='" + oContext.DATA_RAW + "' type='application/pdf'/></object>";
+					var oHtml = this.getView().byId("attachmentFrame");
+					oHtml.setContent(file);
+				}
+			} else {
+				file = "";
+				oHtml = this.getView().byId("attachmentFrame");
+				oHtml.setContent(file);
+			}
+			
 
 			// create dialog lazily
 			if (!this.pDialog) {

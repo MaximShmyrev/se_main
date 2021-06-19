@@ -19,6 +19,9 @@
 				</items>
 			</List>
 		</content>
+		<content>
+			<core:HTML id="attachmentFrame"/>			  
+		</content>
 		<beginButton>
 			<Button text="Закрыть" press=".onCloseDialog"/>
 		</beginButton>
