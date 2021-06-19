@@ -5,7 +5,7 @@
 				showNoData="false">
 				<headerToolbar>
 					<Toolbar>
-						<Text text="Дата публикации {/updated_date}"/>
+						<Text text="Дата публикации {/updated_date}" id='update_date'/>
 						<ToolbarSpacer/>
 					</Toolbar>				
 				</headerToolbar>						

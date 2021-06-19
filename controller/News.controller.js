@@ -241,13 +241,13 @@ sap.ui.define([
 				} else {
 					// other browsers		
 					var file = "<object data='" + oContext.DATA_RAW + "' type='application/pdf' width='100%' height='700'><embed src='" + oContext.DATA_RAW + "' type='application/pdf'/></object>";
-					var oHtml = this.getView().byId("attachmentFrame");
-					oHtml.setContent(file);
+					//var oHtml = this.getView().byId("__xmlview0--attachmentFrame");
+					//oHtml.setContent(file);
 				}
 			} else {
 				file = "";
-				oHtml = this.getView().byId("attachmentFrame");
-				oHtml.setContent(file);
+				//oHtml = this.getView().byId("__xmlview0--attachmentFrame");
+				//oHtml.setContent(file);
 			}
 			
 
@@ -264,6 +264,8 @@ sap.ui.define([
 				});
 			}
 
+var oHtml = this.getView().byId("__xmlview0--attachmentFrame");
+oHtml.setContent(file);
 			this.pDialog.then(function (oDialog) {
 				oDialog.open();
 			});
