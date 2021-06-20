@@ -216,7 +216,7 @@ sap.ui.define([
 			if (oContext.DATA_RAW == "null") {
 				oModel.setProperty("/image", 'false');
 			}
-			
+
 			// pdf section
 			if (oContext.DATA_RAW.substring(0, 20) == 'data:application/pdf') {
 				oModel.setProperty("/image", 'false');
@@ -249,7 +249,7 @@ sap.ui.define([
 				//oHtml = this.getView().byId("__xmlview0--attachmentFrame");
 				//oHtml.setContent(file);
 			}
-			
+
 
 			// create dialog lazily
 			if (!this.pDialog) {
@@ -264,8 +264,8 @@ sap.ui.define([
 				});
 			}
 
-var oHtml = this.getView().byId("__xmlview0--attachmentFrame");
-oHtml.setContent(file);
+			var oHtml = this.getView().byId("attachmentFrame");
+			oHtml.setContent(file);
 			this.pDialog.then(function (oDialog) {
 				oDialog.open();
 			});
