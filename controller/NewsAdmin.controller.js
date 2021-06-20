@@ -372,7 +372,7 @@ sap.ui.define([
 							"DocumentType": DocNum,
 							"MimeType": fileMime,
 							"FileName": fileName,
-							"Content": that.base64ConversionRes,
+							"Content": that.base64ConversionRes
 						});
 					};
 					reader.readAsArrayBuffer(fileData);
@@ -390,7 +390,7 @@ sap.ui.define([
 					"DocumentType": DocNum,
 					"MimeType": fileMime,
 					"FileName": fileName,
-					"Content": that.base64ConversionRes,
+					"Content": that.base64ConversionRes
 				});
 			};
 			reader.readAsBinaryString(fileDetails);
