@@ -51,23 +51,23 @@
 						</GenericTile>
 					</SlideTile>
 					<GenericTile id="tileLK" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Пользователи ЛК" press="onPressKPILK">
-						<TileContent footer="В этом месяце">
-							<NumericContent value="988" withMargin="false" valueColor="Error" indicator="Down"/>
+						<TileContent>
+							<NumericContent value="988" withMargin="false" valueColor="Good"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="ЮЗЭДО" subheader="Документооборот" press="onPressKPIUzedo">
-						<TileContent unit="Документов">
-							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" indicator="Up" withMargin="false" truncateValueTo="7"/>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество потребителей ЮЗЭДО" press="onPressKPIUzedo">
+						<TileContent>
+							<NumericContent value="{/uzedoDocNumber}" valueColor="Good" withMargin="false" truncateValueTo="7"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество бытовых потребителей" press="onPressKPISbyt">
-						<TileContent unit="Данные на сегодня">
-							<NumericContent value="{/indConsNumber}" valueColor="Critical" indicator="Up" withMargin="false" truncateValueTo="7"/>
+						<TileContent>
+							<NumericContent value="{/indConsNumber}" valueColor="Good" withMargin="false" truncateValueTo="7"/>
 						</TileContent>
 					</GenericTile>
 					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Количество юридических лиц" press="onPressKPIUrlica">
-						<TileContent unit="Данные на сегодня">
-							<NumericContent value="{/legalConsNumber}" valueColor="Good" indicator="Up" withMargin="true" truncateValueTo="7"/> 
+						<TileContent>
+							<NumericContent value="{/legalConsNumber}" valueColor="Good" withMargin="false" truncateValueTo="7"/> 
 						</TileContent>
 					</GenericTile>											
 				</layout:HorizontalLayout>

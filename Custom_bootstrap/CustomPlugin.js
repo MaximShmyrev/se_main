@@ -15,6 +15,6 @@
 	// 	}
 	// );
 
-	window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/main/index.html", '_self');
+	window.open("http://portal.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/main/index.html", '_self');
 
 }());

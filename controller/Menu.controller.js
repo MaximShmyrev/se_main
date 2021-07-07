@@ -141,7 +141,7 @@ sap.ui.define([
 
 	// adding 1 since to current date and returns value starting from 0   
 	var weekNumber = Math.ceil((today.getDay() + 1 + numberOfDays) / 7);
-	weekNumber = weekNumber - 1;
+	weekNumber = weekNumber;
 	weekNumber = '<week>' + weekNumber + '</week>';
 
 	var xmlhttp = new XMLHttpRequest();
@@ -609,7 +609,7 @@ sap.ui.define([
 		},
 
 		handleMainPage: function () {
-			window.location.href = 'http://prt.samaraenergo.ru:50000/irj/portal/fiori';
+			window.location.href = 'http://portal.samaraenergo.ru:50000/irj/portal/fiori';
 		},
 
 		monthName: function (mm) {

@@ -26,10 +26,15 @@
 				</Tree>
 				<List id="employeesList" items="{/employees}">
 					<ObjectListItem title="{DISPLAYNAME}" type="Navigation" icon="sap-icon://employee" press="handleListItemPressed">
+						<firstStatus>
+							<ObjectStatus visible="{= ${POSTALCODE} === '' ? false : true }"
+								text="В отпуске"
+								state="Success" />
+						</firstStatus>						
 						<ObjectAttribute title="Должность" text="{TITLE}" active="true" press="handlePositionPressed"/>
 						<ObjectAttribute title="Подразделение" text="{DEPARTMENT}" active="true" press="handleDepartmentPressed"/>
 						<ObjectAttribute title="Номер кабинета" text="{OFFICE}" active="true" press="handleOfficePressed"/>
-						<ObjectAttribute visible="true" text="Внутренний телефон: {TELEPHONENUMBER}, Мобильный телефон: {MOBILE}"/>
+						<ObjectAttribute text="Внутренний телефон: {TELEPHONENUMBER}, Мобильный телефон: {MOBILE}"/>
 					</ObjectListItem>
 				</List>
 			</l:Splitter>

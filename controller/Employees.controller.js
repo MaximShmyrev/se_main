@@ -299,14 +299,12 @@ sap.ui.define([
 									"code": "0002101",
 									"ref": "sap-icon://customer-order-entry",
 									"path": "0.1.21.2"
-								} 
-								// {
-								// 	"text": "Служба эксплуатации и хозяйственного содержания зданий и сооружений",
-								// 	"code": "000212",
-								// 	"ref": "sap-icon://customer-order-entry",
-								// 	"path": "0.1.21.3"
-								// }
-							]
+								}, {
+									"text": "Служба эксплуатации и хозяйственного содержания зданий и сооруже",
+								    "code": "000212",
+								 	"ref": "sap-icon://customer-order-entry",
+								 	"path": "0.1.21.3"
+								 }]
 							}, 
 							// {
 							// 	"text": "Центр взаимодействия с инфраструктурными организациями и участниками ОРЭМ",
@@ -464,12 +462,14 @@ sap.ui.define([
 									"code": "0700300",
 									"ref": "sap-icon://customer-order-entry",
 									"path": "0.2.12.1"
-								}, {
-									"text": "Кротовский производственный участок",
-									"code": "0700200",
-									"ref": "sap-icon://customer-order-entry",
-									"path": "0.2.12.1"
-								}, {
+								}, 
+								// {
+								// 	"text": "Кротовский производственный участок",
+								// 	"code": "0700200",
+								// 	"ref": "sap-icon://customer-order-entry",
+								// 	"path": "0.2.12.1"
+								// }, 
+								{
 									"text": "Центр обслуживания клиентов в селе Кинель-Черкассы",
 									"code": "0700100",
 									"ref": "sap-icon://customer-order-entry",
@@ -664,7 +664,7 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			//oRouter.navTo("home", {}, true);
-			window.open("http://prt.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/main/index.html", "_self");
+			window.open("http://portal.samaraenergo.ru:50000/com.sap.portal.resourcerepository/repo/fioriApplications/main/index.html", "_self");
 
 		},
 
