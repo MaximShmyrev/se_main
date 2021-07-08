@@ -18,7 +18,7 @@ sap.ui.define([
 
 			// update analytics: main page
 			var analyticsHTTP = new XMLHttpRequest();
-			analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+			analyticsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
 
 			var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +
@@ -47,7 +47,7 @@ sap.ui.define([
 			this.byId("SplitApp").toDetail(this.createId("detail"));
 
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+			xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
 			// build SOAP request
 			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
@@ -103,7 +103,7 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
-			//window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html", "_self");
+			//window.open("http://portal.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html", "_self");
 
 		},
 

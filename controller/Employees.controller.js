@@ -13,7 +13,7 @@ sap.ui.define([
 
 	var treedata;
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_ADService/ZCE_AD', false);
+	xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_ADService/ZCE_AD', false);
 
 	// build SOAP request
 	var sr = '<?xml version="1.0" encoding="utf-8"?>' +
@@ -586,7 +586,7 @@ sap.ui.define([
 
 			// update analytics: main page
 			var analyticsHTTP = new XMLHttpRequest();
-			analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+			analyticsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
 
 			var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +

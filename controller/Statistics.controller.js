@@ -17,7 +17,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 
 		// get analytics
 		var analyticsHTTP = new XMLHttpRequest();
-		analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+		analyticsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
 
 		var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +

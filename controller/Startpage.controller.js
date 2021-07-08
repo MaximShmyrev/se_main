@@ -24,7 +24,7 @@ sap.ui.define([
 
 			// update analytics: main page
 			var analyticsHTTP = new XMLHttpRequest();
-			analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+			analyticsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
 
 			var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +
@@ -52,7 +52,7 @@ sap.ui.define([
 
 			// get user roles
 			var roleshttp = new XMLHttpRequest();
-			roleshttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_UMEService/ZCE_UME', false);
+			roleshttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_UMEService/ZCE_UME', false);
 
 			var user = sessionStorage.getItem("USERNAME");
 			if (user == null) {
@@ -91,7 +91,7 @@ sap.ui.define([
 
 			// get news
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+			xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
 			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +
@@ -145,7 +145,7 @@ sap.ui.define([
 
 			// get articles from knowledge library
 			var kbHTTP = new XMLHttpRequest();
-			kbHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+			kbHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
 			var kbRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_news/">' +

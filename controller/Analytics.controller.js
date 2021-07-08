@@ -12,7 +12,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', 'sap
 
 		//request data from backend
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_TestsService/ZCE_Tests', false);
+		xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_TestsService/ZCE_Tests', false);
 
 		// build SOAP request
 		var sr = '<?xml version="1.0" encoding="utf-8"?>' +

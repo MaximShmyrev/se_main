@@ -141,11 +141,11 @@ sap.ui.define([
 
 	// adding 1 since to current date and returns value starting from 0   
 	var weekNumber = Math.ceil((today.getDay() + 1 + numberOfDays) / 7);
-	weekNumber = weekNumber;
+	weekNumber = weekNumber - 1;
 	weekNumber = '<week>' + weekNumber + '</week>';
 
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_MenuService/ZCE_Menu', false);
+	xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_MenuService/ZCE_Menu', false);
 
 	// build SOAP request
 	var sr = '<?xml version="1.0" encoding="utf-8"?>' +
@@ -421,7 +421,7 @@ sap.ui.define([
 
 			// update analytics: main page
 			var analyticsHTTP = new XMLHttpRequest();
-			analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+			analyticsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
 
 			var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +
@@ -604,7 +604,7 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			document.title = "Главная страница";
 			oRouter.navTo("home", {}, true);
-			//window.open("http://prt.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html","_self");
+			//window.open("http://portal.samaraenergo.ru:50000/irj/go/km/docs/documents/main/index.html","_self");
 
 		},
 

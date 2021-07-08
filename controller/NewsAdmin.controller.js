@@ -9,7 +9,7 @@ sap.ui.define([
 	var newsJson;
 
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+	xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
 	// build SOAP request
 	var sr = '<?xml version="1.0" encoding="utf-8"?>' +
@@ -143,7 +143,7 @@ sap.ui.define([
 			var itemId = '<id>' + oModel.getProperty("/itemID") + '</id>';
 
 			var newsHTTP = new XMLHttpRequest();
-			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+			newsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
 			// build SOAP request
 			var sr = '<?xml version="1.0" encoding="utf-8"?>' +
@@ -233,7 +233,7 @@ sap.ui.define([
 			var isAttachment = this.getView().byId("fileUploader").getValue();
 
 			var newsHTTP = new XMLHttpRequest();
-			newsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
+			newsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_NewsService/ZCE_News', false);
 
 			if (change == 'create') {
 

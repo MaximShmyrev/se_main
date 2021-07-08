@@ -19,7 +19,7 @@ sap.ui.define([
 
 			// update analytics: main page
 			var analyticsHTTP = new XMLHttpRequest();
-			analyticsHTTP.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
+			analyticsHTTP.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_AnalyticsService/ZCE_Analytics', false);
 
 			var analyticsRequest = '<?xml version="1.0" encoding="utf-8"?>' +
 				'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:zce="http://samaraenergo.ru/zce_analytics/">' +
@@ -100,7 +100,7 @@ sap.ui.define([
 
 
 							var xmlhttp = new XMLHttpRequest();
-							xmlhttp.open('POST', 'http://prt.samaraenergo.ru:50000/ZCE_TestsService/ZCE_Tests', false);
+							xmlhttp.open('POST', 'http://portal.samaraenergo.ru:50000/ZCE_TestsService/ZCE_Tests', false);
 
 							var sessionId = "<sessionId>" + Math.random().toString(36).substr(2, 9) + "</sessionId>";
 							var userId = sessionStorage.getItem("USERID");
